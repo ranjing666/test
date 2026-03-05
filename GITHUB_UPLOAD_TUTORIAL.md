@@ -677,3 +677,134 @@ git log --oneline -1
 - 分支名是不是对的
 - 远程地址是不是对的
 - 登录认证是不是正常
+
+---
+
+## 十九、如果要上传另一个项目，应该怎么做
+
+这要分成几种情况。
+
+### 情况 1：另一个项目是全新的本地文件夹，还没有连 GitHub
+
+假设你的另一个项目在：
+
+```powershell
+D:\另一个项目
+```
+
+那么可以这样做：
+
+```powershell
+cd "D:\另一个项目"
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/你的用户名/你的新仓库名.git
+git push -u origin main
+```
+
+这套命令的意思是：
+
+1. 进入项目目录
+2. 让 Git 开始管理这个文件夹
+3. 把全部文件加入暂存区
+4. 生成第一次提交
+5. 把主分支命名成 `main`
+6. 连接 GitHub 上的新仓库
+7. 第一次推送到 GitHub
+
+### 情况 2：另一个项目本地已经是 Git 仓库，但还没有连远程
+
+先进入项目目录：
+
+```powershell
+cd "D:\另一个项目"
+```
+
+然后检查：
+
+```powershell
+git status
+git remote -v
+```
+
+如果 `git remote -v` 没有输出，说明这个项目还没有连接 GitHub。
+
+这时可以继续：
+
+```powershell
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/你的用户名/你的新仓库名.git
+git push -u origin main
+```
+
+### 情况 3：另一个项目已经连了远程，但远程地址是错的
+
+不要重新 `git init`。
+
+先看当前远程：
+
+```powershell
+git remote -v
+```
+
+如果地址不对，就改掉：
+
+```powershell
+git remote set-url origin https://github.com/你的用户名/正确的仓库名.git
+```
+
+然后推送：
+
+```powershell
+git push -u origin main
+```
+
+如果你的当前分支不是 `main`，先检查：
+
+```powershell
+git branch --show-current
+```
+
+如果输出的是 `master`，就改成：
+
+```powershell
+git push -u origin master
+```
+
+### 情况 4：这个项目已经正常连着 GitHub，只是想继续上传新改动
+
+那就最简单，只要：
+
+```powershell
+cd "D:\另一个项目"
+git status
+git add .
+git commit -m "更新内容"
+git push
+```
+
+### 一个很重要的原则
+
+一个本地项目目录，通常对应一个 GitHub 仓库。
+
+不要把两个完全不同的项目混在同一个仓库里上传。
+
+也不要在一个 Git 仓库里面再随便套另一个独立 Git 仓库，除非你明确知道自己在做什么。
+
+### 另一个项目的最实用模板
+
+以后你拿到任何一个新项目，如果它还没上传过 GitHub，可以直接套下面这组命令：
+
+```powershell
+cd "D:\项目路径"
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/你的用户名/仓库名.git
+git push -u origin main
+```
