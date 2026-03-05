@@ -41,17 +41,14 @@
 
 ## 当前已经准备好的资料
 
-- `lesson01_hello_and_first_program.md`
-- `lesson01_vocabulary.md`
-- `lesson01_practice.py`
 - `units/README.md`
 - `workbooks/README.md`
 - `code_templates/README.md`
 - `code_solutions/README.md`
 - `quizzes/README.md`
 
-后面的课会继续按同样格式补充进去。
-更高阶段现在也已经按同样结构补好了。
+这一阶段现在统一使用单元制资料。
+更高阶段也已经按同样结构补好了。
 
 ## 详细学习顺序
 

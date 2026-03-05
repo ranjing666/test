@@ -21,11 +21,8 @@
 8. `stage1_foundation/quizzes/unit_001_quiz.md`
 9. `plan_1000_days/day_001_100.md`
 10. `stage1_foundation/README.md`
-11. `stage1_foundation/lesson01_hello_and_first_program.md`
-12. `stage1_foundation/lesson01_vocabulary.md`
-13. `stage1_foundation/lesson01_practice.py`
-14. `study_logs/day001.md`
-15. `LEARNING_PROGRESS_TRACKER.md`
+11. `study_logs/day001.md`
+12. `LEARNING_PROGRESS_TRACKER.md`
 
 ## 现在的仓库结构
 
@@ -34,26 +31,21 @@
 ├── README.md
 ├── START_HERE.md
 ├── 1000_DAYS_MASTER_PLAN.md
-├── LEARNING_PROGRESS_TRACKER.md     # 1000 天总进度看板
-├── plan_1000_days/                # 按天展开的一千天详细计划
-├── training_camp_plan.md
-├── programming_guide.md
-├── week01/                         # 早期周计划资料，保留参考
-├── stage1_foundation/             # 当前正式使用的入门阶段资料
+├── LEARNING_PROGRESS_TRACKER.md    # 1000 天总进度看板
+├── plan_1000_days/                 # 按天展开的一千天详细计划
+├── stage1_foundation/              # 当前正式使用的入门阶段资料
 │   ├── README.md
 │   ├── units/                     # Day 001-100 的详细单元讲义
 │   ├── workbooks/                 # 第 1 阶段前 10 个单元练习包
 │   ├── code_templates/            # 第 1 阶段前 10 个单元代码模板
 │   ├── code_solutions/            # 第 1 阶段前 10 个单元参考答案
-│   ├── quizzes/                   # 第 1 阶段前 10 个单元小测
-│   ├── lesson01_hello_and_first_program.md
-│   ├── lesson01_vocabulary.md
-│   └── lesson01_practice.py
+│   └── quizzes/                   # 第 1 阶段前 10 个单元小测
 ├── stage2_growth/                 # Day 101-300 的详细单元讲义
 ├── stage3_advanced/               # Day 301-600 的详细单元讲义
 ├── stage4_expert/                 # Day 601-850 的详细单元讲义
 ├── stage5_master/                 # Day 851-1000 的详细单元讲义
-└── study_logs/                    # 每日记录、每周复盘模板
+├── study_logs/                    # 每日记录、每周复盘模板
+└── tools/                         # 课程维护脚本，学习时可以忽略
 ```
 
 ## 资料存放规则
@@ -61,8 +53,10 @@
 以后新的教学资料，统一按下面的规则保存：
 
 - 阶段总览放在 `stageX_xxx/README.md`
-- 具体课程放在 `stageX_xxx/lessonNN_*.md`
-- 配套代码放在对应阶段目录下的 `.py` 文件
+- 单元讲义放在 `stageX_xxx/units/unit_NNN.md`
+- 练习工作簿放在 `stageX_xxx/workbooks/`
+- 配套代码模板和参考答案放在 `stageX_xxx/code_templates/` 与 `stageX_xxx/code_solutions/`
+- 小测放在 `stageX_xxx/quizzes/`
 - 学习日志放在 `study_logs/dayNNN.md`
 - 每周复盘或总结放在 `study_logs/`
 
@@ -126,10 +120,11 @@ git push
 
 ## 已有资料说明
 
-这些文件我先保留，并在需要时逐步升级内容：
+为了避免一套仓库里同时存在多套旧路径，已经清理掉以下旧版重复资料：
 
-- `1000_DAYS_MASTER_PLAN.md`：现在已经升级为一千天总入口
-- `training_camp_plan.md`：训练营式规划
-- `week01/`：早期第一周资料
+- 旧周计划目录 `week01/`
+- 旧版总规划 `training_camp_plan.md`
+- 旧版综合说明 `programming_guide.md`
+- 顶层零散练习脚本
 
-后续正式教学，我会优先往 `stage1_foundation/` 和 `study_logs/` 里继续写。
+后续正式教学只沿着 `stage1_foundation/` 到 `stage5_master/`、`plan_1000_days/`、`study_logs/` 继续维护。

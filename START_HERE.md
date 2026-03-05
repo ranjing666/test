@@ -22,7 +22,7 @@
 - 每日学习记录
 - 每周复盘模板
 
-所有新课件，我都会尽量按这个原则写：
+所有新课件，默认按这个原则写：
 
 1. 中文先讲明白
 2. 保留关键英文原词
@@ -32,7 +32,7 @@
 
 ## 你现在应该怎么学
 
-今天不要贪多，只做这一条路线：
+今天不要贪多，只走这一条正式路线：
 
 1. 先看 `1000_DAYS_MASTER_PLAN.md`
 2. 再打开 `stage1_foundation/units/README.md`
@@ -42,10 +42,8 @@
 6. 卡住时再看 `stage1_foundation/code_solutions/unit_001_solution.py`
 7. 最后做 `stage1_foundation/quizzes/unit_001_quiz.md`
 8. 只执行里面的 `Day 001`
-9. 学完后再看 `stage1_foundation/lesson01_hello_and_first_program.md`
-10. 然后运行 `stage1_foundation/lesson01_practice.py`
-11. 最后填写 `study_logs/day001.md`
-12. 然后更新 `LEARNING_PROGRESS_TRACKER.md`
+9. 学完后填写 `study_logs/day001.md`
+10. 然后更新 `LEARNING_PROGRESS_TRACKER.md`
 
 ## 如果你不想一下子看 1000 天
 
@@ -77,7 +75,7 @@
 - 小产出
 - 单元复盘
 
-第 1 阶段另外还补了：
+每个阶段还配了：
 
 - 工作簿
 - 代码模板
