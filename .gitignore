@@ -9,3 +9,8 @@ id_*
 *.config
 secrets.*
 .env
+
+*.p12
+*.pfx
+*.asc
+*.gpg
