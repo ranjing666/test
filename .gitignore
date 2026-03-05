@@ -1,0 +1,11 @@
+# 忽略所有 SSH 密钥相关文件
+*.pub
+id_*
+*.pem
+*.key
+*.ppk
+
+# 忽略可能包含密钥的配置文件
+*.config
+secrets.*
+.env
