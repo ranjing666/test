@@ -41,6 +41,7 @@
 
 ## 当前已经准备好的资料
 
+- `daily_guides/README.md`
 - `units/README.md`
 - `workbooks/README.md`
 - `code_templates/README.md`
@@ -54,12 +55,13 @@
 
 现在这一阶段建议你固定按这个顺序学：
 
-1. 先看 `units/unit_001.md` 这样的单元讲义
-2. 再做 `workbooks/unit_001_workbook.md` 这样的工作簿
-3. 然后自己完成 `code_templates/unit_001_template.py`
-4. 最后再参考 `code_solutions/unit_001_solution.py`
-5. 再做 `quizzes/unit_001_quiz.md`
-6. 学完写 `study_logs/day001.md`
+1. 先看 `daily_guides/day_001.md` 这样的逐日指南
+2. 再看 `units/unit_001.md` 这样的单元讲义
+3. 再做 `workbooks/unit_001_workbook.md` 这样的工作簿
+4. 然后自己完成 `code_templates/unit_001_template.py`
+5. 最后再参考 `code_solutions/unit_001_solution.py`
+6. 再做 `quizzes/unit_001_quiz.md`
+7. 学完写 `study_logs/day001.md`
 
 这样你不会陷入“只看不练”。
 
@@ -97,6 +99,7 @@
 
 ## 阶段内详细资料入口
 
+- 逐日学习目录：`daily_guides/README.md`
 - 单元讲义目录：`units/README.md`
 - 工作簿目录：`workbooks/README.md`
 - 代码模板目录：`code_templates/README.md`
@@ -108,3 +111,6 @@
 这一阶段现在已经补上了按单元展开的详细讲义。
 本阶段对应单元范围：`unit_001` 到 `unit_010`。
 详细目录在：`units/README.md`
+
+同时已经补上逐日执行层：
+Day 001 到 Day 100 可以直接从 `daily_guides/README.md` 进入。

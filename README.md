@@ -13,16 +13,17 @@
 
 1. `START_HERE.md`
 2. `1000_DAYS_MASTER_PLAN.md`
-3. `stage1_foundation/units/README.md`
-4. `stage1_foundation/units/unit_001.md`
-5. `stage1_foundation/workbooks/unit_001_workbook.md`
-6. `stage1_foundation/code_templates/unit_001_template.py`
-7. `stage1_foundation/code_solutions/unit_001_solution.py`
-8. `stage1_foundation/quizzes/unit_001_quiz.md`
-9. `plan_1000_days/day_001_100.md`
-10. `stage1_foundation/README.md`
-11. `study_logs/day001.md`
-12. `LEARNING_PROGRESS_TRACKER.md`
+3. `stage1_foundation/daily_guides/day_001.md`
+4. `stage1_foundation/units/README.md`
+5. `stage1_foundation/units/unit_001.md`
+6. `stage1_foundation/workbooks/unit_001_workbook.md`
+7. `stage1_foundation/code_templates/unit_001_template.py`
+8. `stage1_foundation/code_solutions/unit_001_solution.py`
+9. `stage1_foundation/quizzes/unit_001_quiz.md`
+10. `plan_1000_days/day_001_100.md`
+11. `stage1_foundation/README.md`
+12. `study_logs/day001.md`
+13. `LEARNING_PROGRESS_TRACKER.md`
 
 ## 现在的仓库结构
 
@@ -35,6 +36,7 @@
 ├── plan_1000_days/                 # 按天展开的一千天详细计划
 ├── stage1_foundation/              # 当前正式使用的入门阶段资料
 │   ├── README.md
+│   ├── daily_guides/              # Day 001-100 的逐日执行指南
 │   ├── units/                     # Day 001-100 的详细单元讲义
 │   ├── workbooks/                 # 第 1 阶段前 10 个单元练习包
 │   ├── code_templates/            # 第 1 阶段前 10 个单元代码模板
@@ -53,6 +55,7 @@
 以后新的教学资料，统一按下面的规则保存：
 
 - 阶段总览放在 `stageX_xxx/README.md`
+- 逐日执行指南放在 `stageX_xxx/daily_guides/day_NNN.md`
 - 单元讲义放在 `stageX_xxx/units/unit_NNN.md`
 - 练习工作簿放在 `stageX_xxx/workbooks/`
 - 配套代码模板和参考答案放在 `stageX_xxx/code_templates/` 与 `stageX_xxx/code_solutions/`
@@ -76,7 +79,7 @@
 
 如果你想直接看“真正能学的详细教材”：
 
-- Day 001-100：看 `stage1_foundation/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 001-100：先看 `stage1_foundation/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
 - Day 101-300：看 `stage2_growth/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
 - Day 301-600：看 `stage3_advanced/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
 - Day 601-850：看 `stage4_expert/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
@@ -84,6 +87,7 @@
 
 如果你今天只想开始，不想看太远：
 
+- 先打开 `stage1_foundation/daily_guides/day_001.md`
 - 直接打开 `stage1_foundation/units/unit_001.md`
 - 再打开 `stage1_foundation/workbooks/unit_001_workbook.md`
 - 然后完成 `stage1_foundation/code_templates/unit_001_template.py`

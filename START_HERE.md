@@ -35,7 +35,7 @@
 今天不要贪多，只走这一条正式路线：
 
 1. 先看 `1000_DAYS_MASTER_PLAN.md`
-2. 再打开 `stage1_foundation/units/README.md`
+2. 再打开 `stage1_foundation/daily_guides/day_001.md`
 3. 然后打开 `stage1_foundation/units/unit_001.md`
 4. 再打开 `stage1_foundation/workbooks/unit_001_workbook.md`
 5. 然后完成 `stage1_foundation/code_templates/unit_001_template.py`
@@ -52,7 +52,7 @@
 你现在只需要记住两件事：
 
 - `1000_DAYS_MASTER_PLAN.md` 负责告诉你总路线
-- `stage1_foundation/units/unit_001.md` 负责告诉你 Day 001 到 Day 010 这一段怎么真正学
+- `stage1_foundation/daily_guides/day_001.md` 负责告诉你今天具体该做什么
 
 你今天真正需要做的，仍然只有 `Day 001`。
 
@@ -60,11 +60,14 @@
 
 现在仓库里已经按阶段补好了详细单元讲义：
 
+- `stage1_foundation/daily_guides/`
 - `stage1_foundation/units/`
 - `stage2_growth/units/`
 - `stage3_advanced/units/`
 - `stage4_expert/units/`
 - `stage5_master/units/`
+
+第 1 阶段现在额外提供 Day 001 到 Day 100 的逐日学习指南。
 
 每个单元覆盖连续 10 天，而且里面已经包含：
 
