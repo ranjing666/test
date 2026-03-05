@@ -1,143 +1,135 @@
-# 英语 + 编程 零基础训练营
-# English + Coding Zero-Base Camp
+# 英语 + 编程零基础学习仓库
 
-这个仓库存储了一个**双轨制零基础训练营**的课程、代码示例和学习笔记，同时教授英语和编程（Python）。
+这个仓库现在按“长期教学资料库”来使用。
 
-This repository stores the curriculum, code examples and learning notes for a **dual-track beginner bootcamp** that teaches English and programming (Python) in parallel.
+目标很明确：
+- 我负责把后续课程、讲义、练习、词汇、复盘模板持续写进仓库。
+- 你负责按顺序学习、练习、提交到 GitHub。
+- 所有资料默认用中文讲解，并保留必要的英文原词，帮助你同时提升编程和英语。
 
----
+## 从哪里开始
 
-## 📅 12周学习计划 (12-Week Plan)
+如果你现在是零基础，请按这个顺序看：
 
-| 周次 | 英语主题 | 编程主题 | 状态 |
-|------|----------|----------|------|
-| 1-2 | 基础口语 & 日常词汇（150词）<br>Basic greetings & daily vocabulary | 编程思维入门、认识计算机<br>Programming basics, Hello World | ✅ 进行中 |
-| 3-4 | 简单句型 & 对话<br>Simple dialogues & self-introduction | Python基础语法：变量、数据类型<br>Variables, data types, I/O | 📝 待开始 |
-| 5-6 | 时态（现在时、过去时）<br>Simple tenses | 条件语句 & 循环<br>if/while/for, simple games | 📝 待开始 |
-| 7-8 | 常用表达 & 听力<br>Common expressions & listening | 函数 & 模块化<br>Functions, parameters, return | 📝 待开始 |
-| 9-10 | 词汇扩展（科技、生活）<br>Vocabulary expansion | 列表、字典、文件读写<br>Lists, dicts, file I/O | 📝 待开始 |
-| 11-12 | 综合复习 & 口语演讲<br>Review & presentation | 项目实战：小型应用<br>Final project | 📝 待开始 |
+1. `START_HERE.md`
+2. `1000_DAYS_MASTER_PLAN.md`
+3. `stage1_foundation/units/README.md`
+4. `stage1_foundation/units/unit_001.md`
+5. `stage1_foundation/workbooks/unit_001_workbook.md`
+6. `stage1_foundation/code_templates/unit_001_template.py`
+7. `stage1_foundation/code_solutions/unit_001_solution.py`
+8. `stage1_foundation/quizzes/unit_001_quiz.md`
+9. `plan_1000_days/day_001_100.md`
+10. `stage1_foundation/README.md`
+11. `stage1_foundation/lesson01_hello_and_first_program.md`
+12. `stage1_foundation/lesson01_vocabulary.md`
+13. `stage1_foundation/lesson01_practice.py`
+14. `study_logs/day001.md`
+15. `LEARNING_PROGRESS_TRACKER.md`
 
----
+## 现在的仓库结构
 
-## 📂 仓库结构 (Repository Structure)
-
-```
+```text
 .
-├── README.md                    # 项目总览
-├── training_camp_plan.md        # 详细训练营计划
-├── week01/                      # 第一周学习资料
-│   ├── README.md               # 本周学习指南
-│   ├── vocabulary.md           # 150个基础英语单词
-│   ├── notes.md                # Python学习笔记
-│   └── hello.py                # 第一个Python程序
-├── week02/                      # 第二周（待创建）
-├── week03/                      # 第三周（待创建）
-└── ...
+├── README.md
+├── START_HERE.md
+├── 1000_DAYS_MASTER_PLAN.md
+├── LEARNING_PROGRESS_TRACKER.md     # 1000 天总进度看板
+├── plan_1000_days/                # 按天展开的一千天详细计划
+├── training_camp_plan.md
+├── programming_guide.md
+├── week01/                         # 早期周计划资料，保留参考
+├── stage1_foundation/             # 当前正式使用的入门阶段资料
+│   ├── README.md
+│   ├── units/                     # Day 001-100 的详细单元讲义
+│   ├── workbooks/                 # 第 1 阶段前 10 个单元练习包
+│   ├── code_templates/            # 第 1 阶段前 10 个单元代码模板
+│   ├── code_solutions/            # 第 1 阶段前 10 个单元参考答案
+│   ├── quizzes/                   # 第 1 阶段前 10 个单元小测
+│   ├── lesson01_hello_and_first_program.md
+│   ├── lesson01_vocabulary.md
+│   └── lesson01_practice.py
+├── stage2_growth/                 # Day 101-300 的详细单元讲义
+├── stage3_advanced/               # Day 301-600 的详细单元讲义
+├── stage4_expert/                 # Day 601-850 的详细单元讲义
+├── stage5_master/                 # Day 851-1000 的详细单元讲义
+└── study_logs/                    # 每日记录、每周复盘模板
 ```
 
----
+## 资料存放规则
 
-## 🚀 如何使用 (How to Use)
+以后新的教学资料，统一按下面的规则保存：
 
-### 1. 克隆仓库
-```bash
-git clone <your-repo-url>
-cd py测试
-```
+- 阶段总览放在 `stageX_xxx/README.md`
+- 具体课程放在 `stageX_xxx/lessonNN_*.md`
+- 配套代码放在对应阶段目录下的 `.py` 文件
+- 学习日志放在 `study_logs/dayNNN.md`
+- 每周复盘或总结放在 `study_logs/`
 
-### 2. 开始学习
-- 📖 阅读每周的 `README.md` 了解学习目标
-- 📝 学习 `vocabulary.md` 中的英语单词
-- 💻 阅读 `notes.md` 学习Python知识
-- ⌨️ 运行和修改代码示例
+这样做的好处是：
 
-### 3. 运行代码
-```bash
-# 运行第一周的程序
-python week01/hello.py
+- 你以后打开仓库就知道先学什么
+- GitHub 提交历史会留下完整学习轨迹
+- 每节课的讲义、词汇、代码、作业都能对应起来
 
-# 运行你自己的程序
-python week01/about_me.py
-```
+## 长期计划入口
 
-### 4. 提交你的练习
+如果你想看完整的一千天路线：
+
+- 先看 `1000_DAYS_MASTER_PLAN.md`
+- 再看 `plan_1000_days/day_001_100.md`
+- 后面按 `day_101_200.md`、`day_201_300.md` 这样的顺序继续
+
+如果你想直接看“真正能学的详细教材”：
+
+- Day 001-100：看 `stage1_foundation/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 101-300：看 `stage2_growth/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 301-600：看 `stage3_advanced/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 601-850：看 `stage4_expert/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 851-1000：看 `stage5_master/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+
+如果你今天只想开始，不想看太远：
+
+- 直接打开 `stage1_foundation/units/unit_001.md`
+- 再打开 `stage1_foundation/workbooks/unit_001_workbook.md`
+- 然后完成 `stage1_foundation/code_templates/unit_001_template.py`
+- 卡住时再看 `stage1_foundation/code_solutions/unit_001_solution.py`
+- 最后做 `stage1_foundation/quizzes/unit_001_quiz.md`
+- 然后执行里面的 `Day 001`
+- 然后填写 `study_logs/day001.md`
+- 然后在 `LEARNING_PROGRESS_TRACKER.md` 里记录当前位置
+
+### 阶段1：入门基础
+- 认识电脑、程序、Python、终端、文件
+- 学会 `print()`、变量、`input()`、基本数据类型
+- 能写简单的交互式小程序
+
+### 阶段2：继续生长
+- 列表、字典、文件、调试、模块、类、标准库
+- Git / GitHub、HTML、CSS、JavaScript、DOM、Flask 路由入口
+- 从命令行程序过渡到网页和基础 Web 开发
+
+### 阶段3及以后
+- 阶段3：Flask、数据库、API、测试、部署、算法、数据分析与自动化
+- 阶段4：Node、React、TypeScript、FastAPI、Docker、CI/CD、工程质量
+- 阶段5：系统设计、开源、作品集、写作表达、简历面试、毕业大项目
+
+## 如何同步到 GitHub
+
+每次学完并确认文件已经更新后，可以执行：
+
 ```bash
 git add .
-git commit -m "Week 1: completed hello world exercises"
+git commit -m "Add lesson materials and study notes"
 git push
 ```
 
----
+## 已有资料说明
 
-## 📚 学习方法 (Learning Method)
+这些文件我先保留，并在需要时逐步升级内容：
 
-### 每日学习模板（2小时）
-- **0-15分钟**：复习昨天的单词（Anki/Quizlet）
-- **15-30分钟**：发音/听力练习（跟读）
-- **30-45分钟**：口语/对话练习
-- **45-60分钟**：阅读短文或代码注释
-- **60-90分钟**：编程练习
-- **90-120分钟**：项目实践（用英文写注释）
+- `1000_DAYS_MASTER_PLAN.md`：现在已经升级为一千天总入口
+- `training_camp_plan.md`：训练营式规划
+- `week01/`：早期第一周资料
 
-### 核心原则
-1. **双线并行**：英语和编程相互促进
-2. **实战为主**：多写代码，多说英语
-3. **每日坚持**：每天至少学习1小时
-4. **用英文写代码注释**：强化英语学习
-
----
-
-## 🎯 本周任务 (This Week's Tasks)
-
-### Week 01 学习清单
-- [ ] 运行 `hello.py` 程序
-- [ ] 学习150个基础英语单词
-- [ ] 完成 `about_me.py` 自我介绍程序
-- [ ] 理解 `print()` 函数和注释
-- [ ] 能用英文说 "Hello, my name is..."
-
----
-
-## 📖 推荐资源 (Recommended Resources)
-
-### 英语学习
-- [BBC Learning English](https://www.bbc.co.uk/learningenglish) - 视频和音频
-- [Duolingo](https://www.duolingo.com) - 互动式学习
-- [HelloTalk](https://www.hellotalk.com) - 语言交换
-
-### Python学习
-- [Python官方教程](https://docs.python.org/3/tutorial/)
-- [菜鸟教程](https://www.runoob.com/python3/)
-- [Python Tutor](http://pythontutor.com/) - 可视化代码执行
-
----
-
-## 💪 学习承诺 (Learning Commitment)
-
-我承诺：
-- ✅ 每天至少学习1小时
-- ✅ 每周完成所有练习
-- ✅ 用英文写代码注释
-- ✅ 坚持12周不放弃
-
-I commit to:
-- ✅ Study at least 1 hour every day
-- ✅ Complete all weekly exercises
-- ✅ Write code comments in English
-- ✅ Never give up for 12 weeks
-
----
-
-## 📞 联系方式 (Contact)
-
-如果有问题或建议，欢迎：
-- 提交 Issue
-- 发起 Pull Request
-- 在讨论区交流
-
----
-
-**开始你的编程和英语学习之旅吧！🚀**
-
-**Start your coding and English learning journey! 🚀**
+后续正式教学，我会优先往 `stage1_foundation/` 和 `study_logs/` 里继续写。
