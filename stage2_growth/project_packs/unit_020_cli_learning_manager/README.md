@@ -18,6 +18,8 @@
 - `storage.py`：读写 JSON 数据
 - `sample_data.json`：第一份示例数据
 - `learning_tasks.json`：程序第一次保存后自动生成
+- `manual_test_checklist.md`：手动测试清单
+- `troubleshooting.md`：常见问题排查
 
 ## 如何运行
 

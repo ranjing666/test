@@ -17,6 +17,8 @@
 - `analyze.py`：分析脚本
 - `report_template.md`：报告结构模板
 - `output/report.md`：分析脚本运行后生成
+- `manual_test_checklist.md`：手动测试清单
+- `troubleshooting.md`：常见问题排查
 
 ## 如何运行
 

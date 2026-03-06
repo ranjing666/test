@@ -19,6 +19,8 @@
 - `frontend/index.html`：前端入口
 - `frontend/app.js`：前端请求和渲染逻辑
 - `frontend/styles.css`：前端样式
+- `manual_test_checklist.md`：手动测试清单
+- `troubleshooting.md`：常见问题排查
 
 ## 如何运行
 

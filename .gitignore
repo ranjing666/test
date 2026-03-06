@@ -18,3 +18,8 @@ secrets.*
 # Python cache
 __pycache__/
 *.pyc
+
+# Common generated files in learning projects
+learning_tasks.json
+blog.db
+.pytest_cache/

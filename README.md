@@ -13,17 +13,18 @@
 
 1. `START_HERE.md`
 2. `1000_DAYS_MASTER_PLAN.md`
-3. `stage1_foundation/daily_guides/day_001.md`
-4. `stage1_foundation/units/README.md`
-5. `stage1_foundation/units/unit_001.md`
-6. `stage1_foundation/workbooks/unit_001_workbook.md`
-7. `stage1_foundation/code_templates/unit_001_template.py`
-8. `stage1_foundation/code_solutions/unit_001_solution.py`
-9. `stage1_foundation/quizzes/unit_001_quiz.md`
-10. `plan_1000_days/day_001_100.md`
-11. `stage1_foundation/README.md`
-12. `study_logs/day001.md`
-13. `LEARNING_PROGRESS_TRACKER.md`
+3. `PROJECT_PACKS_GUIDE.md`
+4. `stage1_foundation/daily_guides/day_001.md`
+5. `stage1_foundation/units/README.md`
+6. `stage1_foundation/units/unit_001.md`
+7. `stage1_foundation/workbooks/unit_001_workbook.md`
+8. `stage1_foundation/code_templates/unit_001_template.py`
+9. `stage1_foundation/code_solutions/unit_001_solution.py`
+10. `stage1_foundation/quizzes/unit_001_quiz.md`
+11. `plan_1000_days/day_001_100.md`
+12. `stage1_foundation/README.md`
+13. `study_logs/day001.md`
+14. `LEARNING_PROGRESS_TRACKER.md`
 
 ## 现在的仓库结构
 
@@ -32,6 +33,7 @@
 ├── README.md
 ├── START_HERE.md
 ├── 1000_DAYS_MASTER_PLAN.md
+├── PROJECT_PACKS_GUIDE.md         # 所有项目包的使用总指南
 ├── LEARNING_PROGRESS_TRACKER.md    # 1000 天总进度看板
 ├── plan_1000_days/                 # 按天展开的一千天详细计划
 ├── stage1_foundation/              # 当前正式使用的入门阶段资料

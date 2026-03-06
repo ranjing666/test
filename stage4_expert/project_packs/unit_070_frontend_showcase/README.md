@@ -16,6 +16,8 @@
 - `index.html`：页面结构
 - `styles.css`：页面样式
 - `app.js`：筛选和渲染逻辑
+- `manual_test_checklist.md`：手动测试清单
+- `troubleshooting.md`：常见问题排查
 
 ## 如何运行
 

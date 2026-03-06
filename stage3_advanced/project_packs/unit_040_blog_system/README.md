@@ -18,6 +18,8 @@
 - `blog.db`：程序第一次运行后自动生成
 - `templates/`：页面模板
 - `static/style.css`：页面样式
+- `manual_test_checklist.md`：手动测试清单
+- `troubleshooting.md`：常见问题排查
 
 ## 如何运行
 

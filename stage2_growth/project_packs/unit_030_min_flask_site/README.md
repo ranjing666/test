@@ -18,6 +18,8 @@
 - `requirements.txt`：依赖说明
 - `templates/`：页面模板
 - `static/style.css`：样式文件
+- `manual_test_checklist.md`：手动测试清单
+- `troubleshooting.md`：常见问题排查
 
 ## 如何运行
 
