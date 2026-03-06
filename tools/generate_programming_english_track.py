@@ -253,10 +253,10 @@ def build_route() -> str:
 
 
 def build_stage_file(stage_label: str, start: int, end: int, goal: str) -> str:
-    units = UNITS[start - 1 : end]
-    sentences = [unit["sentence"] for unit in units]
+    units_data = UNITS[start - 1 : end]
+    sentences = [unit["sentence"] for unit in units_data]
     all_words: list[str] = []
-    for unit in units:
+    for unit in units_data:
         for word in words_of(unit):
             if word not in all_words:
                 all_words.append(word)
@@ -436,3 +436,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+

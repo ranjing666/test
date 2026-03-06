@@ -800,7 +800,7 @@ def workbook_text(unit):
         f"# 单元 {unit['unit']:03d} 工作簿：{unit['title']}",
         "",
         f"- 对应范围：{unit['days']}",
-        f"- 配套单元讲义：`stage1_foundation/units/unit_{unit['unit']:03d}.md`",
+        f"- 配套单元讲义：`stage1_foundation/02_units/unit_{unit['unit']:03d}.md`",
         f"- 本工作簿目标：围绕“{unit['project']}”把这一单元真正练起来。",
         "",
         "## 这份工作簿怎么用",
@@ -903,13 +903,13 @@ def workbook_text(unit):
 
 
 def readme_text(title, kind):
-    if kind == "workbooks":
+    if kind == "03_workbooks":
         intro = "这个目录保存第 1 阶段前 10 个单元的工作簿。每份工作簿都包含练习、英语、小项目和自查清单。"
         suffix = "workbook"
     elif kind == "templates":
         intro = "这个目录保存第 1 阶段前 10 个单元的代码模板。建议先自己补、自己改，再运行。"
         suffix = "template"
-    elif kind == "quizzes":
+    elif kind == "06_quizzes":
         intro = "这个目录保存第 1 阶段前 10 个单元的小测。建议学完一个单元后先独立回答，再对照讲义和代码。"
         suffix = "quiz"
     else:
@@ -917,7 +917,7 @@ def readme_text(title, kind):
         suffix = "solution"
     lines = [f"# {title}", "", intro, "", "## 文件列表", ""]
     for unit in UNITS:
-        lines.append(f"- `unit_{unit['unit']:03d}_{suffix}.{'md' if kind == 'workbooks' else 'py'}` - {unit['title']}")
+        lines.append(f"- `unit_{unit['unit']:03d}_{suffix}.{'md' if kind == '03_workbooks' else 'py'}` - {unit['title']}")
     return "\n".join(lines) + "\n"
 
 
@@ -953,20 +953,20 @@ def quiz_text(unit):
 def main():
     repo_root = Path(__file__).resolve().parents[1]
     stage_root = repo_root / "stage1_foundation"
-    workbook_dir = stage_root / "workbooks"
-    template_dir = stage_root / "code_templates"
-    solution_dir = stage_root / "code_solutions"
-    quiz_dir = stage_root / "quizzes"
+    workbook_dir = stage_root / "03_workbooks"
+    template_dir = stage_root / "04_code_templates"
+    solution_dir = stage_root / "05_code_solutions"
+    quiz_dir = stage_root / "06_quizzes"
 
     workbook_dir.mkdir(parents=True, exist_ok=True)
     template_dir.mkdir(parents=True, exist_ok=True)
     solution_dir.mkdir(parents=True, exist_ok=True)
     quiz_dir.mkdir(parents=True, exist_ok=True)
 
-    (workbook_dir / "README.md").write_text(readme_text("第 1 阶段工作簿目录", "workbooks"), encoding="utf-8")
+    (workbook_dir / "README.md").write_text(readme_text("第 1 阶段工作簿目录", "03_workbooks"), encoding="utf-8")
     (template_dir / "README.md").write_text(readme_text("第 1 阶段代码模板目录", "templates"), encoding="utf-8")
     (solution_dir / "README.md").write_text(readme_text("第 1 阶段参考答案目录", "solutions"), encoding="utf-8")
-    (quiz_dir / "README.md").write_text(readme_text("第 1 阶段小测目录", "quizzes"), encoding="utf-8")
+    (quiz_dir / "README.md").write_text(readme_text("第 1 阶段小测目录", "06_quizzes"), encoding="utf-8")
 
     for unit in UNITS:
         number = unit["unit"]
@@ -978,3 +978,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+

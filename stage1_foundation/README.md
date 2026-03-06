@@ -14,12 +14,12 @@
 
 固定按这个顺序：
 
-1. `stage1_foundation/daily_guides/day_001.md`
-2. `stage1_foundation/units/unit_001.md`
-3. `stage1_foundation/workbooks/unit_001_workbook.md`
-4. `stage1_foundation/code_templates/unit_001_template.py`
-5. `stage1_foundation/code_solutions/unit_001_solution.py`
-6. `stage1_foundation/quizzes/unit_001_quiz.md`
+1. `stage1_foundation/01_daily_guides/day_001.md`
+2. `stage1_foundation/02_units/unit_001.md`
+3. `stage1_foundation/03_workbooks/unit_001_workbook.md`
+4. `stage1_foundation/04_code_templates/unit_001_template.py`
+5. `stage1_foundation/05_code_solutions/unit_001_solution.py`
+6. `stage1_foundation/06_quizzes/unit_001_quiz.md`
 7. `study_logs/day001.md`
 8. `学习进度总看板.md`
 
@@ -33,12 +33,12 @@
 
 ## 资料入口
 
-- 学习日目录：`daily_guides/README.md`
-- 单元讲义目录：`units/README.md`
-- 工作簿目录：`workbooks/README.md`
-- 代码模板目录：`code_templates/README.md`
-- 参考答案目录：`code_solutions/README.md`
-- 小测目录：`quizzes/README.md`
+- 学习日目录：`01_daily_guides/README.md`
+- 单元讲义目录：`02_units/README.md`
+- 工作簿目录：`03_workbooks/README.md`
+- 代码模板目录：`04_code_templates/README.md`
+- 参考答案目录：`05_code_solutions/README.md`
+- 小测目录：`06_quizzes/README.md`
 - 配套英语目录：`../编程英语同步学习/README.md`
 - 总导航：`../学习顺序总导航.md`
 
@@ -46,4 +46,7 @@
 
 这一阶段现在已经补上了按单元展开的详细讲义。
 本阶段对应单元范围：`unit_001` 到 `unit_010`。
-详细目录在：`units/README.md`
+详细目录在：`02_units/README.md`
+
+
+

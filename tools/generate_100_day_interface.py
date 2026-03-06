@@ -41,8 +41,8 @@ def existing_file(repo_root: Path, relative_path: str) -> str | None:
 
 def find_template_path(repo_root: Path, stage_dir: str, unit_number: int, kind: str) -> str | None:
     candidates = [
-        f"{stage_dir}/{kind}/unit_{unit_number:03d}_{'template' if kind == 'code_templates' else 'solution'}.py",
-        f"{stage_dir}/{kind}/unit_{unit_number:03d}_{'template' if kind == 'code_templates' else 'solution'}.md",
+        f"{stage_dir}/{kind}/unit_{unit_number:03d}_{'template' if kind == '04_code_templates' else 'solution'}.py",
+        f"{stage_dir}/{kind}/unit_{unit_number:03d}_{'template' if kind == '04_code_templates' else 'solution'}.md",
     ]
     for candidate in candidates:
         path = existing_file(repo_root, candidate)
@@ -52,7 +52,7 @@ def find_template_path(repo_root: Path, stage_dir: str, unit_number: int, kind: 
 
 
 def find_project_pack(repo_root: Path, stage_dir: str, unit_number: int) -> str | None:
-    project_root = repo_root / stage_dir / "project_packs"
+    project_root = repo_root / stage_dir / "07_project_packs"
     if not project_root.exists():
         return None
     matches = sorted(project_root.glob(f"unit_{unit_number:03d}_*"))
@@ -66,11 +66,11 @@ def find_project_pack(repo_root: Path, stage_dir: str, unit_number: int) -> str 
 
 def material_paths(repo_root: Path, stage_dir: str, unit_number: int) -> dict[str, str | None]:
     return {
-        "unit": existing_file(repo_root, f"{stage_dir}/units/unit_{unit_number:03d}.md"),
-        "workbook": existing_file(repo_root, f"{stage_dir}/workbooks/unit_{unit_number:03d}_workbook.md"),
-        "template": find_template_path(repo_root, stage_dir, unit_number, "code_templates"),
-        "solution": find_template_path(repo_root, stage_dir, unit_number, "code_solutions"),
-        "quiz": existing_file(repo_root, f"{stage_dir}/quizzes/unit_{unit_number:03d}_quiz.md"),
+        "unit": existing_file(repo_root, f"{stage_dir}/02_units/unit_{unit_number:03d}.md"),
+        "workbook": existing_file(repo_root, f"{stage_dir}/03_workbooks/unit_{unit_number:03d}_workbook.md"),
+        "template": find_template_path(repo_root, stage_dir, unit_number, "04_code_templates"),
+        "solution": find_template_path(repo_root, stage_dir, unit_number, "05_code_solutions"),
+        "quiz": existing_file(repo_root, f"{stage_dir}/06_quizzes/unit_{unit_number:03d}_quiz.md"),
         "project_pack": find_project_pack(repo_root, stage_dir, unit_number),
     }
 
@@ -78,7 +78,7 @@ def material_paths(repo_root: Path, stage_dir: str, unit_number: int) -> dict[st
 def core_material_paths(repo_root: Path, stage_dir: str, unit_number: int) -> list[str]:
     files = material_paths(repo_root, stage_dir, unit_number)
     ordered = [
-        f"{stage_dir}/daily_guides/day_{unit_number:03d}.md",
+        f"{stage_dir}/01_daily_guides/day_{unit_number:03d}.md",
         files["unit"],
         files["workbook"],
         files["template"],
@@ -111,7 +111,7 @@ def day_link(current_stage_dir: str, target_unit_number: int) -> str:
     filename = f"day_{target_unit_number:03d}.md"
     if target_stage_dir == current_stage_dir:
         return f"`{filename}`"
-    return f"`../../{target_stage_dir}/daily_guides/{filename}`"
+    return f"`../../{target_stage_dir}/01_daily_guides/{filename}`"
 
 
 def navigation_lines(stage_dir: str, unit_number: int) -> list[str]:
@@ -210,11 +210,11 @@ def stage_daily_readme(stage_label: str, start: int, end: int) -> str:
         "",
         "建议顺序：",
         "1. 先打开当前 `day_XXX.md`。",
-        "2. 再进对应单元讲义 `units/unit_XXX.md`。",
-        "3. 再做工作簿 `workbooks/unit_XXX_workbook.md`。",
-        "4. 再完成模板代码 `code_templates/`。",
-        "5. 卡住时再对照 `code_solutions/`。",
-        "6. 再做 `quizzes/`。",
+        "2. 再进对应单元讲义 `02_units/unit_XXX.md`。",
+        "3. 再做工作簿 `03_workbooks/unit_XXX_workbook.md`。",
+        "4. 再完成模板代码 `04_code_templates/`。",
+        "5. 卡住时再对照 `05_code_solutions/`。",
+        "6. 再做 `06_quizzes/`。",
         "7. 再写 `study_logs/dayXXX.md`。",
         f"8. 最后回到 `{TRACKER_FILE}` 打勾。",
         f"主线做完后，再补 `{ENGLISH_ROUTE_FILE}` 对应的当天英语任务。",
@@ -301,7 +301,7 @@ def study_logs_readme() -> str:
             "",
             "## 使用顺序",
             "",
-            "1. 先打开阶段目录中的 `daily_guides/day_XXX.md`。",
+            "1. 先打开阶段目录中的 `01_daily_guides/day_XXX.md`。",
             "2. 完成这一份学习日里的主要任务。",
             "3. 再填写对应的 `study_logs/dayXXX.md`。",
             "",
@@ -309,7 +309,7 @@ def study_logs_readme() -> str:
             "",
             "- 文件更少，界面更干净。",
             "- 入口和单元编号完全一致，不容易找错。",
-            "- 详细的 10 天拆分内容仍然留在 `units/` 里，不会丢。",
+            "- 详细的 10 天拆分内容仍然留在 `02_units/` 里，不会丢。",
             "",
         ]
     )
@@ -436,11 +436,11 @@ def hundred_day_master_plan() -> str:
         "",
         "## 这套 100 天怎么用",
         "",
-        "1. 每次先打开对应阶段的 `daily_guides/day_XXX.md`。",
-        "2. 再进入 `units/unit_XXX.md` 看完整讲义。",
-        "3. 再做 `workbooks/unit_XXX_workbook.md`。",
-        "4. 再做 `code_templates/`，卡住时对照 `code_solutions/`。",
-        "5. 再做 `quizzes/`。",
+        "1. 每次先打开对应阶段的 `01_daily_guides/day_XXX.md`。",
+        "2. 再进入 `02_units/unit_XXX.md` 看完整讲义。",
+        "3. 再做 `03_workbooks/unit_XXX_workbook.md`。",
+        "4. 再做 `04_code_templates/`，卡住时对照 `05_code_solutions/`。",
+        "5. 再做 `06_quizzes/`。",
         "6. 再写 `study_logs/dayXXX.md`。",
         f"7. 最后在 `{TRACKER_FILE}` 打勾。",
         f"8. 核心顺序完成后，再补 `{ENGLISH_ROUTE_FILE}` 对应的当天英语任务。",
@@ -481,23 +481,23 @@ def learning_navigation() -> str:
         "",
         "## 零基础默认顺序",
         "",
-        "1. `stage1_foundation/daily_guides/day_001.md`",
-        "2. `stage1_foundation/units/unit_001.md`",
-        "3. `stage1_foundation/workbooks/unit_001_workbook.md`",
-        "4. `stage1_foundation/code_templates/unit_001_template.py`",
-        "5. `stage1_foundation/code_solutions/unit_001_solution.py`",
-        "6. `stage1_foundation/quizzes/unit_001_quiz.md`",
+        "1. `stage1_foundation/01_daily_guides/day_001.md`",
+        "2. `stage1_foundation/02_units/unit_001.md`",
+        "3. `stage1_foundation/03_workbooks/unit_001_workbook.md`",
+        "4. `stage1_foundation/04_code_templates/unit_001_template.py`",
+        "5. `stage1_foundation/05_code_solutions/unit_001_solution.py`",
+        "6. `stage1_foundation/06_quizzes/unit_001_quiz.md`",
         "7. `study_logs/day001.md`",
         f"8. `{TRACKER_FILE}`",
         "",
         "## 每天固定顺序",
         "",
-        "1. `daily_guides/day_XXX.md`",
-        "2. `units/unit_XXX.md`",
-        "3. `workbooks/unit_XXX_workbook.md`",
-        "4. `code_templates/`",
-        "5. `code_solutions/`",
-        "6. `quizzes/`",
+        "1. `01_daily_guides/day_XXX.md`",
+        "2. `02_units/unit_XXX.md`",
+        "3. `03_workbooks/unit_XXX_workbook.md`",
+        "4. `04_code_templates/`",
+        "5. `05_code_solutions/`",
+        "6. `06_quizzes/`",
         "7. `study_logs/dayXXX.md`",
         f"8. `{TRACKER_FILE}`",
         "",
@@ -510,8 +510,8 @@ def learning_navigation() -> str:
                 f"### {stage_label}",
                 f"- Day 范围：`Day {start:03d}-{end:03d}`",
                 f"- 阶段主页：`{stage_dir}/README.md`",
-                f"- 学习日目录：`{stage_dir}/daily_guides/README.md`",
-                f"- 单元目录：`{stage_dir}/units/README.md`",
+                f"- 学习日目录：`{stage_dir}/01_daily_guides/README.md`",
+                f"- 单元目录：`{stage_dir}/02_units/README.md`",
                 "",
             ]
         )
@@ -519,7 +519,7 @@ def learning_navigation() -> str:
         [
             "## 特殊资料什么时候用",
             "",
-            "- `project_packs/`：里程碑项目单元再打开，不是每一天都要先看。",
+            "- `07_project_packs/`：里程碑项目单元再打开，不是每一天都要先看。",
             f"- `{START_GUIDE_FILE}`：刚进仓库时先看一次，用来知道整体入口。",
             f"- `{MASTER_PLAN_FILE}`：想看 100 天全貌时再打开。",
             f"- `{ENGLISH_ROUTE_FILE}`：核心顺序做完后，再补对应 Day。",
@@ -531,9 +531,9 @@ def learning_navigation() -> str:
     return "\n".join(lines)
 
 
-def cleanup_daily_guides(repo_root: Path) -> None:
+def cleanup_01_daily_guides(repo_root: Path) -> None:
     for stage_dir, _, _, _ in STAGES:
-        daily_dir = repo_root / stage_dir / "daily_guides"
+        daily_dir = repo_root / stage_dir / "01_daily_guides"
         daily_dir.mkdir(parents=True, exist_ok=True)
         for path in daily_dir.glob("day_*.md"):
             path.unlink()
@@ -548,10 +548,10 @@ def cleanup_study_logs(repo_root: Path) -> None:
         path.unlink()
 
 
-def write_stage_daily_guides(repo_root: Path) -> None:
-    cleanup_daily_guides(repo_root)
+def write_stage_01_daily_guides(repo_root: Path) -> None:
+    cleanup_01_daily_guides(repo_root)
     for stage_dir, stage_label, start, end in STAGES:
-        daily_dir = repo_root / stage_dir / "daily_guides"
+        daily_dir = repo_root / stage_dir / "01_daily_guides"
         (daily_dir / "README.md").write_text(stage_daily_readme(stage_label, start, end), encoding="utf-8")
         for unit_number in range(start, end + 1):
             (daily_dir / f"day_{unit_number:03d}.md").write_text(
@@ -571,7 +571,7 @@ def write_study_logs(repo_root: Path) -> None:
 
 def main() -> None:
     repo_root = Path(__file__).resolve().parents[1]
-    write_stage_daily_guides(repo_root)
+    write_stage_01_daily_guides(repo_root)
     write_study_logs(repo_root)
     (repo_root / MASTER_PLAN_FILE).write_text(hundred_day_master_plan(), encoding="utf-8")
     (repo_root / TRACKER_FILE).write_text(learning_progress_tracker(), encoding="utf-8")
@@ -580,3 +580,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+

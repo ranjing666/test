@@ -476,7 +476,7 @@ def append_stage_entry(repo_root):
                     "",
                     "这一阶段现在已经补上了按单元展开的详细讲义。",
                     f"本阶段对应单元范围：`unit_{start:03d}` 到 `unit_{end:03d}`。",
-                    "详细目录在：`units/README.md`",
+                    "详细目录在：`02_units/README.md`",
                     "",
                 ]
             )
@@ -486,7 +486,7 @@ def append_stage_entry(repo_root):
 def main():
     repo_root = Path(__file__).resolve().parents[1]
     for stage_dir, stage_label, start, end in STAGES:
-        units_dir = repo_root / stage_dir / "units"
+        units_dir = repo_root / stage_dir / "02_units"
         units_dir.mkdir(parents=True, exist_ok=True)
         (units_dir / "README.md").write_text(units_readme(stage_label, start, end), encoding="utf-8")
         for unit_number in range(start, end + 1):
@@ -496,3 +496,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+

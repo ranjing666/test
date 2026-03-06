@@ -182,11 +182,11 @@ def day_number(unit_number, offset):
 
 def unit_files(unit_number):
     return {
-        "unit": f"stage1_foundation/units/unit_{unit_number:03d}.md",
-        "workbook": f"stage1_foundation/workbooks/unit_{unit_number:03d}_workbook.md",
-        "template": f"stage1_foundation/code_templates/unit_{unit_number:03d}_template.py",
-        "solution": f"stage1_foundation/code_solutions/unit_{unit_number:03d}_solution.py",
-        "quiz": f"stage1_foundation/quizzes/unit_{unit_number:03d}_quiz.md",
+        "unit": f"stage1_foundation/02_units/unit_{unit_number:03d}.md",
+        "workbook": f"stage1_foundation/03_workbooks/unit_{unit_number:03d}_workbook.md",
+        "template": f"stage1_foundation/04_code_templates/unit_{unit_number:03d}_template.py",
+        "solution": f"stage1_foundation/05_code_solutions/unit_{unit_number:03d}_solution.py",
+        "quiz": f"stage1_foundation/06_quizzes/unit_{unit_number:03d}_quiz.md",
     }
 
 
@@ -368,7 +368,7 @@ def daily_text(unit, unit_number, day_index):
     return "\n".join(lines)
 
 
-def readme_text(units):
+def readme_text(units_data):
     lines = [
         "# 第 1 阶段逐日学习指南",
         "",
@@ -383,7 +383,7 @@ def readme_text(units):
         "## 单元导航",
         "",
     ]
-    for unit in units:
+    for unit in units_data:
         unit_number = unit["unit"]
         start = day_number(unit_number, 0)
         end = day_number(unit_number, 9)
@@ -398,13 +398,13 @@ def readme_text(units):
 
 def main():
     repo_root = Path(__file__).resolve().parents[1]
-    daily_dir = repo_root / "stage1_foundation" / "daily_guides"
+    daily_dir = repo_root / "stage1_foundation" / "01_daily_guides"
     daily_dir.mkdir(parents=True, exist_ok=True)
 
-    units = load_units()
-    (daily_dir / "README.md").write_text(readme_text(units), encoding="utf-8")
+    units_data = load_units()
+    (daily_dir / "README.md").write_text(readme_text(units_data), encoding="utf-8")
 
-    for unit in units:
+    for unit in units_data:
         unit_number = unit["unit"]
         for offset in range(10):
             day_no = day_number(unit_number, offset)
@@ -414,3 +414,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+

@@ -548,10 +548,10 @@ def workbook_text(unit_number, unit):
         f"# 单元 {unit_number:03d} 工作簿：{unit['title']}",
         "",
         f"- 最终产出：{unit['output']}",
-        f"- 配套单元讲义：`units/unit_{unit_number:03d}.md`",
-        f"- 配套模板：`code_templates/unit_{unit_number:03d}_template.md`",
-        f"- 配套答案：`code_solutions/unit_{unit_number:03d}_solution.md`",
-        f"- 配套小测：`quizzes/unit_{unit_number:03d}_quiz.md`",
+        f"- 配套单元讲义：`02_units/unit_{unit_number:03d}.md`",
+        f"- 配套模板：`04_code_templates/unit_{unit_number:03d}_template.md`",
+        f"- 配套答案：`05_code_solutions/unit_{unit_number:03d}_solution.md`",
+        f"- 配套小测：`06_quizzes/unit_{unit_number:03d}_quiz.md`",
         "",
         "## 本单元先做什么",
         "",
@@ -706,10 +706,10 @@ def ensure_stage_readme(stage_root):
                 marker,
                 "",
                 "这一阶段现在也补上了练习支持包。",
-                "- `workbooks/`：工作簿",
-                "- `code_templates/`：起步模板",
-                "- `code_solutions/`：参考答案",
-                "- `quizzes/`：单元小测",
+                "- `03_workbooks/`：工作簿",
+                "- `04_code_templates/`：起步模板",
+                "- `05_code_solutions/`：参考答案",
+                "- `06_quizzes/`：单元小测",
                 "",
             ]
         )
@@ -721,10 +721,10 @@ def main():
 
     for stage_dir, stage_label, start, end in STAGES:
         stage_root = repo_root / stage_dir
-        workbook_dir = stage_root / "workbooks"
-        template_dir = stage_root / "code_templates"
-        solution_dir = stage_root / "code_solutions"
-        quiz_dir = stage_root / "quizzes"
+        workbook_dir = stage_root / "03_workbooks"
+        template_dir = stage_root / "04_code_templates"
+        solution_dir = stage_root / "05_code_solutions"
+        quiz_dir = stage_root / "06_quizzes"
 
         for current_dir in [workbook_dir, template_dir, solution_dir, quiz_dir]:
             current_dir.mkdir(parents=True, exist_ok=True)
@@ -762,3 +762,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+

@@ -60,17 +60,17 @@ def python_syntax_check() -> list[str]:
 
 def count_check() -> dict[str, int]:
     return {
-        "stage1_daily_guides": len(list((ROOT / "stage1_foundation" / "daily_guides").glob("day_*.md"))),
-        "stage2_daily_guides": len(list((ROOT / "stage2_growth" / "daily_guides").glob("day_*.md"))),
-        "stage3_daily_guides": len(list((ROOT / "stage3_advanced" / "daily_guides").glob("day_*.md"))),
-        "stage4_daily_guides": len(list((ROOT / "stage4_expert" / "daily_guides").glob("day_*.md"))),
-        "stage5_daily_guides": len(list((ROOT / "stage5_master" / "daily_guides").glob("day_*.md"))),
+        "stage1_01_daily_guides": len(list((ROOT / "stage1_foundation" / "01_daily_guides").glob("day_*.md"))),
+        "stage2_01_daily_guides": len(list((ROOT / "stage2_growth" / "01_daily_guides").glob("day_*.md"))),
+        "stage3_01_daily_guides": len(list((ROOT / "stage3_advanced" / "01_daily_guides").glob("day_*.md"))),
+        "stage4_01_daily_guides": len(list((ROOT / "stage4_expert" / "01_daily_guides").glob("day_*.md"))),
+        "stage5_01_daily_guides": len(list((ROOT / "stage5_master" / "01_daily_guides").glob("day_*.md"))),
         "study_logs": len(list((ROOT / "study_logs").glob("day*.md"))),
-        "unit_files": len(list(ROOT.glob("stage*_*/units/unit_*.md"))),
+        "unit_files": len(list(ROOT.glob("stage*_*/02_units/unit_*.md"))),
         "project_pack_roots": sum(
             1
             for stage in ["stage2_growth", "stage3_advanced", "stage4_expert", "stage5_master"]
-            for child in (ROOT / stage / "project_packs").iterdir()
+            for child in (ROOT / stage / "07_project_packs").iterdir()
             if child.is_dir()
         ),
     }
@@ -107,7 +107,7 @@ def legacy_visible_term_check() -> list[str]:
 def unit_structure_check() -> list[str]:
     issues: list[str] = []
     heading_pattern = re.compile(r"^### Day \d{3}$", re.MULTILINE)
-    for path in ROOT.glob("stage*_*/units/unit_*.md"):
+    for path in ROOT.glob("stage*_*/02_units/unit_*.md"):
         text = path.read_text(encoding="utf-8")
         if "- 单元结构：10 个学习步骤" not in text:
             issues.append(f"{path.relative_to(ROOT)} missing unit structure label")
@@ -188,7 +188,7 @@ def navigation_check() -> list[str]:
     nav_file = ROOT / LEARNING_NAV_FILE
     if not nav_file.exists():
         issues.append(f"missing navigation file: {LEARNING_NAV_FILE}")
-    for path in ROOT.glob("stage*_*/daily_guides/day_*.md"):
+    for path in ROOT.glob("stage*_*/01_daily_guides/day_*.md"):
         text = path.read_text(encoding="utf-8")
         if "## 导航" not in text:
             issues.append(f"{path.relative_to(ROOT)} missing navigation section")
@@ -199,12 +199,12 @@ def navigation_check() -> list[str]:
 
 def core_sequence_check() -> list[str]:
     ordered_tokens = [
-        "stage1_foundation/daily_guides/day_001.md",
-        "stage1_foundation/units/unit_001.md",
-        "stage1_foundation/workbooks/unit_001_workbook.md",
-        "stage1_foundation/code_templates/unit_001_template.py",
-        "stage1_foundation/code_solutions/unit_001_solution.py",
-        "stage1_foundation/quizzes/unit_001_quiz.md",
+        "stage1_foundation/01_daily_guides/day_001.md",
+        "stage1_foundation/02_units/unit_001.md",
+        "stage1_foundation/03_workbooks/unit_001_workbook.md",
+        "stage1_foundation/04_code_templates/unit_001_template.py",
+        "stage1_foundation/05_code_solutions/unit_001_solution.py",
+        "stage1_foundation/06_quizzes/unit_001_quiz.md",
         "study_logs/day001.md",
         TRACKER_FILE,
     ]
@@ -213,7 +213,7 @@ def core_sequence_check() -> list[str]:
         (ROOT / START_GUIDE_FILE, "## 你现在只走这一条线", "## 如果你不想一下子看 100 天"),
         (ROOT / LEARNING_NAV_FILE, "## 零基础默认顺序", "## 每天固定顺序"),
         (ROOT / "stage1_foundation" / "README.md", "## 这一阶段怎么学", "## 这一阶段的结构"),
-        (ROOT / "stage1_foundation" / "daily_guides" / "day_001.md", "## 今天要打开的资料", "## 同步补充"),
+        (ROOT / "stage1_foundation" / "01_daily_guides" / "day_001.md", "## 今天要打开的资料", "## 同步补充"),
     ]
     issues: list[str] = []
     for path, start_marker, end_marker in files_to_check:
@@ -247,27 +247,27 @@ def placeholder_example_check() -> list[str]:
         "Keep going,",
     ]
     targeted_rules = {
-        "stage2_growth/units/unit_020.md": ["## Project summary", "## Resume bullets"],
-        "stage3_advanced/units/unit_033.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
-        "stage3_advanced/units/unit_034.md": ["def find_max(", "def is_valid("],
-        "stage3_advanced/units/unit_040.md": ["## Project summary", "## Resume bullets"],
-        "stage3_advanced/units/unit_050.md": ["## Project summary", "## Resume bullets"],
-        "stage4_expert/units/unit_070.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
-        "stage4_expert/units/unit_079.md": ["CREATE TABLE students", "SELECT name, score"],
-        "stage4_expert/units/unit_080.md": ["def find_max(", "def is_valid("],
-        "stage4_expert/units/unit_085.md": ["def find_max(", "def is_valid("],
-        "stage5_master/units/unit_090.md": ["## Project summary", "## Resume bullets"],
-        "stage5_master/units/unit_091.md": ["## Project summary", "## Resume bullets"],
-        "stage5_master/units/unit_092.md": ["requests.get(", '"status": "ok"'],
-        "stage5_master/units/unit_093.md": ["## Project summary", "## Resume bullets"],
-        "stage5_master/units/unit_094.md": ["## Project log", "git status"],
-        "stage5_master/units/unit_095.md": ["CREATE TABLE students", "SELECT name, score"],
-        "stage5_master/units/unit_096.md": ["## Project summary", "## Resume bullets"],
-        "stage5_master/units/unit_098.md": ["## Project summary", "## Resume bullets"],
-        "stage5_master/units/unit_099.md": ["## Project summary", "## Resume bullets"],
-        "stage5_master/units/unit_086.md": ["def find_max(", "def is_valid("],
-        "stage5_master/units/unit_097.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
-        "stage5_master/units/unit_100.md": ["def find_max(", "def is_valid("],
+        "stage2_growth/02_units/unit_020.md": ["## Project summary", "## Resume bullets"],
+        "stage3_advanced/02_units/unit_033.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage3_advanced/02_units/unit_034.md": ["def find_max(", "def is_valid("],
+        "stage3_advanced/02_units/unit_040.md": ["## Project summary", "## Resume bullets"],
+        "stage3_advanced/02_units/unit_050.md": ["## Project summary", "## Resume bullets"],
+        "stage4_expert/02_units/unit_070.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage4_expert/02_units/unit_079.md": ["CREATE TABLE students", "SELECT name, score"],
+        "stage4_expert/02_units/unit_080.md": ["def find_max(", "def is_valid("],
+        "stage4_expert/02_units/unit_085.md": ["def find_max(", "def is_valid("],
+        "stage5_master/02_units/unit_090.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/02_units/unit_091.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/02_units/unit_092.md": ["requests.get(", '"status": "ok"'],
+        "stage5_master/02_units/unit_093.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/02_units/unit_094.md": ["## Project log", "git status"],
+        "stage5_master/02_units/unit_095.md": ["CREATE TABLE students", "SELECT name, score"],
+        "stage5_master/02_units/unit_096.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/02_units/unit_098.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/02_units/unit_099.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/02_units/unit_086.md": ["def find_max(", "def is_valid("],
+        "stage5_master/02_units/unit_097.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage5_master/02_units/unit_100.md": ["def find_max(", "def is_valid("],
     }
     targeted_daily_rules = {
         20: ["## Project summary", "## Resume bullets"],
@@ -288,7 +288,7 @@ def placeholder_example_check() -> list[str]:
     }
     issues: list[str] = []
     for stage in ["stage3_advanced", "stage4_expert", "stage5_master"]:
-        for path in (ROOT / stage / "units").glob("unit_*.md"):
+        for path in (ROOT / stage / "02_units").glob("unit_*.md"):
             text = path.read_text(encoding="utf-8")
             for pattern in generic_patterns:
                 if pattern in text:
@@ -304,7 +304,7 @@ def placeholder_example_check() -> list[str]:
                 issues.append(f"{path.relative_to(ROOT)} contains mismatched example pattern: {pattern}")
                 break
     for unit_number, patterns in targeted_daily_rules.items():
-        stage_dir = stage_dir_for_unit(unit_number) / "daily_guides"
+        stage_dir = stage_dir_for_unit(unit_number) / "01_daily_guides"
         path = stage_dir / f"day_{unit_number:03d}.md"
         text = path.read_text(encoding="utf-8")
         for pattern in patterns:
@@ -344,11 +344,11 @@ def main() -> None:
     for key, value in counts.items():
         print(f"{key}={value}")
     expected_counts = {
-        "stage1_daily_guides": 10,
-        "stage2_daily_guides": 20,
-        "stage3_daily_guides": 30,
-        "stage4_daily_guides": 25,
-        "stage5_daily_guides": 15,
+        "stage1_01_daily_guides": 10,
+        "stage2_01_daily_guides": 20,
+        "stage3_01_daily_guides": 30,
+        "stage4_01_daily_guides": 25,
+        "stage5_01_daily_guides": 15,
         "study_logs": 100,
         "unit_files": 100,
         "project_pack_roots": 8,
@@ -441,3 +441,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+

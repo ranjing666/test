@@ -30,10 +30,10 @@ def words_of(unit):
     return [word.strip() for word in unit["words"].split(",") if word.strip()]
 
 
-def day_info(day_number, units):
+def day_info(day_number, units_data):
     unit_number = (day_number - 1) // 10 + 1
     local_day = (day_number - 1) % 10 + 1
-    unit = units[unit_number - 1]
+    unit = units_data[unit_number - 1]
     stage_dir, stage_label = stage_for_unit(unit_number)
     return {
         "day_number": day_number,
@@ -50,12 +50,12 @@ def file_refs(info):
     unit_number = info["unit_number"]
     stage_dir = info["stage_dir"]
     return {
-        "daily_guide": f"{stage_dir}/daily_guides/day_{day_number:03d}.md",
-        "unit": f"{stage_dir}/units/unit_{unit_number:03d}.md",
-        "workbook": f"{stage_dir}/workbooks/unit_{unit_number:03d}_workbook.md",
-        "template": f"{stage_dir}/code_templates/unit_{unit_number:03d}_template{' .py' if stage_dir == 'stage1_foundation' else '.md'}",
-        "solution": f"{stage_dir}/code_solutions/unit_{unit_number:03d}_solution{' .py' if stage_dir == 'stage1_foundation' else '.md'}",
-        "quiz": f"{stage_dir}/quizzes/unit_{unit_number:03d}_quiz.md",
+        "daily_guide": f"{stage_dir}/01_daily_guides/day_{day_number:03d}.md",
+        "unit": f"{stage_dir}/02_units/unit_{unit_number:03d}.md",
+        "workbook": f"{stage_dir}/03_workbooks/unit_{unit_number:03d}_workbook.md",
+        "template": f"{stage_dir}/04_code_templates/unit_{unit_number:03d}_template{' .py' if stage_dir == 'stage1_foundation' else '.md'}",
+        "solution": f"{stage_dir}/05_code_solutions/unit_{unit_number:03d}_solution{' .py' if stage_dir == 'stage1_foundation' else '.md'}",
+        "quiz": f"{stage_dir}/06_quizzes/unit_{unit_number:03d}_quiz.md",
     }
 
 
@@ -66,7 +66,7 @@ def normalized_refs(info):
     return refs
 
 
-def next_step(info, units):
+def next_step(info, units_data):
     day_number = info["day_number"]
     unit_number = info["unit_number"]
     local_day = info["local_day"]
@@ -77,27 +77,27 @@ def next_step(info, units):
         ]
     if local_day < 10:
         next_day = day_number + 1
-        next_info = day_info(next_day, units)
+        next_info = day_info(next_day, units_data)
         return [
-            f"直接去对应逐日指南：`{next_info['stage_dir']}/daily_guides/day_{next_day:03d}.md`。",
+            f"直接去对应逐日指南：`{next_info['stage_dir']}/01_daily_guides/day_{next_day:03d}.md`。",
             "先复习今天最容易错的 1 个点，再继续下一天。",
         ]
     next_unit = unit_number + 1
     next_stage_dir, _ = stage_for_unit(next_unit)
     return [
-        f"明天进入下一个单元：`{next_stage_dir}/daily_guides/day_{day_number + 1:03d}.md`。",
+        f"明天进入下一个单元：`{next_stage_dir}/01_daily_guides/day_{day_number + 1:03d}.md`。",
         "先把这一单元的最终产出和错点回看 5 分钟，再开新单元。",
     ]
 
 
-def log_text(info, units):
+def log_text(info, units_data):
     day_number = info["day_number"]
     unit_number = info["unit_number"]
     local_day = info["local_day"]
     unit = info["unit"]
     refs = normalized_refs(info)
     vocab = words_of(unit)[:5]
-    tomorrow = next_step(info, units)
+    tomorrow = next_step(info, units_data)
 
     lines = [
         f"# Day {day_number:03d} 学习记录",
@@ -177,7 +177,7 @@ def log_text(info, units):
     return "\n".join(lines)
 
 
-def range_index_text(start_day, end_day, units):
+def range_index_text(start_day, end_day, units_data):
     lines = [
         f"# Day {start_day:03d}-{end_day:03d} 学习日志目录",
         "",
@@ -186,7 +186,7 @@ def range_index_text(start_day, end_day, units):
     ]
     current = start_day
     while current <= end_day:
-        info = day_info(current, units)
+        info = day_info(current, units_data)
         unit_number = info["unit_number"]
         unit = info["unit"]
         unit_end = min(end_day, current + 9)
@@ -254,21 +254,24 @@ def main():
     repo_root = Path(__file__).resolve().parents[1]
     study_logs = repo_root / "study_logs"
     study_logs.mkdir(parents=True, exist_ok=True)
-    units = load_units()
+    units_data = load_units()
 
     for day_number in range(1, 1001):
         path = study_logs / f"day{day_number:03d}.md"
         if path.exists():
             continue
-        path.write_text(log_text(day_info(day_number, units), units), encoding="utf-8")
+        path.write_text(log_text(day_info(day_number, units_data), units_data), encoding="utf-8")
 
     for start_day in range(1, 1000, 100):
         end_day = start_day + 99
         index_path = study_logs / f"index_{start_day:03d}_{end_day:03d}.md"
-        index_path.write_text(range_index_text(start_day, end_day, units), encoding="utf-8")
+        index_path.write_text(range_index_text(start_day, end_day, units_data), encoding="utf-8")
 
     (study_logs / "README.md").write_text(readme_text(), encoding="utf-8")
 
 
 if __name__ == "__main__":
     main()
+
+
+

@@ -481,11 +481,11 @@ def day_number(unit_number, offset):
 
 def file_paths(stage_dir, unit_number):
     return {
-        "unit": f"{stage_dir}/units/unit_{unit_number:03d}.md",
-        "workbook": f"{stage_dir}/workbooks/unit_{unit_number:03d}_workbook.md",
-        "template": f"{stage_dir}/code_templates/unit_{unit_number:03d}_template.md",
-        "solution": f"{stage_dir}/code_solutions/unit_{unit_number:03d}_solution.md",
-        "quiz": f"{stage_dir}/quizzes/unit_{unit_number:03d}_quiz.md",
+        "unit": f"{stage_dir}/02_units/unit_{unit_number:03d}.md",
+        "workbook": f"{stage_dir}/03_workbooks/unit_{unit_number:03d}_workbook.md",
+        "template": f"{stage_dir}/04_code_templates/unit_{unit_number:03d}_template.md",
+        "solution": f"{stage_dir}/05_code_solutions/unit_{unit_number:03d}_solution.md",
+        "quiz": f"{stage_dir}/06_quizzes/unit_{unit_number:03d}_quiz.md",
     }
 
 
@@ -668,7 +668,7 @@ def daily_text(unit, stage_dir, stage_label, unit_number, day_index):
     return "\n".join(lines)
 
 
-def stage_readme_text(stage_dir, stage_label, start_unit, end_unit, units):
+def stage_readme_text(stage_dir, stage_label, start_unit, end_unit, units_data):
     lines = [
         f"# {stage_label} 逐日学习指南",
         "",
@@ -684,7 +684,7 @@ def stage_readme_text(stage_dir, stage_label, start_unit, end_unit, units):
         "",
     ]
     for unit_number in range(start_unit, end_unit + 1):
-        unit = units[unit_number - 1]
+        unit = units_data[unit_number - 1]
         start_day = day_number(unit_number, 0)
         end_day = day_number(unit_number, 9)
         lines.append(f"### 单元 {unit_number:03d}：{unit['title']}（Day {start_day:03d}-{end_day:03d}）")
@@ -698,18 +698,18 @@ def stage_readme_text(stage_dir, stage_label, start_unit, end_unit, units):
 
 def main():
     repo_root = Path(__file__).resolve().parents[1]
-    units = load_units()
+    units_data = load_units()
 
     for stage_dir, stage_label, start_unit, end_unit in STAGES:
-        daily_dir = repo_root / stage_dir / "daily_guides"
+        daily_dir = repo_root / stage_dir / "01_daily_guides"
         daily_dir.mkdir(parents=True, exist_ok=True)
         (daily_dir / "README.md").write_text(
-            stage_readme_text(stage_dir, stage_label, start_unit, end_unit, units),
+                stage_readme_text(stage_dir, stage_label, start_unit, end_unit, units_data),
             encoding="utf-8",
         )
 
         for unit_number in range(start_unit, end_unit + 1):
-            unit = units[unit_number - 1]
+            unit = units_data[unit_number - 1]
             for offset in range(10):
                 day_no = day_number(unit_number, offset)
                 text = daily_text(unit, stage_dir, stage_label, unit_number, offset)
@@ -718,3 +718,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+

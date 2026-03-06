@@ -359,7 +359,7 @@ def build_block_file(block_index):
 
 def main():
     if len(UNITS) != 100:
-        raise ValueError(f"Expected 100 units, got {len(UNITS)}")
+        raise ValueError(f"Expected 100 02_units, got {len(UNITS)}")
 
     repo_root = Path(__file__).resolve().parents[1]
     plan_dir = repo_root / "plan_1000_days"
@@ -377,3 +377,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+

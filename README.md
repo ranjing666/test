@@ -5,18 +5,18 @@
 规则很简单：
 
 - `1 个单元 = 1 个学习日`
-- 详细的学习步骤仍然保留在对应 `units/unit_XXX.md` 里
+- 详细的学习步骤仍然保留在对应 `02_units/unit_XXX.md` 里
 
 ## 从哪里开始
 
 如果你现在就开始学，主线按这个顺序走：
 
-1. `stage1_foundation/daily_guides/day_001.md`
-2. `stage1_foundation/units/unit_001.md`
-3. `stage1_foundation/workbooks/unit_001_workbook.md`
-4. `stage1_foundation/code_templates/unit_001_template.py`
-5. `stage1_foundation/code_solutions/unit_001_solution.py`
-6. `stage1_foundation/quizzes/unit_001_quiz.md`
+1. `stage1_foundation/01_daily_guides/day_001.md`
+2. `stage1_foundation/02_units/unit_001.md`
+3. `stage1_foundation/03_workbooks/unit_001_workbook.md`
+4. `stage1_foundation/04_code_templates/unit_001_template.py`
+5. `stage1_foundation/05_code_solutions/unit_001_solution.py`
+6. `stage1_foundation/06_quizzes/unit_001_quiz.md`
 7. `study_logs/day001.md`
 8. `学习进度总看板.md`
 
@@ -40,12 +40,12 @@
 ├── 学习进度总看板.md
 ├── 编程英语同步学习/
 ├── stage1_foundation/
-│   ├── daily_guides/      # Day 001-010，学习日入口
-│   ├── units/             # 单元讲义，保留单元内 10 个学习步骤
-│   ├── workbooks/
-│   ├── code_templates/
-│   ├── code_solutions/
-│   └── quizzes/
+│   ├── 01_daily_guides/      # Day 001-010，学习日入口
+│   ├── 02_units/             # 单元讲义，保留单元内 10 个学习步骤
+│   ├── 03_workbooks/
+│   ├── 04_code_templates/
+│   ├── 05_code_solutions/
+│   └── 06_quizzes/
 ├── stage2_growth/         # Day 011-030
 ├── stage3_advanced/       # Day 031-060
 ├── stage4_expert/         # Day 061-085
@@ -58,12 +58,12 @@
 
 以后统一按这一条主线：
 
-1. 先开 `daily_guides/day_XXX.md`
-2. 再看 `units/unit_XXX.md`
-3. 再做 `workbooks/unit_XXX_workbook.md`
-4. 然后完成 `code_templates/`
-5. 卡住时再看 `code_solutions/`
-6. 最后做 `quizzes/`
+1. 先开 `01_daily_guides/day_XXX.md`
+2. 再看 `02_units/unit_XXX.md`
+3. 再做 `03_workbooks/unit_XXX_workbook.md`
+4. 然后完成 `04_code_templates/`
+5. 卡住时再看 `05_code_solutions/`
+6. 最后做 `06_quizzes/`
 7. 写 `study_logs/dayXXX.md`
 8. 在 `学习进度总看板.md` 打勾
 
@@ -85,7 +85,7 @@
 
 如果你今天只想开始，不想看太远，直接打开：
 
-- `stage1_foundation/daily_guides/day_001.md`
+- `stage1_foundation/01_daily_guides/day_001.md`
 
 ## 同步到 GitHub
 
@@ -100,3 +100,6 @@ git push
 ```bash
 python tools/repo_audit.py
 ```
+
+
+

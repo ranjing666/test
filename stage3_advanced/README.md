@@ -13,12 +13,12 @@
 
 固定按这个顺序：
 
-1. `daily_guides/day_031.md`
-2. `units/unit_031.md`
-3. `workbooks/unit_031_workbook.md`
-4. `code_templates/unit_031_template.md`
-5. `code_solutions/unit_031_solution.md`
-6. `quizzes/unit_031_quiz.md`
+1. `01_daily_guides/day_031.md`
+2. `02_units/unit_031.md`
+3. `03_workbooks/unit_031_workbook.md`
+4. `04_code_templates/unit_031_template.md`
+5. `05_code_solutions/unit_031_solution.md`
+6. `06_quizzes/unit_031_quiz.md`
 7. `study_logs/day031.md`
 8. `学习进度总看板.md`
 9. `编程英语同步学习/100天编程英语路线.md` 对应的 Day 031
@@ -31,13 +31,13 @@
 
 ## 资料入口
 
-- 学习日目录：`daily_guides/README.md`
-- 单元讲义目录：`units/README.md`
-- 工作簿目录：`workbooks/README.md`
-- 起步模板目录：`code_templates/README.md`
-- 参考答案目录：`code_solutions/README.md`
-- 小测目录：`quizzes/README.md`
-- 项目包目录：`project_packs/README.md`
+- 学习日目录：`01_daily_guides/README.md`
+- 单元讲义目录：`02_units/README.md`
+- 工作簿目录：`03_workbooks/README.md`
+- 起步模板目录：`04_code_templates/README.md`
+- 参考答案目录：`05_code_solutions/README.md`
+- 小测目录：`06_quizzes/README.md`
+- 项目包目录：`07_project_packs/README.md`
 - 配套英语目录：`../编程英语同步学习/README.md`
 - 总导航：`../学习顺序总导航.md`
 
@@ -45,4 +45,7 @@
 
 这一阶段现在已经补上了按单元展开的详细讲义。
 本阶段对应单元范围：`unit_031` 到 `unit_060`。
-详细目录在：`units/README.md`
+详细目录在：`02_units/README.md`
+
+
+
