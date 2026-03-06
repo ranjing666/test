@@ -10,6 +10,9 @@ TRACKER_FILE = "学习进度总看板.md"
 PROJECT_GUIDE_FILE = "项目包使用指南.md"
 PROJECT_TRACKER_FILE = "项目包进度看板.md"
 GITHUB_TUTORIAL_FILE = "GitHub上传教程.md"
+ENGLISH_TRACK_DIR = "编程英语同步学习"
+ENGLISH_ROUTE_FILE = "100天编程英语路线.md"
+ENGLISH_README_FILE = "README.md"
 
 
 STAGES = [
@@ -156,6 +159,27 @@ def entry_filename_check() -> list[str]:
     return issues
 
 
+def english_track_check() -> list[str]:
+    track_dir = ROOT / ENGLISH_TRACK_DIR
+    required = [
+        track_dir / ENGLISH_README_FILE,
+        track_dir / ENGLISH_ROUTE_FILE,
+        track_dir / "高频编程英语词块.md",
+        track_dir / "每日英语练习模板.md",
+        track_dir / "英语输出句型模板.md",
+        track_dir / "阶段1_基础操作英语.md",
+        track_dir / "阶段2_项目起步英语.md",
+        track_dir / "阶段3_后端算法英语.md",
+        track_dir / "阶段4_工程化英语.md",
+        track_dir / "阶段5_表达求职英语.md",
+    ]
+    issues: list[str] = []
+    for path in required:
+        if not path.exists():
+            issues.append(f"missing english track file: {path.relative_to(ROOT)}")
+    return issues
+
+
 def placeholder_example_check() -> list[str]:
     generic_patterns = [
         "print('Unit ",
@@ -293,6 +317,15 @@ def main() -> None:
     if legacy_issues:
         failed = True
         for item in legacy_issues:
+            print(item)
+    else:
+        print("ok")
+
+    print_section("english_track")
+    english_issues = english_track_check()
+    if english_issues:
+        failed = True
+        for item in english_issues:
             print(item)
     else:
         print("ok")

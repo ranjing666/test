@@ -5,6 +5,8 @@ from generate_1000_day_plan import PHASES, UNITS
 START_GUIDE_FILE = "从这里开始.md"
 MASTER_PLAN_FILE = "100天学习总计划.md"
 TRACKER_FILE = "学习进度总看板.md"
+ENGLISH_TRACK_DIR = "编程英语同步学习"
+ENGLISH_ROUTE_FILE = f"{ENGLISH_TRACK_DIR}/100天编程英语路线.md"
 
 
 STAGES = [
@@ -133,6 +135,7 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
             "## 今天要打开的资料",
             "",
             files_text,
+            f"- `{ENGLISH_ROUTE_FILE}`（找到对应 Day {unit_number:03d}）",
             "",
             "## 今天重点盯住什么",
             "",
@@ -382,6 +385,7 @@ def hundred_day_master_plan() -> str:
         "",
         "这是一套按 `100` 个学习日展开的总导航。",
         "规则很简单：`1 个单元 = 1 个学习日`。",
+        f"配套英语主线在：`{ENGLISH_ROUTE_FILE}`。",
         "",
         "## 这套 100 天怎么用",
         "",

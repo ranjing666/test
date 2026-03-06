@@ -21,6 +21,7 @@
 6. `quizzes/unit_086_quiz.md`
 7. `study_logs/day086.md`
 8. `学习进度总看板.md`
+9. `编程英语同步学习/100天编程英语路线.md` 对应的 Day 086
 
 ## 这一阶段的重点
 
@@ -37,6 +38,7 @@
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
 - 项目包目录：`project_packs/README.md`
+- 配套英语目录：`../编程英语同步学习/README.md`
 
 ## 新增详细教材入口
 

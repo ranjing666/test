@@ -21,6 +21,7 @@
 5. `code_solutions/unit_001_solution.py`
 6. `quizzes/unit_001_quiz.md`
 7. `study_logs/day001.md`
+8. `编程英语同步学习/100天编程英语路线.md` 对应的 Day 001
 
 ## 这一阶段的结构
 
@@ -36,6 +37,7 @@
 - 代码模板目录：`code_templates/README.md`
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
+- 配套英语目录：`../编程英语同步学习/README.md`
 
 ## 新增详细教材入口
 
