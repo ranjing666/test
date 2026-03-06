@@ -311,6 +311,24 @@ def daily_log_template() -> str:
     )
 
 
+def progress_rows(start: int, end: int) -> list[str]:
+    lines = [
+        "| 完成 | 学习日 | 主题 | 完成 | 学习日 | 主题 |",
+        "|------|--------|------|------|--------|------|",
+    ]
+    entries = [(unit_number, UNITS[unit_number - 1]["title"]) for unit_number in range(start, end + 1)]
+    for index in range(0, len(entries), 2):
+        left_number, left_title = entries[index]
+        if index + 1 < len(entries):
+            right_number, right_title = entries[index + 1]
+            lines.append(
+                f"| [ ] | Day {left_number:03d} | {left_title} | [ ] | Day {right_number:03d} | {right_title} |"
+            )
+        else:
+            lines.append(f"| [ ] | Day {left_number:03d} | {left_title} |  |  |  |")
+    return lines
+
+
 def learning_progress_tracker() -> str:
     lines = [
         "# 学习进度总看板",
@@ -324,9 +342,9 @@ def learning_progress_tracker() -> str:
     for stage_dir, stage_label, start, end in STAGES:
         lines.append(f"### {stage_label}")
         lines.append("")
-        for unit_number in range(start, end + 1):
-            unit = UNITS[unit_number - 1]
-            lines.append(f"- [ ] Day {unit_number:03d} / 单元 {unit_number:03d}：{unit['title']}")
+        lines.append(f"- 范围：`Day {start:03d}-{end:03d}`")
+        lines.append("")
+        lines.extend(progress_rows(start, end))
         lines.append("")
     lines.extend(
         [

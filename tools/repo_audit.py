@@ -14,6 +14,14 @@ STAGES = [
 ]
 
 
+def visible_markdown_files() -> list[Path]:
+    return [
+        path
+        for path in ROOT.rglob("*.md")
+        if "tools" not in path.parts and "__pycache__" not in path.parts
+    ]
+
+
 def markdown_link_check() -> list[str]:
     pattern = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
     missing: list[str] = []
@@ -62,6 +70,56 @@ def stage_dir_for_unit(unit_number: int) -> Path:
         if start <= unit_number <= end:
             return ROOT / stage_dir
     raise ValueError(unit_number)
+
+
+def legacy_visible_term_check() -> list[str]:
+    forbidden_terms = [
+        "旧版",
+        "旧计划",
+        "一千天",
+        "1000 天",
+        "1000-Day",
+        "压缩学习",
+        "压缩后的",
+        "压缩 Day 范围",
+        "原 10 天",
+    ]
+    issues: list[str] = []
+    for path in visible_markdown_files():
+        text = path.read_text(encoding="utf-8")
+        for term in forbidden_terms:
+            if term in text:
+                issues.append(f"{path.relative_to(ROOT)} contains legacy term: {term}")
+    return issues
+
+
+def unit_structure_check() -> list[str]:
+    issues: list[str] = []
+    heading_pattern = re.compile(r"^### Day \d{3}$", re.MULTILINE)
+    for path in ROOT.glob("stage*_*/units/unit_*.md"):
+        text = path.read_text(encoding="utf-8")
+        if "- 单元结构：10 个学习步骤" not in text:
+            issues.append(f"{path.relative_to(ROOT)} missing unit structure label")
+        if "## 10 个学习步骤" not in text:
+            issues.append(f"{path.relative_to(ROOT)} missing step section heading")
+        if "- 对应天数：Day " in text:
+            issues.append(f"{path.relative_to(ROOT)} contains legacy day-range label")
+        if heading_pattern.search(text):
+            issues.append(f"{path.relative_to(ROOT)} contains legacy day heading")
+    return issues
+
+
+def tracker_layout_check() -> list[str]:
+    path = ROOT / "LEARNING_PROGRESS_TRACKER.md"
+    if not path.exists():
+        return ["LEARNING_PROGRESS_TRACKER.md is missing"]
+    text = path.read_text(encoding="utf-8")
+    issues: list[str] = []
+    if "| 完成 | 学习日 | 主题 | 完成 | 学习日 | 主题 |" not in text:
+        issues.append("LEARNING_PROGRESS_TRACKER.md missing compact progress table")
+    if "- [ ] Day " in text:
+        issues.append("LEARNING_PROGRESS_TRACKER.md still contains old long checklist layout")
+    return issues
 
 
 def placeholder_example_check() -> list[str]:
@@ -187,11 +245,38 @@ def main() -> None:
         for item in mismatches:
             print(item)
 
+    print_section("legacy_visible_terms")
+    legacy_issues = legacy_visible_term_check()
+    if legacy_issues:
+        failed = True
+        for item in legacy_issues:
+            print(item)
+    else:
+        print("ok")
+
+    print_section("unit_structure")
+    structure_issues = unit_structure_check()
+    if structure_issues:
+        failed = True
+        for item in structure_issues:
+            print(item)
+    else:
+        print("ok")
+
     print_section("placeholder_examples")
     placeholder_issues = placeholder_example_check()
     if placeholder_issues:
         failed = True
         for item in placeholder_issues:
+            print(item)
+    else:
+        print("ok")
+
+    print_section("tracker_layout")
+    tracker_issues = tracker_layout_check()
+    if tracker_issues:
+        failed = True
+        for item in tracker_issues:
             print(item)
     else:
         print("ok")
