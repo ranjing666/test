@@ -197,6 +197,49 @@ def navigation_check() -> list[str]:
     return issues
 
 
+def core_sequence_check() -> list[str]:
+    ordered_tokens = [
+        "stage1_foundation/daily_guides/day_001.md",
+        "stage1_foundation/units/unit_001.md",
+        "stage1_foundation/workbooks/unit_001_workbook.md",
+        "stage1_foundation/code_templates/unit_001_template.py",
+        "stage1_foundation/code_solutions/unit_001_solution.py",
+        "stage1_foundation/quizzes/unit_001_quiz.md",
+        "study_logs/day001.md",
+        TRACKER_FILE,
+    ]
+    files_to_check = [
+        (ROOT / "README.md", "## 从哪里开始", "## 现在的仓库结构"),
+        (ROOT / START_GUIDE_FILE, "## 你现在只走这一条线", "## 如果你不想一下子看 100 天"),
+        (ROOT / LEARNING_NAV_FILE, "## 零基础默认顺序", "## 每天固定顺序"),
+        (ROOT / "stage1_foundation" / "README.md", "## 这一阶段怎么学", "## 这一阶段的结构"),
+        (ROOT / "stage1_foundation" / "daily_guides" / "day_001.md", "## 今天要打开的资料", "## 同步补充"),
+    ]
+    issues: list[str] = []
+    for path, start_marker, end_marker in files_to_check:
+        if not path.exists():
+            issues.append(f"missing core sequence file: {path.relative_to(ROOT)}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        start = text.find(start_marker)
+        end = text.find(end_marker, start + len(start_marker))
+        if start == -1 or end == -1:
+            issues.append(f"{path.relative_to(ROOT)} missing core sequence section markers")
+            continue
+        section_text = text[start:end]
+        positions: list[int] = []
+        for token in ordered_tokens:
+            position = section_text.find(token)
+            if position == -1:
+                issues.append(f"{path.relative_to(ROOT)} missing core sequence token: {token}")
+                break
+            positions.append(position)
+        else:
+            if positions != sorted(positions):
+                issues.append(f"{path.relative_to(ROOT)} has incorrect core sequence order")
+    return issues
+
+
 def placeholder_example_check() -> list[str]:
     generic_patterns = [
         "print('Unit ",
@@ -352,6 +395,15 @@ def main() -> None:
     if navigation_issues:
         failed = True
         for item in navigation_issues:
+            print(item)
+    else:
+        print("ok")
+
+    print_section("core_sequence")
+    core_sequence_issues = core_sequence_check()
+    if core_sequence_issues:
+        failed = True
+        for item in core_sequence_issues:
             print(item)
     else:
         print("ok")

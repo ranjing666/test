@@ -14,14 +14,16 @@
 
 固定按这个顺序：
 
-1. `daily_guides/day_001.md`
-2. `units/unit_001.md`
-3. `workbooks/unit_001_workbook.md`
-4. `code_templates/unit_001_template.py`
-5. `code_solutions/unit_001_solution.py`
-6. `quizzes/unit_001_quiz.md`
+1. `stage1_foundation/daily_guides/day_001.md`
+2. `stage1_foundation/units/unit_001.md`
+3. `stage1_foundation/workbooks/unit_001_workbook.md`
+4. `stage1_foundation/code_templates/unit_001_template.py`
+5. `stage1_foundation/code_solutions/unit_001_solution.py`
+6. `stage1_foundation/quizzes/unit_001_quiz.md`
 7. `study_logs/day001.md`
-8. `编程英语同步学习/100天编程英语路线.md` 对应的 Day 001
+8. `学习进度总看板.md`
+
+主线做完后，再补 `编程英语同步学习/100天编程英语路线.md` 对应的 Day 001。
 
 ## 这一阶段的结构
 

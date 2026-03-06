@@ -75,6 +75,21 @@ def material_paths(repo_root: Path, stage_dir: str, unit_number: int) -> dict[st
     }
 
 
+def core_material_paths(repo_root: Path, stage_dir: str, unit_number: int) -> list[str]:
+    files = material_paths(repo_root, stage_dir, unit_number)
+    ordered = [
+        f"{stage_dir}/daily_guides/day_{unit_number:03d}.md",
+        files["unit"],
+        files["workbook"],
+        files["template"],
+        files["solution"],
+        files["quiz"],
+        f"study_logs/day{unit_number:03d}.md",
+        TRACKER_FILE,
+    ]
+    return [path for path in ordered if path]
+
+
 def merged_steps(unit: dict[str, str]) -> list[str]:
     topic1, topic2, topic3, topic4 = unit["prog"]
     return [
@@ -119,20 +134,14 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
     unit = UNITS[unit_number - 1]
     stage_dir, stage_label, _, _ = stage_for_unit(unit_number)
     files = material_paths(repo_root, stage_dir, unit_number)
+    core_files = core_material_paths(repo_root, stage_dir, unit_number)
     steps = "\n".join(f"{idx}. {step}" for idx, step in enumerate(merged_steps(unit), start=1))
     words = ", ".join(words_of(unit))
-    file_lines = [f"- `{files['unit']}`"]
-    if files["workbook"]:
-        file_lines.append(f"- `{files['workbook']}`")
-    if files["template"]:
-        file_lines.append(f"- `{files['template']}`")
-    if files["solution"]:
-        file_lines.append(f"- `{files['solution']}`")
-    if files["quiz"]:
-        file_lines.append(f"- `{files['quiz']}`")
+    core_files_text = "\n".join(f"- `{path}`" for path in core_files)
+    extra_lines = [f"- `{ENGLISH_ROUTE_FILE}`（找到对应 Day {unit_number:03d}）"]
     if files["project_pack"]:
-        file_lines.append(f"- `{files['project_pack']}`")
-    files_text = "\n".join(file_lines)
+        extra_lines.append(f"- `{files['project_pack']}`（项目型单元再打开）")
+    extra_text = "\n".join(extra_lines)
     project_pack_tip = (
         f"- 如果你已经走到项目实现阶段，也打开 `{files['project_pack']}`。"
         if files["project_pack"]
@@ -160,8 +169,11 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
             "",
             "## 今天要打开的资料",
             "",
-            files_text,
-            f"- `{ENGLISH_ROUTE_FILE}`（找到对应 Day {unit_number:03d}）",
+            core_files_text,
+            "",
+            "## 同步补充",
+            "",
+            extra_text,
             "",
             "## 今天重点盯住什么",
             "",
@@ -199,8 +211,13 @@ def stage_daily_readme(stage_label: str, start: int, end: int) -> str:
         "建议顺序：",
         "1. 先打开当前 `day_XXX.md`。",
         "2. 再进对应单元讲义 `units/unit_XXX.md`。",
-        "3. 再做工作簿、模板、答案和小测。",
-        "4. 最后写 `study_logs/dayXXX.md`。",
+        "3. 再做工作簿 `workbooks/unit_XXX_workbook.md`。",
+        "4. 再完成模板代码 `code_templates/`。",
+        "5. 卡住时再对照 `code_solutions/`。",
+        "6. 再做 `quizzes/`。",
+        "7. 再写 `study_logs/dayXXX.md`。",
+        f"8. 最后回到 `{TRACKER_FILE}` 打勾。",
+        f"主线做完后，再补 `{ENGLISH_ROUTE_FILE}` 对应的当天英语任务。",
         "",
         "## 目录",
         "",
@@ -421,8 +438,12 @@ def hundred_day_master_plan() -> str:
         "",
         "1. 每次先打开对应阶段的 `daily_guides/day_XXX.md`。",
         "2. 再进入 `units/unit_XXX.md` 看完整讲义。",
-        "3. 再做工作簿、代码模板、参考答案和小测。",
-        "4. 最后写 `study_logs/dayXXX.md`。",
+        "3. 再做 `workbooks/unit_XXX_workbook.md`。",
+        "4. 再做 `code_templates/`，卡住时对照 `code_solutions/`。",
+        "5. 再做 `quizzes/`。",
+        "6. 再写 `study_logs/dayXXX.md`。",
+        f"7. 最后在 `{TRACKER_FILE}` 打勾。",
+        f"8. 核心顺序完成后，再补 `{ENGLISH_ROUTE_FILE}` 对应的当天英语任务。",
         "",
         "## 阶段总览",
         "",
@@ -460,26 +481,25 @@ def learning_navigation() -> str:
         "",
         "## 零基础默认顺序",
         "",
-        f"1. 先看 `{START_GUIDE_FILE}`。",
-        f"2. 再看 `{MASTER_PLAN_FILE}`。",
-        "3. 再打开当天 `daily_guides/day_XXX.md`。",
-        "4. 再进当天 `units/unit_XXX.md`。",
-        "5. 再做 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`。",
-        "6. 写 `study_logs/dayXXX.md`。",
-        f"7. 在 `{TRACKER_FILE}` 打勾。",
-        f"8. 最后补 `{ENGLISH_ROUTE_FILE}` 对应的当天英语任务。",
+        "1. `stage1_foundation/daily_guides/day_001.md`",
+        "2. `stage1_foundation/units/unit_001.md`",
+        "3. `stage1_foundation/workbooks/unit_001_workbook.md`",
+        "4. `stage1_foundation/code_templates/unit_001_template.py`",
+        "5. `stage1_foundation/code_solutions/unit_001_solution.py`",
+        "6. `stage1_foundation/quizzes/unit_001_quiz.md`",
+        "7. `study_logs/day001.md`",
+        f"8. `{TRACKER_FILE}`",
         "",
         "## 每天固定顺序",
         "",
-        "1. 学习日入口",
-        "2. 单元讲义",
-        "3. 工作簿",
-        "4. 模板代码",
-        "5. 参考答案",
-        "6. 小测",
-        "7. 学习日志",
-        "8. 进度打勾",
-        "9. 英语同步练习",
+        "1. `daily_guides/day_XXX.md`",
+        "2. `units/unit_XXX.md`",
+        "3. `workbooks/unit_XXX_workbook.md`",
+        "4. `code_templates/`",
+        "5. `code_solutions/`",
+        "6. `quizzes/`",
+        "7. `study_logs/dayXXX.md`",
+        f"8. `{TRACKER_FILE}`",
         "",
         "## 阶段导航",
         "",
@@ -500,7 +520,9 @@ def learning_navigation() -> str:
             "## 特殊资料什么时候用",
             "",
             "- `project_packs/`：里程碑项目单元再打开，不是每一天都要先看。",
-            f"- `{ENGLISH_ROUTE_FILE}`：每天都用，但只做对应 Day。",
+            f"- `{START_GUIDE_FILE}`：刚进仓库时先看一次，用来知道整体入口。",
+            f"- `{MASTER_PLAN_FILE}`：想看 100 天全貌时再打开。",
+            f"- `{ENGLISH_ROUTE_FILE}`：核心顺序做完后，再补对应 Day。",
             "- `study_logs/`：每天都写，不要攒着。",
             f"- `{TRACKER_FILE}`：每天完成后再打勾。",
             "",

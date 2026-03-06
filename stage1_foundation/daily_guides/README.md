@@ -9,8 +9,13 @@
 建议顺序：
 1. 先打开当前 `day_XXX.md`。
 2. 再进对应单元讲义 `units/unit_XXX.md`。
-3. 再做工作簿、模板、答案和小测。
-4. 最后写 `study_logs/dayXXX.md`。
+3. 再做工作簿 `workbooks/unit_XXX_workbook.md`。
+4. 再完成模板代码 `code_templates/`。
+5. 卡住时再对照 `code_solutions/`。
+6. 再做 `quizzes/`。
+7. 再写 `study_logs/dayXXX.md`。
+8. 最后回到 `学习进度总看板.md` 打勾。
+主线做完后，再补 `编程英语同步学习/100天编程英语路线.md` 对应的当天英语任务。
 
 ## 目录
 

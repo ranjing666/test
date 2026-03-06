@@ -9,20 +9,23 @@
 
 ## 从哪里开始
 
-如果你现在是零基础，直接按这个顺序走：
+如果你现在就开始学，主线按这个顺序走：
 
-1. `从这里开始.md`
-2. `学习顺序总导航.md`
-3. `100天学习总计划.md`
-4. `stage1_foundation/daily_guides/day_001.md`
-5. `stage1_foundation/units/unit_001.md`
-6. `stage1_foundation/workbooks/unit_001_workbook.md`
-7. `stage1_foundation/code_templates/unit_001_template.py`
-8. `stage1_foundation/code_solutions/unit_001_solution.py`
-9. `stage1_foundation/quizzes/unit_001_quiz.md`
-10. `study_logs/day001.md`
-11. `学习进度总看板.md`
-12. `编程英语同步学习/100天编程英语路线.md`
+1. `stage1_foundation/daily_guides/day_001.md`
+2. `stage1_foundation/units/unit_001.md`
+3. `stage1_foundation/workbooks/unit_001_workbook.md`
+4. `stage1_foundation/code_templates/unit_001_template.py`
+5. `stage1_foundation/code_solutions/unit_001_solution.py`
+6. `stage1_foundation/quizzes/unit_001_quiz.md`
+7. `study_logs/day001.md`
+8. `学习进度总看板.md`
+
+补充导航和总览放在这里：
+
+- `从这里开始.md`
+- `学习顺序总导航.md`
+- `100天学习总计划.md`
+- `编程英语同步学习/100天编程英语路线.md`
 
 ## 现在的仓库结构
 
@@ -63,7 +66,8 @@
 6. 最后做 `quizzes/`
 7. 写 `study_logs/dayXXX.md`
 8. 在 `学习进度总看板.md` 打勾
-9. 再补 `编程英语同步学习/100天编程英语路线.md` 里的当天英语任务
+
+主线完成后，再补 `编程英语同步学习/100天编程英语路线.md` 里的当天英语任务。
 
 ## 100 天学习路线
 
