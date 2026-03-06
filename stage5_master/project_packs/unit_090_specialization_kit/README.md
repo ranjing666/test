@@ -19,6 +19,8 @@
 - `milestone_plan.md`：专项项目里程碑模板
 - `deliverable_checklist.md`：交付物检查清单
 - `progress_board.md`：执行过程中的周进度看板
+- `acceptance_rubric.md`：当前单元完成标准
+- `next_round_roadmap.md`：下一轮提升路线
 
 ## 推荐用法
 

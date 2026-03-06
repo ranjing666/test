@@ -21,6 +21,8 @@
 - `frontend/styles.css`：前端样式
 - `manual_test_checklist.md`：手动测试清单
 - `troubleshooting.md`：常见问题排查
+- `acceptance_rubric.md`：当前单元完成标准
+- `extension_roadmap.md`：后续升级路线
 
 ## 如何运行
 

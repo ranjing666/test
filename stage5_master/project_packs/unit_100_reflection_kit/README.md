@@ -22,6 +22,8 @@
 - `teaching_notes_template.md`：以教促学模板
 - `future_roadmap_template.md`：下一阶段路线模板
 - `portfolio_summary_template.md`：1000 天成果概览模板
+- `acceptance_rubric.md`：当前单元完成标准
+- `next_round_roadmap.md`：下一轮提升路线
 
 ## 推荐用法
 

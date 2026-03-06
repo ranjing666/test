@@ -49,7 +49,8 @@
 3. 按运行步骤先跑通最小版本。
 4. 再看 `manual_test_checklist.md`，确认核心功能都通了。
 5. 如果卡住，再查 `troubleshooting.md`。
-6. 最后才开始自己扩展功能。
+6. 再看 `acceptance_rubric.md`，确认当前版本算不算达标。
+7. 最后参考 `extension_roadmap.md` 或 `next_round_roadmap.md` 决定下一轮升级。
 
 ## 如果你是零基础，最重要的原则
 
@@ -121,6 +122,11 @@
 - 你能解释它每一层在干什么
 - 你能改 1 到 2 个小地方而不崩
 - 你能写一段自己的总结
+
+更严格一点时，还应该对照：
+
+- `acceptance_rubric.md`
+- `manual_test_checklist.md`
 
 ## 学完后要做什么
 
