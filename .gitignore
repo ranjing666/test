@@ -23,3 +23,10 @@ __pycache__/
 learning_tasks.json
 blog.db
 .pytest_cache/
+
+# Common local environments and frontend outputs
+.venv/
+venv/
+node_modules/
+dist/
+coverage/

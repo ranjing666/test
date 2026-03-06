@@ -44,28 +44,27 @@
 ### 例子 1
 
 ```python
-def find_max(numbers):
-    current_max = numbers[0]
-    for number in numbers[1:]:
-        if number > current_max:
-            current_max = number
-    return current_max
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/api/status")
+def status():
+    return {"status": "ok", "service": "demo"}
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-def is_valid(items):
-    stack = []
-    pairs = {')': '(', ']': '[', '}': '{'}
-    for item in items:
-        if item in '([{':
-            stack.append(item)
-        elif not stack or stack.pop() != pairs[item]:
-            return False
-    return not stack
+```javascript
+async function loadStatus() {
+  const response = await fetch("http://127.0.0.1:8000/api/status");
+  const data = await response.json();
+  console.log(data.status);
+}
+
+loadStatus();
 ```
 
 先抄一遍，再改一遍，再解释一遍。

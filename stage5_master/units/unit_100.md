@@ -43,29 +43,24 @@
 
 ### 例子 1
 
-```python
-def find_max(numbers):
-    current_max = numbers[0]
-    for number in numbers[1:]:
-        if number > current_max:
-            current_max = number
-    return current_max
+```markdown
+## My 1000-Day Summary
+
+- Start point: complete beginner
+- Biggest progress: I can build and explain small projects
+- Next goal: ship one stronger specialization project
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-def is_valid(items):
-    stack = []
-    pairs = {')': '(', ']': '[', '}': '{'}
-    for item in items:
-        if item in '([{':
-            stack.append(item)
-        elif not stack or stack.pop() != pairs[item]:
-            return False
-    return not stack
+```markdown
+## Teach One Concept
+
+- Concept: API
+- Plain explanation: an API is a rule for how two programs talk
+- Small example: the frontend asks for JSON, the backend sends JSON back
 ```
 
 先抄一遍，再改一遍，再解释一遍。

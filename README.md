@@ -51,7 +51,7 @@
 ├── stage4_expert/                 # Day 601-850 的详细单元讲义
 ├── stage5_master/                 # Day 851-1000 的详细单元讲义
 ├── study_logs/                    # 每日记录、每周复盘模板
-└── tools/                         # 课程维护脚本，学习时可以忽略
+└── tools/                         # 课程维护与仓库审计脚本，学习时可以忽略
 ```
 
 ## 资料存放规则
@@ -137,3 +137,11 @@ git push
 - 顶层零散练习脚本
 
 后续正式教学只沿着 `stage1_foundation/` 到 `stage5_master/`、`plan_1000_days/`、`study_logs/` 继续维护。
+
+## 仓库自检
+
+如果你想快速检查仓库结构、Markdown 链接和 Python 语法，可以执行：
+
+```bash
+python tools/repo_audit.py
+```

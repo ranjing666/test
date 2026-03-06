@@ -43,24 +43,26 @@
 
 ### 例子 1
 
-```python
-import pandas as pd
-
-df = pd.DataFrame({'name': ['Li Hua', 'Amy'], 'score': [95, 88]})
-print(df)
-print(df['score'].mean())
+```html
+<section class="project-card">
+  <h2>Study Tracker</h2>
+  <p>Track your daily coding and English practice.</p>
+  <button>View details</button>
+</section>
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-import matplotlib.pyplot as plt
+```javascript
+const projects = [
+  { title: "Study Tracker", tag: "Dashboard" },
+  { title: "Portfolio Site", tag: "UI" }
+];
 
-plt.bar(['A', 'B', 'C'], [10, 15, 8])
-plt.title('Simple chart')
-plt.show()
+const dashboardProjects = projects.filter((project) => project.tag === "Dashboard");
+console.log(dashboardProjects);
 ```
 
 先抄一遍，再改一遍，再解释一遍。
