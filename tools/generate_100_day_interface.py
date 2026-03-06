@@ -2,6 +2,10 @@ from pathlib import Path
 
 from generate_1000_day_plan import PHASES, UNITS
 
+START_GUIDE_FILE = "从这里开始.md"
+MASTER_PLAN_FILE = "100天学习总计划.md"
+TRACKER_FILE = "学习进度总看板.md"
+
 
 STAGES = [
     ("stage1_foundation", "第 1 阶段：入门基础", 1, 10),
@@ -146,7 +150,7 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
             "## 收尾动作",
             "",
             f"- 去 `study_logs/day{unit_number:03d}.md` 写今天的学习记录。",
-            "- 在 `LEARNING_PROGRESS_TRACKER.md` 给这一格打勾。",
+            f"- 在 `{TRACKER_FILE}` 给这一格打勾。",
             "- 执行一次 Git 提交，让学习痕迹留在仓库里。",
             "",
         ]
@@ -456,8 +460,8 @@ def main() -> None:
     repo_root = Path(__file__).resolve().parents[1]
     write_stage_daily_guides(repo_root)
     write_study_logs(repo_root)
-    (repo_root / "100_DAYS_MASTER_PLAN.md").write_text(hundred_day_master_plan(), encoding="utf-8")
-    (repo_root / "LEARNING_PROGRESS_TRACKER.md").write_text(learning_progress_tracker(), encoding="utf-8")
+    (repo_root / MASTER_PLAN_FILE).write_text(hundred_day_master_plan(), encoding="utf-8")
+    (repo_root / TRACKER_FILE).write_text(learning_progress_tracker(), encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -11,8 +11,8 @@
 
 如果你现在是零基础，直接按这个顺序走：
 
-1. `START_HERE.md`
-2. `100_DAYS_MASTER_PLAN.md`
+1. `从这里开始.md`
+2. `100天学习总计划.md`
 3. `stage1_foundation/daily_guides/day_001.md`
 4. `stage1_foundation/units/unit_001.md`
 5. `stage1_foundation/workbooks/unit_001_workbook.md`
@@ -20,18 +20,18 @@
 7. `stage1_foundation/code_solutions/unit_001_solution.py`
 8. `stage1_foundation/quizzes/unit_001_quiz.md`
 9. `study_logs/day001.md`
-10. `LEARNING_PROGRESS_TRACKER.md`
+10. `学习进度总看板.md`
 
 ## 现在的仓库结构
 
 ```text
 .
 ├── README.md
-├── START_HERE.md
-├── 100_DAYS_MASTER_PLAN.md
-├── PROJECT_PACKS_GUIDE.md
-├── PROJECT_PACKS_PROGRESS_TRACKER.md
-├── LEARNING_PROGRESS_TRACKER.md
+├── 从这里开始.md
+├── 100天学习总计划.md
+├── 项目包使用指南.md
+├── 项目包进度看板.md
+├── 学习进度总看板.md
 ├── stage1_foundation/
 │   ├── daily_guides/      # Day 001-010，学习日入口
 │   ├── units/             # 单元讲义，保留单元内 10 个学习步骤
@@ -58,7 +58,7 @@
 5. 卡住时再看 `code_solutions/`
 6. 最后做 `quizzes/`
 7. 写 `study_logs/dayXXX.md`
-8. 在 `LEARNING_PROGRESS_TRACKER.md` 打勾
+8. 在 `学习进度总看板.md` 打勾
 
 ## 100 天学习路线
 
@@ -70,7 +70,7 @@
 
 如果你想看完整导航，打开：
 
-- `100_DAYS_MASTER_PLAN.md`
+- `100天学习总计划.md`
 
 如果你今天只想开始，不想看太远，直接打开：
 

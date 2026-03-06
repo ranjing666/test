@@ -20,7 +20,7 @@
 5. `code_solutions/unit_031_solution.md`
 6. `quizzes/unit_031_quiz.md`
 7. `study_logs/day031.md`
-8. `LEARNING_PROGRESS_TRACKER.md`
+8. `学习进度总看板.md`
 
 ## 这一阶段的重点
 

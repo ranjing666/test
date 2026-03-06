@@ -4,6 +4,13 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 
+START_GUIDE_FILE = "从这里开始.md"
+MASTER_PLAN_FILE = "100天学习总计划.md"
+TRACKER_FILE = "学习进度总看板.md"
+PROJECT_GUIDE_FILE = "项目包使用指南.md"
+PROJECT_TRACKER_FILE = "项目包进度看板.md"
+GITHUB_TUTORIAL_FILE = "GitHub上传教程.md"
+
 
 STAGES = [
     ("stage1_foundation", 1, 10),
@@ -110,15 +117,42 @@ def unit_structure_check() -> list[str]:
 
 
 def tracker_layout_check() -> list[str]:
-    path = ROOT / "LEARNING_PROGRESS_TRACKER.md"
+    path = ROOT / TRACKER_FILE
     if not path.exists():
-        return ["LEARNING_PROGRESS_TRACKER.md is missing"]
+        return [f"{TRACKER_FILE} is missing"]
     text = path.read_text(encoding="utf-8")
     issues: list[str] = []
     if "| 完成 | 学习日 | 主题 | 完成 | 学习日 | 主题 |" not in text:
-        issues.append("LEARNING_PROGRESS_TRACKER.md missing compact progress table")
+        issues.append(f"{TRACKER_FILE} missing compact progress table")
     if "- [ ] Day " in text:
-        issues.append("LEARNING_PROGRESS_TRACKER.md still contains old long checklist layout")
+        issues.append(f"{TRACKER_FILE} still contains old long checklist layout")
+    return issues
+
+
+def entry_filename_check() -> list[str]:
+    required = [
+        START_GUIDE_FILE,
+        MASTER_PLAN_FILE,
+        TRACKER_FILE,
+        PROJECT_GUIDE_FILE,
+        PROJECT_TRACKER_FILE,
+        GITHUB_TUTORIAL_FILE,
+    ]
+    legacy = [
+        "START_HERE.md",
+        "100_DAYS_MASTER_PLAN.md",
+        "LEARNING_PROGRESS_TRACKER.md",
+        "PROJECT_PACKS_GUIDE.md",
+        "PROJECT_PACKS_PROGRESS_TRACKER.md",
+        "GITHUB_UPLOAD_TUTORIAL.md",
+    ]
+    issues: list[str] = []
+    for name in required:
+        if not (ROOT / name).exists():
+            issues.append(f"missing entry file: {name}")
+    for name in legacy:
+        if (ROOT / name).exists():
+            issues.append(f"legacy entry file still exists: {name}")
     return issues
 
 
@@ -244,6 +278,15 @@ def main() -> None:
         failed = True
         for item in mismatches:
             print(item)
+
+    print_section("entry_filenames")
+    entry_issues = entry_filename_check()
+    if entry_issues:
+        failed = True
+        for item in entry_issues:
+            print(item)
+    else:
+        print("ok")
 
     print_section("legacy_visible_terms")
     legacy_issues = legacy_visible_term_check()

@@ -21,7 +21,7 @@
 5. `code_solutions/unit_011_solution.md`
 6. `quizzes/unit_011_quiz.md`
 7. `study_logs/day011.md`
-8. `LEARNING_PROGRESS_TRACKER.md`
+8. `学习进度总看板.md`
 
 ## 这一阶段的重点
 
