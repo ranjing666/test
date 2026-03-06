@@ -125,7 +125,7 @@ UNITS = [
     u("毕业大项目开发 Sprint 1", "项目骨架", "核心数据模型", "主要接口或页面", "第一个可运行版本", "build, sprint, backend, frontend, model, version", "I can turn a plan into a working first version.", "完成毕业项目第一阶段开发"),
     u("毕业大项目开发 Sprint 2", "核心流程完善", "测试和修复", "体验优化", "部署准备", "feature, test, polish, deploy, refine, improve", "I can improve the project based on testing.", "完成毕业项目第二阶段开发"),
     u("毕业大项目发布与打磨", "上线部署", "使用文档", "演示视频", "Bug 修复和细节打磨", "release, guide, demo, bug, polish, launch", "A finished project needs docs and polishing.", "完成毕业项目发布版"),
-    u("最终复盘与以教促学", "知识地图", "教别人解释概念", "长期学习机制", "下一阶段路线", "reflect, teach, habit, roadmap, summary, future", "Teaching is a strong way to learn deeply.", "完成一份 1000 天总复盘和下一阶段计划"),
+    u("最终复盘与以教促学", "知识地图", "教别人解释概念", "长期学习机制", "下一阶段路线", "reflect, teach, habit, roadmap, summary, future", "Teaching is a strong way to learn deeply.", "完成一份总复盘和下一阶段计划"),
 ]
 
 

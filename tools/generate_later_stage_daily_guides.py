@@ -405,7 +405,7 @@ UNIT_HINT_OVERRIDES = {
         ],
     },
     100: {
-        "snippet": """## My 1000-Day Summary
+        "snippet": """## My Learning Summary
 
 - Start point: complete beginner
 - Biggest progress: I can build and explain small projects

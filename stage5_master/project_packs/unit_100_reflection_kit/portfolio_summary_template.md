@@ -1,6 +1,6 @@
 # Portfolio Summary Template
 
-## 1000-Day Summary
+## Learning Summary
 
 - Start point:
 - Current level:

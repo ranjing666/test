@@ -1,7 +1,6 @@
 # 第 5 阶段：大师输出
 
-- 压缩 Day 范围：`Day 086-100`
-- 对应旧计划：`旧 Day 851-1000`
+- 学习日范围：`Day 086-100`
 - 单元范围：`unit_086` 到 `unit_100`
 
 ## 这一阶段学什么
@@ -27,14 +26,20 @@
 
 - 输出、表达、交付本身就是能力
 - 主线成果先完整，再补美化
-- 每个压缩日都留下能展示的材料
+- 每个学习日都留下能展示的材料
 
 ## 资料入口
 
-- 压缩学习日目录：`daily_guides/README.md`
+- 学习日目录：`daily_guides/README.md`
 - 单元讲义目录：`units/README.md`
 - 工作簿目录：`workbooks/README.md`
 - 起步模板目录：`code_templates/README.md`
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
 - 项目包目录：`project_packs/README.md`
+
+## 新增详细教材入口
+
+这一阶段现在已经补上了按单元展开的详细讲义。
+本阶段对应单元范围：`unit_086` 到 `unit_100`。
+详细目录在：`units/README.md`

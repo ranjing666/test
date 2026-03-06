@@ -1,6 +1,6 @@
 # Unit 100 Project Pack: Reflection Kit
 
-这个项目包对应 [../../units/unit_100.md](../../units/unit_100.md) 的里程碑产出：`完成一份 1000 天总复盘和下一阶段计划`。
+这个项目包对应 [../../units/unit_100.md](../../units/unit_100.md) 的里程碑产出：`完成一份总复盘和下一阶段计划`。
 
 ## 这个包解决什么问题
 
@@ -9,7 +9,7 @@
 - 学过很多，但说不清自己到底会什么
 - 做过很多，但整理不成长期资产
 
-这个项目包就是帮你把 1000 天沉淀成：
+这个项目包就是帮你把当前积累沉淀成：
 
 - 一张知识地图
 - 一份可教别人的解释稿
@@ -21,7 +21,7 @@
 - `knowledge_map_template.md`：知识地图模板
 - `teaching_notes_template.md`：以教促学模板
 - `future_roadmap_template.md`：下一阶段路线模板
-- `portfolio_summary_template.md`：1000 天成果概览模板
+- `portfolio_summary_template.md`：成果概览模板
 - `acceptance_rubric.md`：当前单元完成标准
 - `next_round_roadmap.md`：下一轮提升路线
 

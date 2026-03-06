@@ -16,12 +16,6 @@ def words_of(unit):
     return [word.strip() for word in unit["words"].split(",") if word.strip()]
 
 
-def old_day_range(unit_number: int) -> tuple[int, int]:
-    start = (unit_number - 1) * 10 + 1
-    end = unit_number * 10
-    return start, end
-
-
 def stage_for_unit(unit_number: int):
     for stage_dir, stage_label, start, end in STAGES:
         if start <= unit_number <= end:
@@ -94,7 +88,6 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
     unit = UNITS[unit_number - 1]
     stage_dir, stage_label, _, _ = stage_for_unit(unit_number)
     files = material_paths(repo_root, stage_dir, unit_number)
-    old_start, old_end = old_day_range(unit_number)
     steps = "\n".join(f"{idx}. {step}" for idx, step in enumerate(merged_steps(unit), start=1))
     words = ", ".join(words_of(unit))
     file_lines = [f"- `{files['unit']}`"]
@@ -119,8 +112,6 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
         [
             f"# Day {unit_number:03d}：{unit['title']}",
             "",
-            "- 这是压缩后的学习日，不是旧版的“单日切片”。",
-            f"- 对应旧计划：Day {old_start:03d}-{old_end:03d}",
             f"- 对应单元：`unit_{unit_number:03d}`",
             f"- 所属阶段：{stage_label}",
             f"- 所属 100 天主题：{phase_for_unit(unit_number)}",
@@ -128,10 +119,10 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
             "",
             "## 这一天怎么学",
             "",
-            "这一份文件把原来连续 10 天的内容压成了 1 个学习入口。",
-            "如果一次做不完，不要硬扛，可以拆成 2 到 4 次完成，但入口只保留这一份。",
+            "这一份文件就是当前单元的学习入口。",
+            "如果一次做不完，可以拆成 2 到 4 次完成。",
             "",
-            "## 10 个合并步骤",
+            "## 10 个步骤",
             "",
             steps,
             "",
@@ -154,7 +145,7 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
             "",
             "## 收尾动作",
             "",
-            f"- 去 `study_logs/day{unit_number:03d}.md` 写压缩日学习记录。",
+            f"- 去 `study_logs/day{unit_number:03d}.md` 写今天的学习记录。",
             "- 在 `LEARNING_PROGRESS_TRACKER.md` 给这一格打勾。",
             "- 执行一次 Git 提交，让学习痕迹留在仓库里。",
             "",
@@ -164,10 +155,10 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
 
 def stage_daily_readme(stage_label: str, start: int, end: int) -> str:
     lines = [
-        f"# {stage_label} 压缩学习日目录",
+        f"# {stage_label} 学习日目录",
         "",
-        "这个目录已经从旧版 10 天一拆的结构，改成了 1 个单元 = 1 个学习日。",
-        "每个 `day_XXX.md` 都是原来连续 10 天资料的合并入口。",
+        "这个目录按单元整理。",
+        "每个 `day_XXX.md` 都是一个完整学习日的入口。",
         "",
         "建议顺序：",
         "1. 先打开当前 `day_XXX.md`。",
@@ -180,10 +171,7 @@ def stage_daily_readme(stage_label: str, start: int, end: int) -> str:
     ]
     for unit_number in range(start, end + 1):
         unit = UNITS[unit_number - 1]
-        old_start, old_end = old_day_range(unit_number)
-        lines.append(
-            f"- [Day {unit_number:03d}](day_{unit_number:03d}.md)：{unit['title']}（对应旧 Day {old_start:03d}-{old_end:03d}）"
-        )
+        lines.append(f"- [Day {unit_number:03d}](day_{unit_number:03d}.md)：{unit['title']}")
     lines.append("")
     return "\n".join(lines)
 
@@ -191,14 +179,12 @@ def stage_daily_readme(stage_label: str, start: int, end: int) -> str:
 def study_log_text(unit_number: int) -> str:
     unit = UNITS[unit_number - 1]
     stage_dir, stage_label, _, _ = stage_for_unit(unit_number)
-    old_start, old_end = old_day_range(unit_number)
     return "\n".join(
         [
             f"# Day {unit_number:03d} 学习记录",
             "",
             f"- 对应单元：`unit_{unit_number:03d}`",
             f"- 课程主题：{unit['title']}",
-            f"- 对应旧计划：Day {old_start:03d}-{old_end:03d}",
             f"- 所属阶段：{stage_label}",
             f"- 阶段目录：`{stage_dir}`",
             "",
@@ -250,12 +236,12 @@ def study_logs_readme() -> str:
         [
             "# 学习记录说明",
             "",
-            "这个目录现在也已经压成 `100` 份日志。",
-            "每一份 `dayXXX.md` 对应 1 个压缩学习日，也就是原来连续 10 天资料的合并记录位。",
+            "这个目录现在保留 `100` 份学习记录。",
+            "每一份 `dayXXX.md` 对应 1 个学习日。",
             "",
             "## 现在保留什么",
             "",
-            "- `day001.md` 到 `day100.md`：压缩后的 100 份学习记录",
+            "- `day001.md` 到 `day100.md`：100 份学习记录",
             "- `daily_log_template.md`：空白模板",
             "- `weekly_review_template.md`：每周复盘模板",
             "- `monthly_review_template.md`：每月复盘模板",
@@ -263,7 +249,7 @@ def study_logs_readme() -> str:
             "## 使用顺序",
             "",
             "1. 先打开阶段目录中的 `daily_guides/day_XXX.md`。",
-            "2. 完成这一份压缩学习日里的主要任务。",
+            "2. 完成这一份学习日里的主要任务。",
             "3. 再填写对应的 `study_logs/dayXXX.md`。",
             "",
             "## 为什么这样改",
@@ -279,7 +265,7 @@ def study_logs_readme() -> str:
 def daily_log_template() -> str:
     return "\n".join(
         [
-            "# 压缩学习日记录模板",
+            "# 学习日记录模板",
             "",
             "## 基本信息",
             "",
@@ -329,8 +315,8 @@ def learning_progress_tracker() -> str:
     lines = [
         "# 学习进度总看板",
         "",
-        "这个文件现在按 `100` 个压缩学习日来追踪。",
-        "每完成 1 个压缩学习日，就等于完成了 1 个单元，也等于收掉了旧版连续 10 天内容。",
+        "这个文件现在按 `100` 个学习日来追踪。",
+        "每完成 1 个学习日，就等于完成了 1 个单元。",
         "",
         "## 阶段总进度",
         "",
@@ -340,10 +326,7 @@ def learning_progress_tracker() -> str:
         lines.append("")
         for unit_number in range(start, end + 1):
             unit = UNITS[unit_number - 1]
-            old_start, old_end = old_day_range(unit_number)
-            lines.append(
-                f"- [ ] Day {unit_number:03d} / 单元 {unit_number:03d}：{unit['title']}（旧 Day {old_start:03d}-{old_end:03d}）"
-            )
+            lines.append(f"- [ ] Day {unit_number:03d} / 单元 {unit_number:03d}：{unit['title']}")
         lines.append("")
     lines.extend(
         [
@@ -373,10 +356,10 @@ def learning_progress_tracker() -> str:
 
 def hundred_day_master_plan() -> str:
     lines = [
-        "# 100 天压缩学习总计划",
+        "# 100 天学习总计划",
         "",
-        "这一版是把原来的 `1000` 天逐日入口压成 `100` 个学习日后的总导航。",
-        "规则很简单：`1 个单元 = 1 个压缩学习日 = 原来连续 10 天资料的合并入口`。",
+        "这是一套按 `100` 个学习日展开的总导航。",
+        "规则很简单：`1 个单元 = 1 个学习日`。",
         "",
         "## 这套 100 天怎么用",
         "",
@@ -387,13 +370,13 @@ def hundred_day_master_plan() -> str:
         "",
         "## 阶段总览",
         "",
-        "| 阶段 | 压缩 Day 范围 | 对应旧计划 | 重点 |",
-        "|------|---------------|------------|------|",
-        "| 第 1 阶段：入门基础 | Day 001-010 | 旧 Day 001-100 | Python 最基础动作与小程序 |",
-        "| 第 2 阶段：成长进阶 | Day 011-030 | 旧 Day 101-300 | Python 进阶、Git、前端基础、Flask 入口 |",
-        "| 第 3 阶段：高级进阶 | Day 031-060 | 旧 Day 301-600 | 后端、算法、数据分析与自动化 |",
-        "| 第 4 阶段：专家深化 | Day 061-085 | 旧 Day 601-850 | React、FastAPI、部署与工程质量 |",
-        "| 第 5 阶段：大师输出 | Day 086-100 | 旧 Day 851-1000 | 系统、表达、求职、毕业项目 |",
+        "| 阶段 | Day 范围 | 重点 |",
+        "|------|----------|------|",
+        "| 第 1 阶段：入门基础 | Day 001-010 | Python 最基础动作与小程序 |",
+        "| 第 2 阶段：成长进阶 | Day 011-030 | Python 进阶、Git、前端基础、Flask 入口 |",
+        "| 第 3 阶段：高级进阶 | Day 031-060 | 后端、算法、数据分析与自动化 |",
+        "| 第 4 阶段：专家深化 | Day 061-085 | React、FastAPI、部署与工程质量 |",
+        "| 第 5 阶段：大师输出 | Day 086-100 | 系统、表达、求职、毕业项目 |",
         "",
     ]
     for stage_dir, stage_label, start, end in STAGES:
@@ -401,11 +384,9 @@ def hundred_day_master_plan() -> str:
         lines.append("")
         for unit_number in range(start, end + 1):
             unit = UNITS[unit_number - 1]
-            old_start, old_end = old_day_range(unit_number)
             lines.extend(
                 [
                     f"### Day {unit_number:03d}：{unit['title']}",
-                    f"- 对应旧计划：Day {old_start:03d}-{old_end:03d}",
                     f"- 4 个核心点：{'；'.join(unit['prog'])}",
                     f"- 英语句子：`{unit['sentence']}`",
                     f"- 最终产出：{unit['output']}",

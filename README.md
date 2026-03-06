@@ -1,12 +1,11 @@
 # 英语 + 编程零基础学习仓库
 
-这个仓库现在已经把旧版 `1000` 天逐日入口，压成了 `100` 个学习日。
+这个仓库现在统一按 `100` 个学习日来组织。
 
 规则很简单：
 
-- `1 个单元 = 1 个压缩学习日`
-- `1 个压缩学习日 = 原来连续 10 天资料的合并入口`
-- 详细的 10 天拆分内容仍然保留在对应 `units/unit_XXX.md` 里
+- `1 个单元 = 1 个学习日`
+- 详细的学习步骤仍然保留在对应 `units/unit_XXX.md` 里
 
 ## 从哪里开始
 
@@ -34,8 +33,8 @@
 ├── PROJECT_PACKS_PROGRESS_TRACKER.md
 ├── LEARNING_PROGRESS_TRACKER.md
 ├── stage1_foundation/
-│   ├── daily_guides/      # Day 001-010，压缩后的学习日入口
-│   ├── units/             # 单元讲义，保留原 10 天详细拆分
+│   ├── daily_guides/      # Day 001-010，学习日入口
+│   ├── units/             # 单元讲义，保留单元内 10 个学习步骤
 │   ├── workbooks/
 │   ├── code_templates/
 │   ├── code_solutions/
@@ -44,7 +43,7 @@
 ├── stage3_advanced/       # Day 031-060
 ├── stage4_expert/         # Day 061-085
 ├── stage5_master/         # Day 086-100
-├── study_logs/            # Day 001-100 的压缩学习日志
+├── study_logs/            # Day 001-100 的学习日志
 └── tools/
 ```
 
@@ -61,7 +60,7 @@
 7. 写 `study_logs/dayXXX.md`
 8. 在 `LEARNING_PROGRESS_TRACKER.md` 打勾
 
-## 100 天压缩路线
+## 100 天学习路线
 
 - 第 1 阶段：Day 001-010
 - 第 2 阶段：Day 011-030

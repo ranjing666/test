@@ -13,6 +13,26 @@ STAGES = [
 
 
 EXAMPLE_OVERRIDES = {
+    33: [
+        ("python", "from flask import Flask, request, redirect, url_for\n\napp = Flask(__name__)\nTASKS = []\n\n@app.post('/tasks')\ndef create_task():\n    TASKS.append(request.form['title'])\n    return redirect(url_for('list_tasks'))"),
+        ("python", "@app.get('/tasks')\ndef list_tasks():\n    return {'items': TASKS}\n\n@app.post('/tasks/<int:index>/delete')\ndef delete_task(index):\n    TASKS.pop(index)\n    return {'ok': True}"),
+    ],
+    34: [
+        ("python", "from werkzeug.security import generate_password_hash, check_password_hash\n\npassword_hash = generate_password_hash('study123')\nprint(check_password_hash(password_hash, 'study123'))"),
+        ("python", "from flask import session\n\nsession['user_id'] = 1\nif 'user_id' in session:\n    print('logged in')"),
+    ],
+    37: [
+        ("python", "def add(a, b):\n    return a + b\n\ndef test_add():\n    assert add(2, 3) == 5"),
+        ("python", "import pytest\n\n@pytest.mark.parametrize('text, expected', [('hello', 5), ('', 0)])\ndef test_length(text, expected):\n    assert len(text) == expected"),
+    ],
+    38: [
+        ("python", "import os\n\napp_env = os.getenv('APP_ENV', 'development')\ndatabase_url = os.getenv('DATABASE_URL', 'sqlite:///local.db')\nprint(app_env)\nprint(database_url)"),
+        ("yaml", "services:\n  web:\n    build: .\n    environment:\n      APP_ENV: production\n      DATABASE_URL: ${DATABASE_URL}"),
+    ],
+    39: [
+        ("markdown", "## README\n\n- What this project does\n- How to run it\n- Example input and output\n- Common problems"),
+        ("markdown", "## Issue template\n\n- Problem\n- Expected result\n- Actual result\n- Steps to reproduce"),
+    ],
     20: [
         ("markdown", "## Learning Task\n\n- Title: Review Python lists\n- Priority: High\n- Status: Todo\n- Notes: Rewrite 3 examples by hand"),
         ("markdown", "## Feature list\n\n- Add task\n- Mark task done\n- Delete task\n- Save tasks to JSON"),
@@ -25,9 +45,61 @@ EXAMPLE_OVERRIDES = {
         ("markdown", "## Wrong answer review\n\n- Topic:\n- Mistake:\n- Fix:\n- Takeaway:"),
         ("markdown", "## English explanation\n\n- Problem:\n- Idea:\n- Why it works:"),
     ],
+    57: [
+        ("python", "from pathlib import Path\n\nfor path in Path('downloads').glob('*.txt'):\n    print(path.name)"),
+        ("python", "from pathlib import Path\n\nsource = Path('report draft.txt')\nsource.rename('report_draft.txt')"),
+    ],
+    61: [
+        ("json", "{\n  \"name\": \"frontend-demo\",\n  \"scripts\": {\n    \"dev\": \"vite\",\n    \"build\": \"vite build\"\n  }\n}"),
+        ("bash", "npm install\nnpm run dev\nnpm run build"),
+    ],
+    70: [
+        ("html", "<section class=\"app\">\n  <header>\n    <h1>Focus Board</h1>\n    <button>Add Card</button>\n  </header>\n  <main id=\"cards\"></main>\n</section>"),
+        ("javascript", "const cards = [{ title: 'Math' }, { title: 'English' }];\nconst root = document.querySelector('#cards');\nroot.innerHTML = cards.map(card => `<article>${card.title}</article>`).join('');"),
+    ],
+    75: [
+        ("python", "import asyncio\n\nasync def send_email():\n    await asyncio.sleep(1)\n    return 'sent'"),
+        ("python", "def should_retry(attempt, status_code):\n    return attempt < 3 and status_code >= 500"),
+    ],
     79: [
         ("markdown", "## Deploy checklist\n\n- Set `APP_ENV=production`\n- Add database URL\n- Add secret key\n- Confirm `/health` works"),
         ("yaml", "services:\n  web:\n    image: study-app:latest\n    env:\n      APP_ENV: production\n      DATABASE_URL: ${DATABASE_URL}"),
+    ],
+    80: [
+        ("python", "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get('/api/tasks')\ndef list_tasks():\n    return {'items': [{'id': 1, 'title': 'Read docs'}]}"),
+        ("javascript", "async function loadTasks() {\n  const response = await fetch('http://localhost:8000/api/tasks');\n  const data = await response.json();\n  console.log(data.items);\n}"),
+    ],
+    81: [
+        ("python", "def calculate_total(prices):\n    total = 0\n    for price in prices:\n        total += price\n    return total"),
+        ("python", "def format_student_report(name, score):\n    status = 'pass' if score >= 60 else 'fail'\n    return f'{name}: {score} ({status})'"),
+    ],
+    83: [
+        ("python", "import pytest\n\n@pytest.fixture\ndef sample_user():\n    return {'name': 'Li Hua', 'role': 'student'}"),
+        ("python", "def test_profile_name(sample_user):\n    assert sample_user['name'] == 'Li Hua'"),
+    ],
+    84: [
+        ("python", "from time import perf_counter\n\nstart = perf_counter()\n_ = sum(i * i for i in range(5000))\nend = perf_counter()\nprint(end - start)"),
+        ("python", "from functools import lru_cache\n\n@lru_cache\ndef slow_square(number):\n    return number * number"),
+    ],
+    85: [
+        ("python", "def retryable_send(attempt, status_code):\n    if attempt >= 3:\n        return 'stop'\n    if status_code >= 500:\n        return 'retry'\n    return 'success'"),
+        ("json", "{\n  \"job\": \"send_report\",\n  \"retry\": 2,\n  \"payload\": {\"user_id\": 1}\n}"),
+    ],
+    86: [
+        ("markdown", "## System sketch\n\n- Users send requests through an API gateway\n- App service handles business logic\n- Database stores core records\n- Cache speeds up hot queries"),
+        ("markdown", "## Capacity note\n\n- Daily users: 1000\n- Peak requests per second: 30\n- Main bottleneck: database reads"),
+    ],
+    87: [
+        ("json", "{\n  \"level\": \"info\",\n  \"event\": \"login_success\",\n  \"user_id\": 1,\n  \"request_id\": \"req-123\"\n}"),
+        ("python", "def should_alert(error_rate, latency_ms):\n    return error_rate > 0.05 or latency_ms > 800"),
+    ],
+    88: [
+        ("python", "def validate_username(username):\n    return username.isalnum() and 3 <= len(username) <= 20"),
+        ("python", "def can_access(user_role, resource_owner):\n    return user_role == 'admin' or resource_owner"),
+    ],
+    89: [
+        ("markdown", "## Contribution flow\n\n1. Read the issue\n2. Fork the repository\n3. Create a branch\n4. Open a pull request"),
+        ("bash", "git checkout -b fix/readme-link\ngit add README.md\ngit commit -m \"Fix broken README link\"\ngit push origin fix/readme-link"),
     ],
     90: [
         ("markdown", "## Specialization choice\n\n- Direction:\n- User:\n- Core problem:\n- Reason:"),
@@ -70,7 +142,7 @@ EXAMPLE_OVERRIDES = {
         ("markdown", "## Demo video outline\n\n- 10s intro\n- 30s flow\n- 20s technical choice\n- 10s close"),
     ],
     100: [
-        ("markdown", "## My 1000-Day Summary\n\n- Start point: complete beginner\n- Biggest progress: I can build and explain small projects\n- Next goal: ship one stronger specialization project"),
+        ("markdown", "## My Learning Summary\n\n- Start point: complete beginner\n- Biggest progress: I can build and explain small projects\n- Next goal: ship one stronger specialization project"),
         ("markdown", "## Teach One Concept\n\n- Concept: API\n- Plain explanation: an API is a rule for how two programs talk\n- Small example: the frontend asks for JSON, the backend sends JSON back"),
     ],
 }
@@ -273,13 +345,11 @@ def unit_markdown(unit_number):
     unit = UNITS[unit_number - 1]
     next_unit = UNITS[unit_number] if unit_number < len(UNITS) else None
     next_title = next_unit["title"] if next_unit else "下一阶段新主题"
-    day_start = (unit_number - 1) * 10 + 1
-    day_end = unit_number * 10
     _, stage_label = stage_for_unit(unit_number)
     lines = [
         f"# 单元 {unit_number:03d}：{unit['title']}",
         "",
-        f"- 对应天数：Day {day_start:03d}-{day_end:03d}",
+        "- 单元结构：10 个学习步骤",
         f"- 所属阶段：{stage_label}",
         f"- 所属 100 天主题：{phase_for_unit(unit_number)}",
         f"- 本单元产出：{unit['output']}",
@@ -287,7 +357,7 @@ def unit_markdown(unit_number):
         "## 为什么要学这个单元",
         "",
         f"这个单元的目标，不是让你背很多定义，而是把 `{unit['title']}` 变成真正能动手的能力。"
-        f"这 10 天会始终围绕 `{unit['output']}` 这条线推进，让你知道每天学的东西为什么存在、最后要落到哪里。",
+        f"这 10 个学习步骤会始终围绕 `{unit['output']}` 这条线推进，让你知道每一步为什么存在、最后要落到哪里。",
         "",
         "## 核心概念拆解",
         "",
@@ -309,37 +379,36 @@ def unit_markdown(unit_number):
     lines.extend(["", "## 最小例子", ""])
     for idx, (lang, code) in enumerate(examples(unit_number, unit), start=1):
         lines.extend([f"### 例子 {idx}", "", f"```{lang}", code, "```", "", "先抄一遍，再改一遍，再解释一遍。", ""])
-    lines.extend(["## 10 天详细安排", ""])
+    lines.extend(["## 10 个学习步骤", ""])
     for local_day in range(1, 11):
-        day_number = day_start + local_day - 1
         focus, explain_text, tasks, output = day_text(local_day, unit, next_title)
         lines.extend(
             [
-                f"### Day {day_number:03d}",
+                f"### 步骤 {local_day}",
                 "",
-                f"- 今日焦点：`{focus}`",
-                f"- 今日连贯性：今天继续推动“{unit['output']}”这条主线。",
+                f"- 当前焦点：`{focus}`",
+                f"- 当前连贯性：这一步继续推动“{unit['output']}”这条主线。",
                 "",
-                "今日讲解：",
+                "步骤讲解：",
                 explain_text,
                 "",
-                "今天要做：",
+                "这一步要做：",
                 f"1. {tasks[0]}",
                 f"2. {tasks[1]}",
                 f"3. {tasks[2]}",
                 "",
-                "今日英语：",
+                "本步英语：",
                 f"- 读 3 遍：`{unit['sentence']}`",
                 f"- 今天重点看：`{', '.join(words[:3]) if local_day <= 5 else ', '.join(words[3:])}`",
                 "- 不会翻也没关系，先做到大概能猜出意思。",
                 "",
-                "今天产出：",
+                "本步产出：",
                 f"- {output}",
                 "",
                 "完成标准：",
-                "- 我今天亲手改过至少一次内容。",
-                "- 我今天看过结果，知道程序或页面有没有动起来。",
-                "- 我今天能用中文说出今天知识点是干什么的。",
+                "- 我在这一步亲手改过至少一次内容。",
+                "- 我在这一步看过结果，知道程序或页面有没有动起来。",
+                "- 我在这一步能用中文说出当前知识点是干什么的。",
                 "",
             ]
         )
@@ -350,7 +419,7 @@ def unit_markdown(unit_number):
             f"1. 先用 `{unit['prog'][0]}` 和 `{unit['prog'][1]}` 做最小版本。",
             f"2. 再补 `{unit['prog'][2]}`，让结果更完整。",
             f"3. 最后补 `{unit['prog'][3]}`，把它收束成一个可展示的成果。",
-            "4. 第 9 天修整，第 10 天复盘并提交。",
+            "4. 第 9 步修整，第 10 步复盘并提交。",
             "",
             "## 本单元常见卡点",
             "",
@@ -383,7 +452,7 @@ def units_readme(stage_label, start, end):
     lines = [
         f"# {stage_label} 单元目录",
         "",
-        "这个目录里的每个单元都覆盖连续 10 天。",
+        "这个目录里的每个单元都包含 10 个学习步骤。",
         "每个单元文件里已经包含：讲解、最小例子、逐日任务、英语、产出、复盘。",
         "",
         "## 单元列表",
@@ -391,9 +460,7 @@ def units_readme(stage_label, start, end):
     ]
     for unit_number in range(start, end + 1):
         unit = UNITS[unit_number - 1]
-        day_start = (unit_number - 1) * 10 + 1
-        day_end = unit_number * 10
-        lines.append(f"- [单元 {unit_number:03d}：{unit['title']}](unit_{unit_number:03d}.md) - Day {day_start:03d}-{day_end:03d}")
+        lines.append(f"- [单元 {unit_number:03d}：{unit['title']}](unit_{unit_number:03d}.md) - 10 个学习步骤")
     return "\n".join(lines) + "\n"
 
 

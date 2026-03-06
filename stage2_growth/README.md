@@ -1,7 +1,6 @@
 # 第 2 阶段：成长进阶
 
-- 压缩 Day 范围：`Day 011-030`
-- 对应旧计划：`旧 Day 101-300`
+- 学习日范围：`Day 011-030`
 - 单元范围：`unit_011` 到 `unit_030`
 
 ## 这一阶段学什么
@@ -32,10 +31,16 @@
 
 ## 资料入口
 
-- 压缩学习日目录：`daily_guides/README.md`
+- 学习日目录：`daily_guides/README.md`
 - 单元讲义目录：`units/README.md`
 - 工作簿目录：`workbooks/README.md`
 - 起步模板目录：`code_templates/README.md`
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
 - 项目包目录：`project_packs/README.md`
+
+## 新增详细教材入口
+
+这一阶段现在已经补上了按单元展开的详细讲义。
+本阶段对应单元范围：`unit_011` 到 `unit_030`。
+详细目录在：`units/README.md`

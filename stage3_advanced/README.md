@@ -1,7 +1,6 @@
 # 第 3 阶段：高级进阶
 
-- 压缩 Day 范围：`Day 031-060`
-- 对应旧计划：`旧 Day 301-600`
+- 学习日范围：`Day 031-060`
 - 单元范围：`unit_031` 到 `unit_060`
 
 ## 这一阶段学什么
@@ -27,14 +26,20 @@
 
 - 一次只推进当前单元，不要同时追三条线
 - 后端、算法、数据都先抓最小可运行版本
-- 每个压缩日都留下代码、笔记、结果或截图
+- 每个学习日都留下代码、笔记、结果或截图
 
 ## 资料入口
 
-- 压缩学习日目录：`daily_guides/README.md`
+- 学习日目录：`daily_guides/README.md`
 - 单元讲义目录：`units/README.md`
 - 工作簿目录：`workbooks/README.md`
 - 起步模板目录：`code_templates/README.md`
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
 - 项目包目录：`project_packs/README.md`
+
+## 新增详细教材入口
+
+这一阶段现在已经补上了按单元展开的详细讲义。
+本阶段对应单元范围：`unit_031` 到 `unit_060`。
+详细目录在：`units/README.md`
