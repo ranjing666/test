@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fullstack Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="intro">
+        <p class="eyebrow">FastAPI + Frontend</p>
+        <h1>Minimal fullstack todo project</h1>
+        <p>Use this demo to learn data shape, API requests, and small end-to-end flows.</p>
+      </section>
+
+      <section class="panel">
+        <form id="todo-form" class="todo-form">
+          <label for="title">New task</label>
+          <div class="row">
+            <input id="title" name="title" placeholder="Write a new task" required>
+            <button type="submit">Add</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Todo List</h2>
+          <p id="status-text">Loading...</p>
+        </div>
+        <ul id="todo-list" class="todo-list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -46,6 +46,7 @@
 - `code_templates/README.md`
 - `code_solutions/README.md`
 - `quizzes/README.md`
+- `project_packs/README.md`
 
 ## 建议学习顺序
 
@@ -80,3 +81,4 @@
 - 起步模板目录：`code_templates/README.md`
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
+- 项目包目录：`project_packs/README.md`

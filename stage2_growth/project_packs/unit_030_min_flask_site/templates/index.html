@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="card">
+    <h2>Welcome</h2>
+    <p>This page shows the smallest useful Flask site structure.</p>
+    <h3>Learning goals</h3>
+    <ul>
+      {% for goal in learning_goals %}
+        <li>{{ goal }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

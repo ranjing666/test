@@ -60,6 +60,7 @@
 - 练习工作簿放在 `stageX_xxx/workbooks/`
 - 配套代码模板和参考答案放在 `stageX_xxx/code_templates/` 与 `stageX_xxx/code_solutions/`
 - 小测放在 `stageX_xxx/quizzes/`
+- 里程碑项目包放在 `stageX_xxx/project_packs/`
 - 学习日志放在 `study_logs/dayNNN.md`
 - 每周复盘或总结放在 `study_logs/`
 
@@ -80,10 +81,10 @@
 如果你想直接看“真正能学的详细教材”：
 
 - Day 001-100：先看 `stage1_foundation/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 101-300：先看 `stage2_growth/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 301-600：先看 `stage3_advanced/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 601-850：先看 `stage4_expert/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 851-1000：先看 `stage5_master/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 101-300：先看 `stage2_growth/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`、`project_packs/`
+- Day 301-600：先看 `stage3_advanced/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`、`project_packs/`
+- Day 601-850：先看 `stage4_expert/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`、`project_packs/`
+- Day 851-1000：先看 `stage5_master/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`、`project_packs/`
 
 如果你今天只想开始，不想看太远：
 

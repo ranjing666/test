@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="panel form-panel">
+    <h2>Write a Post</h2>
+    <form method="post">
+      <label for="title">Title</label>
+      <input id="title" name="title" required>
+
+      <label for="content">Content</label>
+      <textarea id="content" name="content" rows="8" required></textarea>
+
+      <button type="submit">Publish</button>
+    </form>
+  </section>
+{% endblock %}

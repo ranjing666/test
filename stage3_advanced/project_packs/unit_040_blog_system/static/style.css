@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f7fa;
+  color: #1f2933;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 32px;
+  background: #102a43;
+  color: #ffffff;
+}
+
+.page-header a {
+  color: #d9e2ec;
+  margin-left: 12px;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px 32px;
+}
+
+.panel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(16, 42, 67, 0.08);
+}
+
+.post-card {
+  border-top: 1px solid #d9e2ec;
+  padding-top: 16px;
+  margin-top: 16px;
+}
+
+.meta {
+  color: #52606d;
+  font-size: 14px;
+}
+
+.form-panel form {
+  display: grid;
+  gap: 12px;
+}
+
+.form-panel input,
+.form-panel textarea,
+.form-panel button {
+  font: inherit;
+  padding: 10px 12px;
+}
+
+.form-panel button {
+  border: none;
+  border-radius: 8px;
+  background: #2f855a;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.flash-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.flash-list li {
+  background: #fff7d6;
+  border: 1px solid #f6e05e;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}

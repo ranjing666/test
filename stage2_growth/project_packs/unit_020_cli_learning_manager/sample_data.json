@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Review Python variables",
+    "notes": "Read notes and rewrite 3 examples.",
+    "done": true
+  },
+  {
+    "title": "Practice list methods",
+    "notes": "Use append, pop, and sort in one script.",
+    "done": false
+  },
+  {
+    "title": "Write today's study log",
+    "notes": "Summarize what was easy and what was hard.",
+    "done": false
+  }
+]

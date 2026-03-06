@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="panel form-panel">
+    <h2>Create Account</h2>
+    <form method="post">
+      <label for="username">Username</label>
+      <input id="username" name="username" required>
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" required>
+
+      <button type="submit">Register</button>
+    </form>
+  </section>
+{% endblock %}

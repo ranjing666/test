@@ -46,6 +46,7 @@
 - `code_templates/README.md`：这一阶段全部起步模板目录
 - `code_solutions/README.md`：这一阶段全部参考答案目录
 - `quizzes/README.md`：这一阶段全部小测目录
+- `project_packs/README.md`：这一阶段里程碑项目包目录
 
 ## 建议学习顺序
 
@@ -82,3 +83,4 @@
 - 起步模板目录：`code_templates/README.md`
 - 参考答案目录：`code_solutions/README.md`
 - 小测目录：`quizzes/README.md`
+- 项目包目录：`project_packs/README.md`
