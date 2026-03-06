@@ -361,7 +361,7 @@ def daily_text(unit, unit_number, day_index):
         "",
         "## 学完后顺手做",
         "",
-        f"- 去 `study_logs/day{day_no:03d}.md` 记录今天做了什么。如果还没有这个文件，就先复制 `study_logs/daily_log_template.md`。",
+        f"- 去 `study_logs/day{day_no:03d}.md` 记录今天做了什么。",
         "- 如果今天是第 10 天，做完小测后执行一次 Git 提交。",
         "",
     ]
