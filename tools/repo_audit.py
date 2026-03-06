@@ -47,7 +47,6 @@ def count_check() -> dict[str, int]:
         "stage4_daily_guides": len(list((ROOT / "stage4_expert" / "daily_guides").glob("day_*.md"))),
         "stage5_daily_guides": len(list((ROOT / "stage5_master" / "daily_guides").glob("day_*.md"))),
         "study_logs": len(list((ROOT / "study_logs").glob("day*.md"))),
-        "plan_batches": len(list((ROOT / "plan_1000_days").glob("day_*.md"))),
         "unit_files": len(list(ROOT.glob("stage*_*/units/unit_*.md"))),
         "project_pack_roots": sum(
             1
@@ -129,16 +128,13 @@ def placeholder_example_check() -> list[str]:
                 issues.append(f"{path.relative_to(ROOT)} contains mismatched example pattern: {pattern}")
                 break
     for unit_number, patterns in targeted_daily_rules.items():
-        day_start = (unit_number - 1) * 10 + 1
         stage_dir = stage_dir_for_unit(unit_number) / "daily_guides"
-        for offset in range(10):
-            day_no = day_start + offset
-            path = stage_dir / f"day_{day_no:03d}.md"
-            text = path.read_text(encoding="utf-8")
-            for pattern in patterns:
-                if pattern in text:
-                    issues.append(f"{path.relative_to(ROOT)} contains mismatched daily-guide pattern: {pattern}")
-                    break
+        path = stage_dir / f"day_{unit_number:03d}.md"
+        text = path.read_text(encoding="utf-8")
+        for pattern in patterns:
+            if pattern in text:
+                issues.append(f"{path.relative_to(ROOT)} contains mismatched daily-guide pattern: {pattern}")
+                break
     return issues
 
 
@@ -168,8 +164,28 @@ def main() -> None:
         print("ok")
 
     print_section("counts")
-    for key, value in count_check().items():
+    counts = count_check()
+    for key, value in counts.items():
         print(f"{key}={value}")
+    expected_counts = {
+        "stage1_daily_guides": 10,
+        "stage2_daily_guides": 20,
+        "stage3_daily_guides": 30,
+        "stage4_daily_guides": 25,
+        "stage5_daily_guides": 15,
+        "study_logs": 100,
+        "unit_files": 100,
+        "project_pack_roots": 8,
+    }
+    mismatches = [
+        f"{key} expected {expected_counts[key]} but got {counts[key]}"
+        for key in expected_counts
+        if counts[key] != expected_counts[key]
+    ]
+    if mismatches:
+        failed = True
+        for item in mismatches:
+            print(item)
 
     print_section("placeholder_examples")
     placeholder_issues = placeholder_example_check()
