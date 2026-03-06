@@ -40,6 +40,7 @@
 
 ## 现在仓库里有哪些资料
 
+- `daily_guides/README.md`
 - `units/README.md`
 - `workbooks/README.md`
 - `code_templates/README.md`
@@ -48,13 +49,14 @@
 
 ## 建议学习顺序
 
-1. 先看 `units/unit_086.md`
-2. 再做 `workbooks/unit_086_workbook.md`
-3. 然后补 `code_templates/unit_086_template.md`
-4. 卡住时再看 `code_solutions/unit_086_solution.md`
-5. 最后做 `quizzes/unit_086_quiz.md`
-6. 持续写 `study_logs/`
-7. 更新 `LEARNING_PROGRESS_TRACKER.md`
+1. 先看 `daily_guides/day_851.md`
+2. 再看 `units/unit_086.md`
+3. 再做 `workbooks/unit_086_workbook.md`
+4. 然后补 `code_templates/unit_086_template.md`
+5. 卡住时再看 `code_solutions/unit_086_solution.md`
+6. 最后做 `quizzes/unit_086_quiz.md`
+7. 持续写 `study_logs/`
+8. 更新 `LEARNING_PROGRESS_TRACKER.md`
 
 ## 这一阶段最重要的提醒
 
@@ -72,6 +74,7 @@
 
 ## 详细教材入口
 
+- 逐日学习目录：`daily_guides/README.md`
 - 单元讲义目录：`units/README.md`
 - 工作簿目录：`workbooks/README.md`
 - 起步模板目录：`code_templates/README.md`

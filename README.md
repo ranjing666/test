@@ -80,10 +80,10 @@
 如果你想直接看“真正能学的详细教材”：
 
 - Day 001-100：先看 `stage1_foundation/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 101-300：看 `stage2_growth/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 301-600：看 `stage3_advanced/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 601-850：看 `stage4_expert/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
-- Day 851-1000：看 `stage5_master/units/README.md`，配合 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 101-300：先看 `stage2_growth/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 301-600：先看 `stage3_advanced/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 601-850：先看 `stage4_expert/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
+- Day 851-1000：先看 `stage5_master/daily_guides/README.md`，再配合 `units/`、`workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`
 
 如果你今天只想开始，不想看太远：
 

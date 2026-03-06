@@ -40,6 +40,7 @@
 
 ## 现在仓库里有哪些资料
 
+- `daily_guides/README.md`：这一阶段全部逐日学习指南目录
 - `units/README.md`：这一阶段全部单元讲义目录
 - `workbooks/README.md`：这一阶段全部工作簿目录
 - `code_templates/README.md`：这一阶段全部起步模板目录
@@ -50,13 +51,14 @@
 
 固定按这个顺序学，不容易乱：
 
-1. 先看 `units/unit_011.md`
-2. 再做 `workbooks/unit_011_workbook.md`
-3. 然后补 `code_templates/unit_011_template.md`
-4. 卡住时再看 `code_solutions/unit_011_solution.md`
-5. 最后做 `quizzes/unit_011_quiz.md`
-6. 写入 `study_logs/`
-7. 在 `LEARNING_PROGRESS_TRACKER.md` 打勾
+1. 先看 `daily_guides/day_101.md`
+2. 再看 `units/unit_011.md`
+3. 再做 `workbooks/unit_011_workbook.md`
+4. 然后补 `code_templates/unit_011_template.md`
+5. 卡住时再看 `code_solutions/unit_011_solution.md`
+6. 最后做 `quizzes/unit_011_quiz.md`
+7. 写入 `study_logs/`
+8. 在 `LEARNING_PROGRESS_TRACKER.md` 打勾
 
 ## 学这一阶段时最容易犯的错
 
@@ -74,6 +76,7 @@
 
 ## 详细教材入口
 
+- 逐日学习目录：`daily_guides/README.md`
 - 单元讲义目录：`units/README.md`
 - 工作簿目录：`workbooks/README.md`
 - 起步模板目录：`code_templates/README.md`

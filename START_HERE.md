@@ -62,12 +62,16 @@
 
 - `stage1_foundation/daily_guides/`
 - `stage1_foundation/units/`
+- `stage2_growth/daily_guides/`
 - `stage2_growth/units/`
+- `stage3_advanced/daily_guides/`
 - `stage3_advanced/units/`
+- `stage4_expert/daily_guides/`
 - `stage4_expert/units/`
+- `stage5_master/daily_guides/`
 - `stage5_master/units/`
 
-第 1 阶段现在额外提供 Day 001 到 Day 100 的逐日学习指南。
+现在 5 个阶段都已经补上逐日学习指南。
 
 每个单元覆盖连续 10 天，而且里面已经包含：
 
