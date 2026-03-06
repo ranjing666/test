@@ -49,6 +49,37 @@ def count_check() -> dict[str, int]:
     }
 
 
+def placeholder_example_check() -> list[str]:
+    generic_patterns = [
+        "print('Unit ",
+        "print(\"Unit ",
+        "Keep going,",
+    ]
+    targeted_rules = {
+        "stage3_advanced/units/unit_033.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage3_advanced/units/unit_034.md": ["def find_max(", "def is_valid("],
+        "stage4_expert/units/unit_070.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage4_expert/units/unit_080.md": ["def find_max(", "def is_valid("],
+        "stage4_expert/units/unit_085.md": ["def find_max(", "def is_valid("],
+        "stage5_master/units/unit_086.md": ["def find_max(", "def is_valid("],
+        "stage5_master/units/unit_097.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage5_master/units/unit_100.md": ["def find_max(", "def is_valid("],
+    }
+    issues: list[str] = []
+    for stage in ["stage3_advanced", "stage4_expert", "stage5_master"]:
+        for path in (ROOT / stage / "units").glob("unit_*.md"):
+            text = path.read_text(encoding="utf-8")
+            for pattern in generic_patterns:
+                if pattern in text:
+                    issues.append(f"{path.relative_to(ROOT)} contains placeholder pattern: {pattern}")
+                    break
+            for pattern in targeted_rules.get(path.relative_to(ROOT).as_posix(), []):
+                if pattern in text:
+                    issues.append(f"{path.relative_to(ROOT)} contains mismatched example pattern: {pattern}")
+                    break
+    return issues
+
+
 def print_section(title: str) -> None:
     print(f"\n[{title}]")
 
@@ -77,6 +108,15 @@ def main() -> None:
     print_section("counts")
     for key, value in count_check().items():
         print(f"{key}={value}")
+
+    print_section("placeholder_examples")
+    placeholder_issues = placeholder_example_check()
+    if placeholder_issues:
+        failed = True
+        for item in placeholder_issues:
+            print(item)
+    else:
+        print("ok")
 
     if failed:
         raise SystemExit(1)

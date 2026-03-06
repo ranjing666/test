@@ -43,17 +43,25 @@
 
 ### 例子 1
 
-```python
-print('Unit 039: 文档与协作流程')
+```markdown
+# Project README
+
+## Setup
+## Run
+## Test
+## Next Steps
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-name = input('What is your name? ')
-print('Keep going,', name)
+```markdown
+## Change Summary
+
+- What changed
+- Why it changed
+- How to verify it
 ```
 
 先抄一遍，再改一遍，再解释一遍。

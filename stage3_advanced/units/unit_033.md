@@ -44,11 +44,10 @@
 ### 例子 1
 
 ```python
-import pandas as pd
+records = [{"id": 1, "title": "Learn Python"}]
+records.append({"id": 2, "title": "Write notes"})
 
-df = pd.DataFrame({'name': ['Li Hua', 'Amy'], 'score': [95, 88]})
-print(df)
-print(df['score'].mean())
+print(records)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -56,11 +55,10 @@ print(df['score'].mean())
 ### 例子 2
 
 ```python
-import matplotlib.pyplot as plt
+record = {"id": 1, "title": "Study Flask", "done": False}
+record["done"] = True
 
-plt.bar(['A', 'B', 'C'], [10, 15, 8])
-plt.title('Simple chart')
-plt.show()
+print(record)
 ```
 
 先抄一遍，再改一遍，再解释一遍。

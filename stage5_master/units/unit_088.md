@@ -44,7 +44,10 @@
 ### 例子 1
 
 ```python
-print('Unit 088: 安全基础')
+from hashlib import sha256
+
+password_hash = sha256("demo123".encode()).hexdigest()
+print(password_hash)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +55,8 @@ print('Unit 088: 安全基础')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+def can_access_admin_page(role):
+    return role == "admin"
 ```
 
 先抄一遍，再改一遍，再解释一遍。

@@ -44,7 +44,15 @@
 ### 例子 1
 
 ```python
-print('Unit 083: 测试进阶')
+import pytest
+
+
+@pytest.mark.parametrize(
+    ("score", "expected"),
+    [(95, "A"), (82, "B"), (60, "D")],
+)
+def test_grade_level(score, expected):
+    assert expected in ["A", "B", "D"]
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +60,12 @@ print('Unit 083: 测试进阶')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+from unittest.mock import Mock
+
+
+def test_api_mock():
+    fake_api = Mock(return_value={"status": "ok"})
+    assert fake_api()["status"] == "ok"
 ```
 
 先抄一遍，再改一遍，再解释一遍。

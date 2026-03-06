@@ -44,12 +44,11 @@
 ### 例子 1
 
 ```python
-def find_max(numbers):
-    current_max = numbers[0]
-    for number in numbers[1:]:
-        if number > current_max:
-            current_max = number
-    return current_max
+attempt = 0
+
+while attempt < 3:
+    attempt += 1
+    print(f"retry attempt {attempt}")
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,15 +56,10 @@ def find_max(numbers):
 ### 例子 2
 
 ```python
-def is_valid(items):
-    stack = []
-    pairs = {')': '(', ']': '[', '}': '{'}
-    for item in items:
-        if item in '([{':
-            stack.append(item)
-        elif not stack or stack.pop() != pairs[item]:
-            return False
-    return not stack
+tasks = ["send email", "generate report", "sync cache"]
+current_task = tasks.pop(0)
+
+print(current_task)
 ```
 
 先抄一遍，再改一遍，再解释一遍。

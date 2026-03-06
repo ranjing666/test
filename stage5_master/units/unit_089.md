@@ -43,17 +43,22 @@
 
 ### 例子 1
 
-```python
-print('Unit 089: 开源贡献流程')
+```markdown
+## Bug Report
+
+- Problem
+- Reproduce steps
+- Expected result
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-name = input('What is your name? ')
-print('Keep going,', name)
+```bash
+git checkout -b fix-readme-typo
+git add .
+git commit -m "Fix README typo"
 ```
 
 先抄一遍，再改一遍，再解释一遍。

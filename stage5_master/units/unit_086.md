@@ -43,29 +43,21 @@
 
 ### 例子 1
 
-```python
-def find_max(numbers):
-    current_max = numbers[0]
-    for number in numbers[1:]:
-        if number > current_max:
-            current_max = number
-    return current_max
+```markdown
+## Traffic Estimate
+
+- Daily users: 10,000
+- Peak requests per second: 120
+- Main read path: timeline page
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-def is_valid(items):
-    stack = []
-    pairs = {')': '(', ']': '[', '}': '{'}
-    for item in items:
-        if item in '([{':
-            stack.append(item)
-        elif not stack or stack.pop() != pairs[item]:
-            return False
-    return not stack
+```text
+Client -> Load Balancer -> API Service -> Database
+                      -> Cache
 ```
 
 先抄一遍，再改一遍，再解释一遍。

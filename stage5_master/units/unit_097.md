@@ -44,11 +44,12 @@
 ### 例子 1
 
 ```python
-import pandas as pd
+from pydantic import BaseModel
 
-df = pd.DataFrame({'name': ['Li Hua', 'Amy'], 'score': [95, 88]})
-print(df)
-print(df['score'].mean())
+
+class Task(BaseModel):
+    title: str
+    done: bool = False
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -56,11 +57,10 @@ print(df['score'].mean())
 ### 例子 2
 
 ```python
-import matplotlib.pyplot as plt
+routes = ["/api/tasks", "/api/users", "/health"]
 
-plt.bar(['A', 'B', 'C'], [10, 15, 8])
-plt.title('Simple chart')
-plt.show()
+for route in routes:
+    print(route)
 ```
 
 先抄一遍，再改一遍，再解释一遍。

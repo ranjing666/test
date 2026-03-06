@@ -43,17 +43,23 @@
 
 ### 例子 1
 
-```python
-print('Unit 061: Node、npm 与前端工具链')
+```json
+{
+  "name": "frontend-demo",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  }
+}
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-name = input('What is your name? ')
-print('Keep going,', name)
+```bash
+npm install
+npm run dev
 ```
 
 先抄一遍，再改一遍，再解释一遍。

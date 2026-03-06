@@ -44,7 +44,13 @@
 ### 例子 1
 
 ```python
-print('Unit 084: 性能优化')
+import time
+
+start = time.perf_counter()
+numbers = [number * number for number in range(10000)]
+elapsed = time.perf_counter() - start
+
+print(len(numbers), elapsed)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +58,12 @@ print('Unit 084: 性能优化')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+def generate_squares(limit):
+    for number in range(limit):
+        yield number * number
+
+
+print(next(generate_squares(5)))
 ```
 
 先抄一遍，再改一遍，再解释一遍。

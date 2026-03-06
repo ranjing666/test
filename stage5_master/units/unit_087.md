@@ -44,7 +44,10 @@
 ### 例子 1
 
 ```python
-print('Unit 087: 日志、监控与告警')
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("service started")
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +55,10 @@ print('Unit 087: 日志、监控与告警')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+metrics = {"errors": 1, "latency_ms": 1200}
+
+if metrics["latency_ms"] > 1000:
+    print("send alert")
 ```
 
 先抄一遍，再改一遍，再解释一遍。

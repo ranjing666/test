@@ -44,7 +44,12 @@
 ### 例子 1
 
 ```python
-print('Unit 075: 异步、后台任务与限流')
+import asyncio
+
+
+async def fetch_report():
+    await asyncio.sleep(1)
+    return "report ready"
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +57,15 @@ print('Unit 075: 异步、后台任务与限流')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+from fastapi import BackgroundTasks
+
+
+def write_log(message: str):
+    print(message)
+
+
+def create_job(background_tasks: BackgroundTasks):
+    background_tasks.add_task(write_log, "background job started")
 ```
 
 先抄一遍，再改一遍，再解释一遍。

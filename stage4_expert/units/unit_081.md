@@ -44,7 +44,10 @@
 ### 例子 1
 
 ```python
-print('Unit 081: 可读代码与重构')
+# before: def x(a): return sum(a) / len(a)
+
+def calculate_average_score(scores):
+    return sum(scores) / len(scores)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +55,8 @@ print('Unit 081: 可读代码与重构')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+def build_user_summary(name, role):
+    return f"{name} ({role})"
 ```
 
 先抄一遍，再改一遍，再解释一遍。

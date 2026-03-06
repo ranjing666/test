@@ -44,12 +44,10 @@
 ### 例子 1
 
 ```python
-def find_max(numbers):
-    current_max = numbers[0]
-    for number in numbers[1:]:
-        if number > current_max:
-            current_max = number
-    return current_max
+from hashlib import sha256
+
+password_hash = sha256("demo123".encode()).hexdigest()
+print(password_hash)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,15 +55,10 @@ def find_max(numbers):
 ### 例子 2
 
 ```python
-def is_valid(items):
-    stack = []
-    pairs = {')': '(', ']': '[', '}': '{'}
-    for item in items:
-        if item in '([{':
-            stack.append(item)
-        elif not stack or stack.pop() != pairs[item]:
-            return False
-    return not stack
+session = {}
+session["user_id"] = 1
+
+print("logged in" if "user_id" in session else "guest")
 ```
 
 先抄一遍，再改一遍，再解释一遍。

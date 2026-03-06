@@ -44,16 +44,23 @@
 ### 例子 1
 
 ```python
-print('Unit 038: 部署与环境变量')
+import os
+
+app_env = os.getenv("APP_ENV", "development")
+database_url = os.getenv("DATABASE_URL", "sqlite:///local.db")
+
+print(app_env)
+print(database_url)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-name = input('What is your name? ')
-print('Keep going,', name)
+```text
+APP_ENV=production
+DATABASE_URL=postgresql://user:password@host:5432/app
+SECRET_KEY=change-me-before-deploy
 ```
 
 先抄一遍，再改一遍，再解释一遍。

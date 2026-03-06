@@ -44,7 +44,12 @@
 ### 例子 1
 
 ```python
-print('Unit 037: pytest 测试入门')
+def add(a, b):
+    return a + b
+
+
+def test_add():
+    assert add(2, 3) == 5
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +57,16 @@ print('Unit 037: pytest 测试入门')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+import pytest
+
+
+def divide(a, b):
+    return a / b
+
+
+def test_divide_by_zero():
+    with pytest.raises(ZeroDivisionError):
+        divide(4, 0)
 ```
 
 先抄一遍，再改一遍，再解释一遍。

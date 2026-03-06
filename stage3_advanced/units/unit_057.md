@@ -44,7 +44,12 @@
 ### 例子 1
 
 ```python
-print('Unit 057: 文件自动化')
+from pathlib import Path
+
+log_dir = Path("study_logs")
+log_files = list(log_dir.glob("day*.md"))
+
+print(len(log_files))
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -52,8 +57,12 @@ print('Unit 057: 文件自动化')
 ### 例子 2
 
 ```python
-name = input('What is your name? ')
-print('Keep going,', name)
+from pathlib import Path
+
+source = Path("day001.md")
+target = source.with_name("day001_done.md")
+
+print(target)
 ```
 
 先抄一遍，再改一遍，再解释一遍。
