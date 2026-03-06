@@ -43,23 +43,26 @@
 
 ### 例子 1
 
-```sql
-CREATE TABLE students (
-  id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
-  score INTEGER NOT NULL
-);
+```markdown
+## Deploy checklist
+
+- Set `APP_ENV=production`
+- Add database URL
+- Add secret key
+- Confirm `/health` works
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```sql
-SELECT name, score
-FROM students
-WHERE score >= 90
-ORDER BY score DESC;
+```yaml
+services:
+  web:
+    image: study-app:latest
+    env:
+      APP_ENV: production
+      DATABASE_URL: ${DATABASE_URL}
 ```
 
 先抄一遍，再改一遍，再解释一遍。

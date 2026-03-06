@@ -43,24 +43,25 @@
 
 ### 例子 1
 
-```python
-from pydantic import BaseModel
+```markdown
+## Sprint 1 checklist
 
-
-class Task(BaseModel):
-    title: str
-    done: bool = False
+- Build project skeleton
+- Define key data model
+- Finish one main API or page
+- Run the first end-to-end flow
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```python
-routes = ["/api/tasks", "/api/users", "/health"]
+```markdown
+## First version notes
 
-for route in routes:
-    print(route)
+- Main user flow works
+- Known bugs are listed
+- Next sprint target is clear
 ```
 
 先抄一遍，再改一遍，再解释一遍。

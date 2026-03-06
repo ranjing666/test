@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Sprint 2 checklist
 
-- Problem
-- Solution
-- Stack
-- Result
+- Improve main user flow
+- Fix top 3 bugs
+- Add one missing feature
+- Rewrite unclear labels
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Testing notes
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- What failed:
+- Why it failed:
+- How I fixed it:
+- What I should retest:
 ```
 
 先抄一遍，再改一遍，再解释一遍。

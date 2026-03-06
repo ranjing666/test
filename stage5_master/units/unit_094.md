@@ -43,11 +43,12 @@
 
 ### 例子 1
 
-```bash
-git status
-git add .
-git commit -m "Finish current lesson"
-git push
+```markdown
+## Resume bullets
+
+- Built a study tracker with Python and GitHub.
+- Shipped a small blog system and wrote clear docs.
+- Improved features after manual testing and feedback.
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -55,11 +56,11 @@ git push
 ### 例子 2
 
 ```markdown
-## Project log
+## GitHub profile note
 
-- Today I finished a small feature.
-- I fixed two bugs.
-- Next I will improve the README.
+- Pinned projects: Study Tracker, Blog System, Data Report
+- Short bio: learner who turns notes into working projects
+- Focus: Python, web, steady improvement
 ```
 
 先抄一遍，再改一遍，再解释一遍。

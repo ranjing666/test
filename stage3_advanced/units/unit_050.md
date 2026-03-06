@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Wrong answer review
 
-- Problem
-- Solution
-- Stack
-- Result
+- Topic:
+- Mistake:
+- Fix:
+- Takeaway:
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,11 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## English explanation
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- Problem:
+- Idea:
+- Why it works:
 ```
 
 先抄一遍，再改一遍，再解释一遍。

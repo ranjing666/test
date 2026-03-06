@@ -44,12 +44,11 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Capstone problem
 
-- Problem
-- Solution
-- Stack
-- Result
+- User:
+- Problem:
+- Product idea:
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +56,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Capstone milestones
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- Week 1: define scope
+- Week 2: build first version
+- Week 3: test and improve
+- Week 4: publish and demo
 ```
 
 先抄一遍，再改一遍，再解释一遍。

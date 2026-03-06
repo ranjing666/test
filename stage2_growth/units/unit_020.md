@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Learning Task
 
-- Problem
-- Solution
-- Stack
-- Result
+- Title: Review Python lists
+- Priority: High
+- Status: Todo
+- Notes: Rewrite 3 examples by hand
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Feature list
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- Add task
+- Mark task done
+- Delete task
+- Save tasks to JSON
 ```
 
 先抄一遍，再改一遍，再解释一遍。

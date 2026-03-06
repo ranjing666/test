@@ -44,12 +44,11 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Demo opening
 
-- Problem
-- Solution
-- Stack
-- Result
+- Hello, I built a study tracker for beginners.
+- It helps users record coding and English practice.
+- I will show the main flow first.
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +56,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Slide outline
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- Problem
+- Solution
+- Demo
+- Lessons learned
 ```
 
 先抄一遍，再改一遍，再解释一遍。

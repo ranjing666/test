@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Specialization choice
 
-- Problem
-- Solution
-- Stack
-- Result
+- Direction:
+- User:
+- Core problem:
+- Reason:
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Milestone plan
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- Week 1: define scope
+- Week 2: build core flow
+- Week 3: test and improve
+- Week 4: demo and publish
 ```
 
 先抄一遍，再改一遍，再解释一遍。

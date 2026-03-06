@@ -5,6 +5,15 @@ import re
 ROOT = Path(__file__).resolve().parent.parent
 
 
+STAGES = [
+    ("stage1_foundation", 1, 10),
+    ("stage2_growth", 11, 30),
+    ("stage3_advanced", 31, 60),
+    ("stage4_expert", 61, 85),
+    ("stage5_master", 86, 100),
+]
+
+
 def markdown_link_check() -> list[str]:
     pattern = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
     missing: list[str] = []
@@ -49,6 +58,13 @@ def count_check() -> dict[str, int]:
     }
 
 
+def stage_dir_for_unit(unit_number: int) -> Path:
+    for stage_dir, start, end in STAGES:
+        if start <= unit_number <= end:
+            return ROOT / stage_dir
+    raise ValueError(unit_number)
+
+
 def placeholder_example_check() -> list[str]:
     generic_patterns = [
         "print('Unit ",
@@ -56,14 +72,44 @@ def placeholder_example_check() -> list[str]:
         "Keep going,",
     ]
     targeted_rules = {
+        "stage2_growth/units/unit_020.md": ["## Project summary", "## Resume bullets"],
         "stage3_advanced/units/unit_033.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
         "stage3_advanced/units/unit_034.md": ["def find_max(", "def is_valid("],
+        "stage3_advanced/units/unit_040.md": ["## Project summary", "## Resume bullets"],
+        "stage3_advanced/units/unit_050.md": ["## Project summary", "## Resume bullets"],
         "stage4_expert/units/unit_070.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
+        "stage4_expert/units/unit_079.md": ["CREATE TABLE students", "SELECT name, score"],
         "stage4_expert/units/unit_080.md": ["def find_max(", "def is_valid("],
         "stage4_expert/units/unit_085.md": ["def find_max(", "def is_valid("],
+        "stage5_master/units/unit_090.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/units/unit_091.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/units/unit_092.md": ["requests.get(", '"status": "ok"'],
+        "stage5_master/units/unit_093.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/units/unit_094.md": ["## Project log", "git status"],
+        "stage5_master/units/unit_095.md": ["CREATE TABLE students", "SELECT name, score"],
+        "stage5_master/units/unit_096.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/units/unit_098.md": ["## Project summary", "## Resume bullets"],
+        "stage5_master/units/unit_099.md": ["## Project summary", "## Resume bullets"],
         "stage5_master/units/unit_086.md": ["def find_max(", "def is_valid("],
         "stage5_master/units/unit_097.md": ["import pandas as pd", "import matplotlib.pyplot as plt"],
         "stage5_master/units/unit_100.md": ["def find_max(", "def is_valid("],
+    }
+    targeted_daily_rules = {
+        20: ["## Project summary", "## Resume bullets"],
+        40: ["## Project summary", "## Resume bullets"],
+        50: ["## Project summary", "## Resume bullets"],
+        79: ["CREATE TABLE students", "SELECT name, score", "查数据前没想清楚要哪几列。"],
+        90: ["## Project summary", "## Resume bullets"],
+        91: ["## Project summary", "## Resume bullets"],
+        92: ["## Project summary", "## Resume bullets"],
+        93: ["## Project summary", "## Resume bullets"],
+        94: ["## Project summary"],
+        95: ["## Project summary", "## Resume bullets"],
+        96: ["## Project summary", "## Resume bullets"],
+        97: ["## Project summary", "## Resume bullets"],
+        98: ["## Project summary", "## Resume bullets"],
+        99: ["## Project summary", "## Resume bullets"],
+        100: ["## Project summary", "## Resume bullets"],
     }
     issues: list[str] = []
     for stage in ["stage3_advanced", "stage4_expert", "stage5_master"]:
@@ -73,9 +119,25 @@ def placeholder_example_check() -> list[str]:
                 if pattern in text:
                     issues.append(f"{path.relative_to(ROOT)} contains placeholder pattern: {pattern}")
                     break
-            for pattern in targeted_rules.get(path.relative_to(ROOT).as_posix(), []):
+    for relative_path, patterns in targeted_rules.items():
+        path = ROOT / relative_path
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for pattern in patterns:
+            if pattern in text:
+                issues.append(f"{path.relative_to(ROOT)} contains mismatched example pattern: {pattern}")
+                break
+    for unit_number, patterns in targeted_daily_rules.items():
+        day_start = (unit_number - 1) * 10 + 1
+        stage_dir = stage_dir_for_unit(unit_number) / "daily_guides"
+        for offset in range(10):
+            day_no = day_start + offset
+            path = stage_dir / f"day_{day_no:03d}.md"
+            text = path.read_text(encoding="utf-8")
+            for pattern in patterns:
                 if pattern in text:
-                    issues.append(f"{path.relative_to(ROOT)} contains mismatched example pattern: {pattern}")
+                    issues.append(f"{path.relative_to(ROOT)} contains mismatched daily-guide pattern: {pattern}")
                     break
     return issues
 

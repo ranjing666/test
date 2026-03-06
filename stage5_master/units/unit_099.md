@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Release checklist
 
-- Problem
-- Solution
-- Stack
-- Result
+- App runs in production
+- README is updated
+- Demo link works
+- Known bugs are listed
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Demo video outline
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- 10s intro
+- 30s flow
+- 20s technical choice
+- 10s close
 ```
 
 先抄一遍，再改一遍，再解释一遍。

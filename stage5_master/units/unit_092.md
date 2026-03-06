@@ -43,25 +43,26 @@
 
 ### 例子 1
 
-```python
-import requests
+```markdown
+## README structure
 
-response = requests.get('https://api.github.com')
-print(response.status_code)
-print(response.json())
+- What this project does
+- How to run it
+- Example input and output
+- Common problems
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```json
-{
-  "status": "ok",
-  "items": [
-    {"id": 1, "name": "demo"}
-  ]
-}
+```markdown
+## API usage note
+
+- Endpoint: `/api/tasks`
+- Method: `GET`
+- Response: `{"items": []}`
+- Error case: `401 unauthorized`
 ```
 
 先抄一遍，再改一遍，再解释一遍。

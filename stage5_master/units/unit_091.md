@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Portfolio case card
 
-- Problem
-- Solution
-- Stack
-- Result
+- Project:
+- Problem:
+- Solution:
+- Result:
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,11 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## About section
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- I started from zero.
+- Now I can build small web apps.
+- I focus on clear structure and steady progress.
 ```
 
 先抄一遍，再改一遍，再解释一遍。

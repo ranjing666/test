@@ -225,6 +225,200 @@ CMD ["python", "app.py"]""",
 }
 
 
+UNIT_HINT_OVERRIDES = {
+    20: {
+        "snippet": """## Learning Task
+
+- Title: Review Python lists
+- Priority: High
+- Status: Todo
+- Notes: Rewrite 3 examples by hand""",
+        "mistakes": [
+            "一开始就想做大而全，结果主流程一直没跑通。",
+            "功能名字写了很多，但没有先做最小命令行版本。",
+            "保存和读取逻辑没分开，后面越改越乱。",
+        ],
+    },
+    40: {
+        "snippet": """## Blog page plan
+
+- Home page
+- Register page
+- Login page
+- New post page""",
+        "mistakes": [
+            "页面列了一堆，但没有先打通注册到发帖的最小流程。",
+            "模型字段没先想清楚，后面改数据库结构很痛苦。",
+            "只顾着做页面，不验证登录状态和权限。",
+        ],
+    },
+    50: {
+        "snippet": """## Wrong answer review
+
+- Topic:
+- Mistake:
+- Fix:
+- Takeaway:""",
+        "mistakes": [
+            "只记答案，不记自己为什么会错。",
+            "会做题但不会用中文或英文解释思路。",
+            "刷题数量很多，但没有形成自己的错题模式总结。",
+        ],
+    },
+    79: {
+        "snippet": """## Deploy checklist
+
+- Set APP_ENV=production
+- Add database URL
+- Add secret key
+- Confirm /health works""",
+        "mistakes": [
+            "本地环境还没跑通，就急着上云部署。",
+            "把密钥直接写进代码或提交到仓库里。",
+            "出问题只盯页面，不先看日志和健康检查。",
+        ],
+    },
+    90: {
+        "snippet": """## Specialization choice
+
+- Direction:
+- User:
+- Core problem:
+- Reason:""",
+        "mistakes": [
+            "选题太散，一周换一个方向。",
+            "只说自己想做什么，不说目标用户有什么痛点。",
+            "里程碑不拆开，导致每周都像在原地打转。",
+        ],
+    },
+    91: {
+        "snippet": """## Portfolio case card
+
+- Project:
+- Problem:
+- Solution:
+- Result:""",
+        "mistakes": [
+            "作品很多，但首页看不出代表作是什么。",
+            "只放截图，不解释问题、方案和结果。",
+            "个人介绍太空，别人看完不知道你擅长什么。",
+        ],
+    },
+    92: {
+        "snippet": """## README structure
+
+- What this project does
+- How to run it
+- Example input and output
+- Common problems""",
+        "mistakes": [
+            "会做功能，但写不清运行方法和输入输出。",
+            "英文文档只追求复杂句，结果越写越难懂。",
+            "例子太少，读者看完还是不会用。",
+        ],
+    },
+    93: {
+        "snippet": """## Demo opening
+
+- Hello, I built a study tracker for beginners.
+- It records coding and English practice.
+- I will show the main flow first.""",
+        "mistakes": [
+            "一上来就讲实现细节，没有先讲问题和结果。",
+            "演示顺序太乱，听的人抓不住主线。",
+            "只准备口头说明，没有提炼成简短提纲。",
+        ],
+    },
+    94: {
+        "snippet": """## Resume bullets
+
+- Built a study tracker with Python and GitHub.
+- Shipped a small blog system and wrote clear docs.
+- Improved features after manual testing and feedback.""",
+        "mistakes": [
+            "简历里只写学过什么，不写做成了什么。",
+            "GitHub 仓库很多，但首页没有整理代表作。",
+            "求职材料彼此割裂，项目名和描述对不上。",
+        ],
+    },
+    95: {
+        "snippet": """## Interview answer
+
+- Question:
+- Answer:
+- Result:""",
+        "mistakes": [
+            "背模板答案，却不会结合自己的项目说。",
+            "只说做了什么，不说遇到的问题和处理过程。",
+            "听到追问就慌，因为平时没有模拟展开讲。",
+        ],
+    },
+    96: {
+        "snippet": """## Capstone problem
+
+- User:
+- Problem:
+- Product idea:""",
+        "mistakes": [
+            "功能想得太多，但没有先定核心用户和主流程。",
+            "没有排优先级，导致每个部分都只做到一半。",
+            "计划写得很满，却没有给测试和修复留时间。",
+        ],
+    },
+    97: {
+        "snippet": """## Sprint 1 checklist
+
+- Build project skeleton
+- Define key data model
+- Finish one main API or page
+- Run the first end-to-end flow""",
+        "mistakes": [
+            "第一轮就想把所有功能做完，导致主流程迟迟不通。",
+            "数据模型没先定好，接口和页面后面反复推翻。",
+            "没有先做端到端流程，只在局部代码里打转。",
+        ],
+    },
+    98: {
+        "snippet": """## Sprint 2 checklist
+
+- Improve main user flow
+- Fix top 3 bugs
+- Add one missing feature
+- Rewrite unclear labels""",
+        "mistakes": [
+            "发现很多问题，但没有先排优先级。",
+            "一边补功能一边改结构，结果新旧问题混在一起。",
+            "改完不复测，导致旧 bug 反复出现。",
+        ],
+    },
+    99: {
+        "snippet": """## Release checklist
+
+- App runs in production
+- README is updated
+- Demo link works
+- Known bugs are listed""",
+        "mistakes": [
+            "只顾着上线，不补文档和演示入口。",
+            "发布前没有完整走一遍真实用户流程。",
+            "已知问题不记录，演示时才临时解释。",
+        ],
+    },
+    100: {
+        "snippet": """## My 1000-Day Summary
+
+- Start point: complete beginner
+- Biggest progress: I can build and explain small projects
+- Next goal: ship one stronger specialization project""",
+        "mistakes": [
+            "只记得自己做过很多事，却说不出最关键的进步。",
+            "复盘只写感受，不总结方法和证据。",
+            "做完总复盘后，没有明确下一阶段路线。",
+        ],
+    },
+}
+
+
 def load_units():
     tool_path = Path(__file__).resolve().parent / "generate_1000_day_plan.py"
     spec = spec_from_file_location("generate_1000_day_plan", tool_path)
@@ -394,7 +588,7 @@ def daily_text(unit, stage_dir, stage_label, unit_number, day_index):
     day_no = day_number(unit_number, day_index)
     files = file_paths(stage_dir, unit_number)
     mode = mode_of(unit)
-    hint = MODE_HINTS[mode]
+    hint = UNIT_HINT_OVERRIDES.get(unit_number, MODE_HINTS[mode])
     pattern_name, pattern_goal = DAY_PATTERNS[day_index]
     tasks = "\n".join([f"{idx + 1}. {item}" for idx, item in enumerate(tasks_for_day(unit, stage_dir, unit_number, day_index))])
     mistakes = "\n".join([f"- {item}" for item in hint["mistakes"]])

@@ -43,23 +43,24 @@
 
 ### 例子 1
 
-```sql
-CREATE TABLE students (
-  id INTEGER PRIMARY KEY,
-  name TEXT NOT NULL,
-  score INTEGER NOT NULL
-);
+```markdown
+## Interview answer
+
+- Question:
+- Answer:
+- Result:
 ```
 
 先抄一遍，再改一遍，再解释一遍。
 
 ### 例子 2
 
-```sql
-SELECT name, score
-FROM students
-WHERE score >= 90
-ORDER BY score DESC;
+```markdown
+## Follow-up question
+
+- Challenge:
+- Fix:
+- Lesson:
 ```
 
 先抄一遍，再改一遍，再解释一遍。

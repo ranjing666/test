@@ -12,6 +12,70 @@ STAGES = [
 ]
 
 
+EXAMPLE_OVERRIDES = {
+    20: [
+        ("markdown", "## Learning Task\n\n- Title: Review Python lists\n- Priority: High\n- Status: Todo\n- Notes: Rewrite 3 examples by hand"),
+        ("markdown", "## Feature list\n\n- Add task\n- Mark task done\n- Delete task\n- Save tasks to JSON"),
+    ],
+    40: [
+        ("markdown", "## Blog page plan\n\n- Home page\n- Register page\n- Login page\n- New post page"),
+        ("markdown", "## Post model\n\n- title\n- content\n- author_id\n- created_at"),
+    ],
+    50: [
+        ("markdown", "## Wrong answer review\n\n- Topic:\n- Mistake:\n- Fix:\n- Takeaway:"),
+        ("markdown", "## English explanation\n\n- Problem:\n- Idea:\n- Why it works:"),
+    ],
+    79: [
+        ("markdown", "## Deploy checklist\n\n- Set `APP_ENV=production`\n- Add database URL\n- Add secret key\n- Confirm `/health` works"),
+        ("yaml", "services:\n  web:\n    image: study-app:latest\n    env:\n      APP_ENV: production\n      DATABASE_URL: ${DATABASE_URL}"),
+    ],
+    90: [
+        ("markdown", "## Specialization choice\n\n- Direction:\n- User:\n- Core problem:\n- Reason:"),
+        ("markdown", "## Milestone plan\n\n- Week 1: define scope\n- Week 2: build core flow\n- Week 3: test and improve\n- Week 4: demo and publish"),
+    ],
+    91: [
+        ("markdown", "## Portfolio case card\n\n- Project:\n- Problem:\n- Solution:\n- Result:"),
+        ("markdown", "## About section\n\n- I started from zero.\n- Now I can build small web apps.\n- I focus on clear structure and steady progress."),
+    ],
+    92: [
+        ("markdown", "## README structure\n\n- What this project does\n- How to run it\n- Example input and output\n- Common problems"),
+        ("markdown", "## API usage note\n\n- Endpoint: `/api/tasks`\n- Method: `GET`\n- Response: `{\"items\": []}`\n- Error case: `401 unauthorized`"),
+    ],
+    93: [
+        ("markdown", "## Demo opening\n\n- Hello, I built a study tracker for beginners.\n- It helps users record coding and English practice.\n- I will show the main flow first."),
+        ("markdown", "## Slide outline\n\n- Problem\n- Solution\n- Demo\n- Lessons learned"),
+    ],
+    94: [
+        ("markdown", "## Resume bullets\n\n- Built a study tracker with Python and GitHub.\n- Shipped a small blog system and wrote clear docs.\n- Improved features after manual testing and feedback."),
+        ("markdown", "## GitHub profile note\n\n- Pinned projects: Study Tracker, Blog System, Data Report\n- Short bio: learner who turns notes into working projects\n- Focus: Python, web, steady improvement"),
+    ],
+    95: [
+        ("markdown", "## Interview answer\n\n- Question:\n- Answer:\n- Result:"),
+        ("markdown", "## Follow-up question\n\n- Challenge:\n- Fix:\n- Lesson:"),
+    ],
+    96: [
+        ("markdown", "## Capstone problem\n\n- User:\n- Problem:\n- Product idea:"),
+        ("markdown", "## Capstone milestones\n\n- Week 1: define scope\n- Week 2: build first version\n- Week 3: test and improve\n- Week 4: publish and demo"),
+    ],
+    97: [
+        ("markdown", "## Sprint 1 checklist\n\n- Build project skeleton\n- Define key data model\n- Finish one main API or page\n- Run the first end-to-end flow"),
+        ("markdown", "## First version notes\n\n- Main user flow works\n- Known bugs are listed\n- Next sprint target is clear"),
+    ],
+    98: [
+        ("markdown", "## Sprint 2 checklist\n\n- Improve main user flow\n- Fix top 3 bugs\n- Add one missing feature\n- Rewrite unclear labels"),
+        ("markdown", "## Testing notes\n\n- What failed:\n- Why it failed:\n- How I fixed it:\n- What I should retest:"),
+    ],
+    99: [
+        ("markdown", "## Release checklist\n\n- App runs in production\n- README is updated\n- Demo link works\n- Known bugs are listed"),
+        ("markdown", "## Demo video outline\n\n- 10s intro\n- 30s flow\n- 20s technical choice\n- 10s close"),
+    ],
+    100: [
+        ("markdown", "## My 1000-Day Summary\n\n- Start point: complete beginner\n- Biggest progress: I can build and explain small projects\n- Next goal: ship one stronger specialization project"),
+        ("markdown", "## Teach One Concept\n\n- Concept: API\n- Plain explanation: an API is a rule for how two programs talk\n- Small example: the frontend asks for JSON, the backend sends JSON back"),
+    ],
+}
+
+
 def stage_for_unit(unit_number):
     for stage_dir, stage_label, start, end in STAGES:
         if start <= unit_number <= end:
@@ -69,6 +133,9 @@ def explain(topic, output):
 
 
 def examples(unit_number, unit):
+    if unit_number in EXAMPLE_OVERRIDES:
+        return EXAMPLE_OVERRIDES[unit_number]
+
     mode = mode_of(unit)
     title = unit["title"]
     if mode == "html":

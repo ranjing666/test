@@ -44,12 +44,12 @@
 ### 例子 1
 
 ```markdown
-## Project summary
+## Blog page plan
 
-- Problem
-- Solution
-- Stack
-- Result
+- Home page
+- Register page
+- Login page
+- New post page
 ```
 
 先抄一遍，再改一遍，再解释一遍。
@@ -57,11 +57,12 @@
 ### 例子 2
 
 ```markdown
-## Resume bullets
+## Post model
 
-- Built a small full-stack app.
-- Added tests and clear documentation.
-- Improved the product after feedback.
+- title
+- content
+- author_id
+- created_at
 ```
 
 先抄一遍，再改一遍，再解释一遍。
