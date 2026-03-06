@@ -7,6 +7,7 @@ MASTER_PLAN_FILE = "100天学习总计划.md"
 TRACKER_FILE = "学习进度总看板.md"
 ENGLISH_TRACK_DIR = "编程英语同步学习"
 ENGLISH_ROUTE_FILE = f"{ENGLISH_TRACK_DIR}/100天编程英语路线.md"
+LEARNING_NAV_FILE = "学习顺序总导航.md"
 
 
 STAGES = [
@@ -90,6 +91,30 @@ def merged_steps(unit: dict[str, str]) -> list[str]:
     ]
 
 
+def day_link(current_stage_dir: str, target_unit_number: int) -> str:
+    target_stage_dir = stage_for_unit(target_unit_number)[0]
+    filename = f"day_{target_unit_number:03d}.md"
+    if target_stage_dir == current_stage_dir:
+        return f"`{filename}`"
+    return f"`../../{target_stage_dir}/daily_guides/{filename}`"
+
+
+def navigation_lines(stage_dir: str, unit_number: int) -> list[str]:
+    previous_day = day_link(stage_dir, unit_number - 1) if unit_number > 1 else "无，今天就是起点"
+    next_day = day_link(stage_dir, unit_number + 1) if unit_number < 100 else "无，今天已经是最后一个学习日"
+    return [
+        "## 导航",
+        "",
+        f"- 上一天：{previous_day}",
+        f"- 下一天：{next_day}",
+        "- 本阶段目录：`README.md`",
+        f"- 对应日志：`../../study_logs/day{unit_number:03d}.md`",
+        f"- 配套英语：`../../{ENGLISH_ROUTE_FILE}`",
+        f"- 总导航：`../../{LEARNING_NAV_FILE}`",
+        "",
+    ]
+
+
 def merged_day_text(repo_root: Path, unit_number: int) -> str:
     unit = UNITS[unit_number - 1]
     stage_dir, stage_label, _, _ = stage_for_unit(unit_number)
@@ -123,6 +148,7 @@ def merged_day_text(repo_root: Path, unit_number: int) -> str:
             f"- 所属 100 天主题：{phase_for_unit(unit_number)}",
             f"- 最终产出：{unit['output']}",
             "",
+            *navigation_lines(stage_dir, unit_number),
             "## 这一天怎么学",
             "",
             "这一份文件就是当前单元的学习入口。",
@@ -166,6 +192,9 @@ def stage_daily_readme(stage_label: str, start: int, end: int) -> str:
         "",
         "这个目录按单元整理。",
         "每个 `day_XXX.md` 都是一个完整学习日的入口。",
+        "- 阶段主页：`../README.md`",
+        f"- 总导航：`../../{LEARNING_NAV_FILE}`",
+        f"- 配套英语：`../../{ENGLISH_ROUTE_FILE}`",
         "",
         "建议顺序：",
         "1. 先打开当前 `day_XXX.md`。",
@@ -385,6 +414,7 @@ def hundred_day_master_plan() -> str:
         "",
         "这是一套按 `100` 个学习日展开的总导航。",
         "规则很简单：`1 个单元 = 1 个学习日`。",
+        f"学习顺序总导航在：`{LEARNING_NAV_FILE}`。",
         f"配套英语主线在：`{ENGLISH_ROUTE_FILE}`。",
         "",
         "## 这套 100 天怎么用",
@@ -419,6 +449,63 @@ def hundred_day_master_plan() -> str:
                     "",
                 ]
             )
+    return "\n".join(lines)
+
+
+def learning_navigation() -> str:
+    lines = [
+        "# 学习顺序总导航",
+        "",
+        "这份文件只做一件事：把整套仓库的学习顺序讲清楚。",
+        "",
+        "## 零基础默认顺序",
+        "",
+        f"1. 先看 `{START_GUIDE_FILE}`。",
+        f"2. 再看 `{MASTER_PLAN_FILE}`。",
+        "3. 再打开当天 `daily_guides/day_XXX.md`。",
+        "4. 再进当天 `units/unit_XXX.md`。",
+        "5. 再做 `workbooks/`、`code_templates/`、`code_solutions/`、`quizzes/`。",
+        "6. 写 `study_logs/dayXXX.md`。",
+        f"7. 在 `{TRACKER_FILE}` 打勾。",
+        f"8. 最后补 `{ENGLISH_ROUTE_FILE}` 对应的当天英语任务。",
+        "",
+        "## 每天固定顺序",
+        "",
+        "1. 学习日入口",
+        "2. 单元讲义",
+        "3. 工作簿",
+        "4. 模板代码",
+        "5. 参考答案",
+        "6. 小测",
+        "7. 学习日志",
+        "8. 进度打勾",
+        "9. 英语同步练习",
+        "",
+        "## 阶段导航",
+        "",
+    ]
+    for stage_dir, stage_label, start, end in STAGES:
+        lines.extend(
+            [
+                f"### {stage_label}",
+                f"- Day 范围：`Day {start:03d}-{end:03d}`",
+                f"- 阶段主页：`{stage_dir}/README.md`",
+                f"- 学习日目录：`{stage_dir}/daily_guides/README.md`",
+                f"- 单元目录：`{stage_dir}/units/README.md`",
+                "",
+            ]
+        )
+    lines.extend(
+        [
+            "## 特殊资料什么时候用",
+            "",
+            "- `project_packs/`：里程碑项目单元再打开，不是每一天都要先看。",
+            f"- `{ENGLISH_ROUTE_FILE}`：每天都用，但只做对应 Day。",
+            "- `study_logs/`：每天都写，不要攒着。",
+            f"- `{TRACKER_FILE}`：每天完成后再打勾。",
+            "",
+        ]
+    )
     return "\n".join(lines)
 
 
@@ -466,6 +553,7 @@ def main() -> None:
     write_study_logs(repo_root)
     (repo_root / MASTER_PLAN_FILE).write_text(hundred_day_master_plan(), encoding="utf-8")
     (repo_root / TRACKER_FILE).write_text(learning_progress_tracker(), encoding="utf-8")
+    (repo_root / LEARNING_NAV_FILE).write_text(learning_navigation(), encoding="utf-8")
 
 
 if __name__ == "__main__":

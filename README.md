@@ -12,16 +12,17 @@
 如果你现在是零基础，直接按这个顺序走：
 
 1. `从这里开始.md`
-2. `100天学习总计划.md`
-3. `stage1_foundation/daily_guides/day_001.md`
-4. `stage1_foundation/units/unit_001.md`
-5. `stage1_foundation/workbooks/unit_001_workbook.md`
-6. `stage1_foundation/code_templates/unit_001_template.py`
-7. `stage1_foundation/code_solutions/unit_001_solution.py`
-8. `stage1_foundation/quizzes/unit_001_quiz.md`
-9. `study_logs/day001.md`
-10. `学习进度总看板.md`
-11. `编程英语同步学习/100天编程英语路线.md`
+2. `学习顺序总导航.md`
+3. `100天学习总计划.md`
+4. `stage1_foundation/daily_guides/day_001.md`
+5. `stage1_foundation/units/unit_001.md`
+6. `stage1_foundation/workbooks/unit_001_workbook.md`
+7. `stage1_foundation/code_templates/unit_001_template.py`
+8. `stage1_foundation/code_solutions/unit_001_solution.py`
+9. `stage1_foundation/quizzes/unit_001_quiz.md`
+10. `study_logs/day001.md`
+11. `学习进度总看板.md`
+12. `编程英语同步学习/100天编程英语路线.md`
 
 ## 现在的仓库结构
 
@@ -29,6 +30,7 @@
 .
 ├── README.md
 ├── 从这里开始.md
+├── 学习顺序总导航.md
 ├── 100天学习总计划.md
 ├── 项目包使用指南.md
 ├── 项目包进度看板.md
@@ -73,6 +75,7 @@
 
 如果你想看完整导航，打开：
 
+- `学习顺序总导航.md`
 - `100天学习总计划.md`
 - `编程英语同步学习/100天编程英语路线.md`
 

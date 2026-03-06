@@ -39,6 +39,7 @@
 - 小测目录：`quizzes/README.md`
 - 项目包目录：`project_packs/README.md`
 - 配套英语目录：`../编程英语同步学习/README.md`
+- 总导航：`../学习顺序总导航.md`
 
 ## 新增详细教材入口
 

@@ -13,6 +13,7 @@ GITHUB_TUTORIAL_FILE = "GitHub上传教程.md"
 ENGLISH_TRACK_DIR = "编程英语同步学习"
 ENGLISH_ROUTE_FILE = "100天编程英语路线.md"
 ENGLISH_README_FILE = "README.md"
+LEARNING_NAV_FILE = "学习顺序总导航.md"
 
 
 STAGES = [
@@ -137,6 +138,7 @@ def entry_filename_check() -> list[str]:
         START_GUIDE_FILE,
         MASTER_PLAN_FILE,
         TRACKER_FILE,
+        LEARNING_NAV_FILE,
         PROJECT_GUIDE_FILE,
         PROJECT_TRACKER_FILE,
         GITHUB_TUTORIAL_FILE,
@@ -145,6 +147,7 @@ def entry_filename_check() -> list[str]:
         "START_HERE.md",
         "100_DAYS_MASTER_PLAN.md",
         "LEARNING_PROGRESS_TRACKER.md",
+        "学习顺序导航.md",
         "PROJECT_PACKS_GUIDE.md",
         "PROJECT_PACKS_PROGRESS_TRACKER.md",
         "GITHUB_UPLOAD_TUTORIAL.md",
@@ -177,6 +180,20 @@ def english_track_check() -> list[str]:
     for path in required:
         if not path.exists():
             issues.append(f"missing english track file: {path.relative_to(ROOT)}")
+    return issues
+
+
+def navigation_check() -> list[str]:
+    issues: list[str] = []
+    nav_file = ROOT / LEARNING_NAV_FILE
+    if not nav_file.exists():
+        issues.append(f"missing navigation file: {LEARNING_NAV_FILE}")
+    for path in ROOT.glob("stage*_*/daily_guides/day_*.md"):
+        text = path.read_text(encoding="utf-8")
+        if "## 导航" not in text:
+            issues.append(f"{path.relative_to(ROOT)} missing navigation section")
+        if "上一天：" not in text or "下一天：" not in text:
+            issues.append(f"{path.relative_to(ROOT)} missing previous/next links")
     return issues
 
 
@@ -326,6 +343,15 @@ def main() -> None:
     if english_issues:
         failed = True
         for item in english_issues:
+            print(item)
+    else:
+        print("ok")
+
+    print_section("navigation")
+    navigation_issues = navigation_check()
+    if navigation_issues:
+        failed = True
+        for item in navigation_issues:
             print(item)
     else:
         print("ok")
